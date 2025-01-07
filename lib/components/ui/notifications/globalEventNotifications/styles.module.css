@@ -1,0 +1,31 @@
+.message {
+	box-sizing: border-box;
+	width: 100%;
+	@media (max-width: 680px) {
+		width: 100%;
+	}
+	&.disabled {
+		pointer-events: none;
+	}
+}
+
+.life {
+	position: absolute;
+	bottom: -1px;
+	left: 0px;
+	width: auto;
+	background-image: linear-gradient(130deg, #00b4e6, #00f0e0);
+	&.red {
+		background-image: linear-gradient(130deg, #c40233, #ff6347);
+	}
+	&.blue {
+		background-image: linear-gradient(130deg, #00b4e6, #00f0e0);
+	}
+	&.green {
+		background-image: linear-gradient(130deg, #2e8b57, #90ee90);
+	}
+	&.orange {
+		background-image: linear-gradient(130deg, #ff8c00, #ffbf00);
+	}
+	height: 5px;
+}

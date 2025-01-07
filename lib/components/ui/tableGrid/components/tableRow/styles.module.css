@@ -1,0 +1,63 @@
+.gridTableRow {
+	/*	grid-template-columns: ${p => p.templateColumns};*/
+
+	padding: 0.25rem;
+	:hover {
+		cursor: pointer;
+	}
+	font-size: var(--step--25);
+	> span {
+		align-self: center;
+	}
+
+	@media screen and (max-width: var(--md--size-bigTablet)) {
+		cursor: default;
+	}
+}
+
+.cellData {
+	user-select: none;
+	/*  &.header{}*/
+
+	/*  &.text{}*/
+	&.date {
+		font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+			Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+	}
+	&.time {
+		font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+			Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+	}
+	/*  &.status{}*/
+	&.serial {
+		font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto,
+			Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+	}
+	&.image {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	&.button-option {
+		position: relative;
+		/* to child div absolute*/
+		> div {
+			&.absolute {
+				position: absolute;
+				top: 0px;
+				right: 0px;
+				z-index: 1;
+			}
+		}
+	}
+
+	&.start {
+		justify-self: start;
+	}
+	&.center {
+		justify-self: center;
+	}
+	&.end {
+		justify-self: end;
+	}
+}

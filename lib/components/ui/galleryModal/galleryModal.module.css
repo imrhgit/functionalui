@@ -1,0 +1,38 @@
+:root {
+	--md--size-mobile: 480px;
+	--md--size-smallTablet: 768px;
+	--md--size-tablet: 768px;
+	--md--size-bigTablet: 810px;
+	--md--size-halfScreen: 900px;
+	--md--size-laptop: 1024px;
+	--md--size-large: 1200px;
+	--md--size-extra: 3000000px;
+}
+.imageContainer {
+	position: unset !important;
+	max-width: 100%;
+	> img {
+		object-fit: contain;
+		width: 100% !important;
+		position: relative !important;
+		height: unset !important;
+	}
+	&.desktop {
+		max-width: 85vw;
+		@media screen and (max-width: var(--md--size-bigTablet)) {
+			display: none;
+		}
+	}
+	&.big-tablet {
+		display: none;
+		@media screen and (max-width: var(--md--size-bigTablet)) {
+			display: none;
+		}
+	}
+}
+
+.galleryMenuContainer {
+	@media screen and (max-width: var(--md--size-bigTablet)) {
+		display: none;
+	}
+}

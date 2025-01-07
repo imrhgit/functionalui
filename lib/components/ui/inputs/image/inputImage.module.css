@@ -1,0 +1,24 @@
+:root {
+  --md--size-mobile: 480px;
+  --md--size-smallTablet: 768px;
+  --md--size-tablet: 768px;
+  --md--size-bigTablet: 810px;
+  --md--size-halfScreen: 900px;
+  --md--size-laptop: 1024px;
+  --md--size-large: 1200px;
+  --md--size-extra: 3000000px;
+}
+
+.iconContainer {
+  &.desktop {
+    @media screen and (max-width: var(--md--size-tablet)) {
+      display: none;
+    }
+  }
+  &.mobile {
+    display: none;
+    @media screen and (max-width: var(--md--size-tablet)) {
+      display: block;
+    }
+  }
+}

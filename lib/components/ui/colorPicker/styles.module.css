@@ -1,0 +1,36 @@
+.colorfulcontainer {
+	&.absolute {
+		position: absolute;
+	}
+	width: inherit;
+	padding: 0px 1rem 10px 1rem;
+	> * {
+		&.react-colorful {
+			width: 100%;
+			height: max-content;
+		}
+		* {
+			&.react-colorful__saturation {
+				/* display: none; */
+				width: 150px;
+				height: 70px;
+			}
+			&.react-colorful__hue {
+				width: 150px;
+				height: 16px;
+				/* border-radius: 5px; */
+				border-bottom-left-radius: 5px;
+				border-bottom-right-radius: 5px;
+			}
+			&.react-colorful__hue-pointer {
+				width: 10px;
+				height: 28px;
+				width: 16px;
+				border-radius: 3px;
+				box-shadow:
+					rgba(0, 0, 0, 0.12) 0px 1px 3px,
+					rgba(0, 0, 0, 0.24) 0px 1px 2px;
+			}
+		}
+	}
+}
