@@ -1,0 +1,47 @@
+.inputtext {
+  /* discard default styling */
+  width: 100%;
+  outline: none;
+  background-color: transparent;
+  border: none;
+}
+
+.inputLabel {
+  position: absolute;
+  bottom: 0px;
+  left: 0%;
+  height: 100%;
+  width: 100%;
+  pointer-events: none;
+
+  /* &:after{
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0%;
+    height: 100%;
+    width: 100%;
+    border-bottom: 1.5px solid #937be7;
+    border-bottom: {p => p.isEmpty ? '1.5px solid #ddd' : '1.5px solid #937be7'};
+    border-radius: 11px;
+  }
+  &.no-radius{
+    &:after{
+      width: 95%;
+      border-radius: 0px;
+    }
+  }
+  &.has-error{
+    &:after{
+      border-bottom: 1.5px solid red;
+    }
+  } */
+}
+
+.showHidePassword {
+  position: absolute;
+  bottom: 0.75rem;
+  left: 88%;
+  z-index: 4;
+  cursor: pointer;
+}

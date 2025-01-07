@@ -1,0 +1,17 @@
+.ZAnimated {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  border-radius: 5px;
+  will-change: transform;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
