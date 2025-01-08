@@ -1,9 +1,20 @@
-body {
+/* 1. Use a more-intuitive box-sizing model */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
   margin: 0;
+}
+body {
   background-color: black;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 a {
   color: inherit;
@@ -17,15 +28,10 @@ img {
   -ms-user-select: none;
   pointer-events: none;
 }
-textarea {
-  font-family: inherit;
-  /*border: none;
-  overflow: auto;
-  outline: none;*/
-
-  /*-webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;*/
-
-  /*  resize: none; /*remove the resize handle on the bottom right */
+/* 6. Inherit fonts for form controls */
+input,
+button,
+textarea,
+select {
+  font: inherit;
 }
