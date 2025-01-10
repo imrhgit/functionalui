@@ -69,7 +69,8 @@ const F__Button: FC<ButtonProps> = ({
 	bottom,
 	left,
 	right,
-	
+	type,
+
 	disabled,
 
 	children,
@@ -173,6 +174,7 @@ const F__Button: FC<ButtonProps> = ({
 	}
 	return (
 		<animated.button
+			type={type}
 			disabled={disabled}
 			className={`${Object.keys(classes).join(" ")} ${className ? className : ""}`}
 			{...props}

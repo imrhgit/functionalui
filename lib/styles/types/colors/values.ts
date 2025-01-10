@@ -12,6 +12,7 @@ export const COLOR_VALUES: { [key: number]: string } = {
   [ColorPalettes.Grey7]: "hsla(209, 25%, 70%, 1)",
   [ColorPalettes.Grey8]: "hsla(209, 25%, 80%, 1)",
   [ColorPalettes.Grey9]: "hsla(209, 25%, 90%, 1)",
+  [ColorPalettes.Grey10]: "hsla(209, 25%, 99%, 1)",
   // primary
   [ColorPalettes.Primary1]: "hsla(209, 100%, 9%, 1)",
   [ColorPalettes.Primary2]: "hsla(209, 100%, 19%, 1)",
