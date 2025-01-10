@@ -1,17 +1,18 @@
 import { Meta } from "@storybook/react";
-import { Button, Container, Layout, Text_Span } from "functionalui";
+import { UIcon } from "functionalui";
+import { Container, Layout, Text_Span } from "functionalui";
 import {
+	Sizings as STORY_ITEM,
 	BorderStyles,
 	BorderWidths,
 	ColorPalettes,
 	Displays,
 	Radiuses,
 	Spacings,
-	ButtonSizes as STORY_ITEM,
 } from "functionalui/types";
 
-const meta: Meta<typeof Button> = {
-	title: "Tokens/Sizings/Button",
+const meta: Meta<typeof UIcon> = {
+	title: "Tokens/Sizings/Generic",
 	parameters: {
 		controls: {
 			disable: true,
@@ -24,28 +25,39 @@ const meta: Meta<typeof Button> = {
 
 export default meta;
 
-const buttonSizes = Object.keys(STORY_ITEM)
+const genericSizings = Object.keys(STORY_ITEM)
 	.filter((key) => isNaN(Number(key))) // Filter out numeric keys
 	.map((key) => ({
 		name: key,
 		value: STORY_ITEM[key as keyof typeof STORY_ITEM],
 	}));
 
-export const Default = () => (
+export const Generic = () => (
 	<Layout>
-		{buttonSizes.map((item, idx) => (
+		{genericSizings.map((item, idx) => (
 			<ShowcaseContainer key={idx}>
-				<Button name={`Button${item.value}`} buttonSize={item.value} />
 				<Text_Span
 					paletteColor={ColorPalettes.Grey1}
 					style={{
-						textAlign: "center",
 						width: "100%",
 						display: "inline-block",
 					}}
 				>
 					{item.name}
 				</Text_Span>
+				<Text_Span
+					paletteColor={ColorPalettes.Grey1}
+					style={{
+						width: "100%",
+						display: "inline-block",
+					}}
+				>
+					{item.value}
+				</Text_Span>
+				<Container
+					bgColor={ColorPalettes.Primary2}
+					style={{ width: item.value, height: item.value }}
+				/>
 			</ShowcaseContainer>
 		))}
 	</Layout>
