@@ -4,6 +4,7 @@ import {
 	BorderWidths,
 	BoxShadows,
 	BoxSizings,
+	ButtonTypes,
 	ColorPalettes,
 	Displays,
 	FlexAlignContents,
@@ -115,9 +116,8 @@ export interface TextStyleProps {
 export interface ButtonStyleProps {
 	// buttonColor?: ButtonColors;
 	// buttonShadow?: BoxShadows;
-	// buttonSize?: ButtonSizes;
-	// buttonType?: ButtonTypes;
 	disabled?: boolean;
+	type?: ButtonTypes;
 }
 
 export interface HeaderProps {

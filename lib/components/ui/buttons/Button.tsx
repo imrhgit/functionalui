@@ -3,11 +3,14 @@ import { Container, ContainerRef, F__Button, Text_Span } from "functionalui";
 import { BoxShadows, ColorPalettes } from "functionalui/types";
 import useMeasure from "react-use-measure";
 import {
+  BUTTON_COLORS,
   BUTTON_SIZE,
+  BUTTON_STYLE,
   ButtonColors,
   ButtonIconPositions,
   ButtonSizes,
   ButtonStates,
+  ButtonStyles,
   ButtonTypes,
 } from "../../../styles/types/ui/button/types";
 import LabelText from "../label/LabelText";
@@ -21,6 +24,7 @@ type ButtonProps = {
   buttonState?: ButtonStates;
   buttonType?: ButtonTypes;
   buttonShadow?: BoxShadows;
+  buttonStyle?: ButtonStyles;
 
   icon?: string;
   // iconSize?: IconSizings;
@@ -32,6 +36,7 @@ type ButtonProps = {
   hover?: boolean;
   parentHover?: boolean;
   hoverColor?: ButtonColors;
+  type?: "submit" | "reset" | "button";
 
   clickAction?: (v: any) => void;
   // clickAction?: () => {},
@@ -40,10 +45,11 @@ type ButtonProps = {
 const Button: FC<ButtonProps> = ({
   name,
   buttonSize = ButtonSizes.Medium,
-  // buttonColor = ButtonColors.Primary5,
+  buttonColor = ButtonColors.Primary5,
   buttonState = ButtonStates.Icon,
-  // buttonType = ButtonTypes.Button,
-  // buttonShadow = BoxShadows.Size2,
+  buttonType = ButtonTypes.Button,
+  buttonStyle = ButtonStyles.Filled,
+  buttonShadow = BoxShadows.Size2,
   icon,
   // iconSize,
   iconColor = ColorPalettes.Primary8,
@@ -55,7 +61,6 @@ const Button: FC<ButtonProps> = ({
   // hoverColor,
   clickAction = () => {},
 }) => {
-  // eslint-disable-next-line no-var
   var disabled = buttonState === ButtonStates.Disabled;
   const [onHover, setOnHover] = useState(hover);
   // measure half of the button width
@@ -98,12 +103,22 @@ const Button: FC<ButtonProps> = ({
           style={animate && !disabled ? buttonHoverAnimation : undefined}
         >*/}
         <F__Button
-          // buttonColor={buttonColor}
-          // buttonShadow={buttonShadow}
-          // buttonSize={buttonSize}
-          // buttonType={buttonType}
+          type={buttonType}
           onClick={clickAction}
           disabled={disabled}
+          paddingTop={BUTTON_SIZE[buttonSize].paddingTop}
+          paddingBottom={BUTTON_SIZE[buttonSize].paddingBottom}
+          paddingLeft={BUTTON_SIZE[buttonSize].paddingLeft}
+          paddingRight={BUTTON_SIZE[buttonSize].paddingRight}
+          borderRadius={BUTTON_SIZE[buttonSize].borderRadius}
+          // border     -- [styling]
+          borderWidth={BUTTON_STYLE[buttonStyle].border.borderWidth}
+          borderStyle={BUTTON_STYLE[buttonStyle].border.borderStyle}
+          // shadow     -- [elevation]
+          boxShadow={buttonShadow}
+          // color      -- [color]
+          bgColor={BUTTON_COLORS[buttonColor].background} // consider [styling]
+          borderColor={BUTTON_COLORS[buttonColor].borderColor}
         >
           {iconPosition === ButtonIconPositions.Left ? (
             <>
@@ -118,6 +133,7 @@ const Button: FC<ButtonProps> = ({
               {name !== "" && !hover && (
                 <Text_Span
                   fontSize={BUTTON_SIZE[buttonSize].text}
+                  paletteColor={BUTTON_COLORS[buttonColor].text}
                   className={`name ${icon ? "icon-left" : ""}`}
                 >
                   {name}
@@ -129,6 +145,7 @@ const Button: FC<ButtonProps> = ({
               {name !== "" && !hover && (
                 <Text_Span
                   fontSize={BUTTON_SIZE[buttonSize].text}
+                  paletteColor={BUTTON_COLORS[buttonColor].text}
                   className={`name ${icon ? "icon-right" : ""}`}
                 >
                   {name}
