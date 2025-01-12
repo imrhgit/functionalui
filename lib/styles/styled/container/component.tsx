@@ -67,6 +67,7 @@ import {
 } from "functionalui/types";
 // import { DivProps } from "./component.types";
 import { DivProps } from "functionalui/types";
+import { CURSOR_CLASSES } from "../../types/classes";
 
 const Container: FC<DivProps> = ({
 	margin,
@@ -100,6 +101,7 @@ const Container: FC<DivProps> = ({
 	bottom,
 	left,
 	right,
+	cursor,
 
 	children,
 	className,
@@ -200,6 +202,9 @@ const Container: FC<DivProps> = ({
 	if (right) {
 		classes[POSITION_RIGHT_CLASSES[right]] = true;
 	}
+	if (cursor) {
+		classes[CURSOR_CLASSES[cursor]] = true;
+	}
 
 	return (
 		<animated.div
@@ -211,4 +216,4 @@ const Container: FC<DivProps> = ({
 	);
 };
 
-export default Container
+export default Container;

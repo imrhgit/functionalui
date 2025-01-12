@@ -14,6 +14,7 @@ import {
 import { FC } from "react";
 import returnSizeStr from "../utils/returnSizeStr";
 import { BASE_FONT_SIZE, THEME_CLASSES } from "../../../../contexts/ui/types";
+import { CURSOR_CLASSES } from "../../../types/classes";
 
 const Text_Span: FC<SpanProps> = ({
 	paletteColor,
@@ -23,6 +24,7 @@ const Text_Span: FC<SpanProps> = ({
 	fontStyle,
 	textAlign,
 	className,
+	cursor,
 	children,
 	...props
 }) => {
@@ -56,6 +58,9 @@ const Text_Span: FC<SpanProps> = ({
 	}
 	if (textAlign) {
 		classes[TEXT_ALIGN_CLASSES[textAlign]] = true;
+	}
+	if (cursor) {
+		classes[CURSOR_CLASSES[cursor]] = true;
 	}
 	return (
 		<animated.span

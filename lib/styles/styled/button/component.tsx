@@ -36,6 +36,7 @@ import {
 	POSITION_TOP_CLASSES,
 } from "functionalui/types";
 import { FC } from "react";
+import { CURSOR_CLASSES } from "../../types/classes";
 
 const F__Button: FC<ButtonProps> = ({
 	margin,
@@ -70,6 +71,7 @@ const F__Button: FC<ButtonProps> = ({
 	left,
 	right,
 	type,
+	cursor,
 
 	disabled,
 
@@ -171,6 +173,9 @@ const F__Button: FC<ButtonProps> = ({
 	}
 	if (right) {
 		classes[POSITION_RIGHT_CLASSES[right]] = true;
+	}
+	if (cursor) {
+		classes[CURSOR_CLASSES[cursor]] = true;
 	}
 	return (
 		<animated.button

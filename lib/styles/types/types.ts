@@ -44,6 +44,7 @@ export {
   POSITION_RIGHT_CLASSES,
   POSITION_TOP_CLASSES,
   TEXT_ALIGN_CLASSES,
+  CURSOR_CLASSES,
 } from "./classes";
 export {
   BACKGROUND_COLOR_CLASSES,
@@ -74,6 +75,7 @@ export {
   Spacings,
   TextAligns,
   OutlineStyles,
+  Cursors,
 } from "./generics";
 export {
   ALIGN_SELF_CLASSES,

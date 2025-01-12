@@ -3,6 +3,7 @@ import {
   BorderWidths,
   BoxShadows,
   BoxSizings,
+  Cursors,
   ElementResizes,
   FontFamilies,
   FontSizes,
@@ -391,4 +392,27 @@ export const FONT_STYLE_CLASSES = {
 };
 export const FONT_FAMILY_CLASSES = {
   [FontFamilies.Default]: "font--fm-def",
+};
+
+export const CURSOR_CLASSES: ClassType = {
+  [Cursors.Auto]: "fctrd--curs--auto",
+  [Cursors.Default]: "fctrd--curs--default",
+  [Cursors.Pointer]: "fctrd--curs--pointer",
+  [Cursors.ContextMenu]: "fctrd--curs--context-menu",
+  [Cursors.Help]: "fctrd--curs--help",
+  [Cursors.Progress]: "fctrd--curs--progress",
+  [Cursors.Wait]: "fctrd--curs--wait",
+  [Cursors.Cell]: "fctrd--curs--cell",
+  [Cursors.Crosshair]: "fctrd--curs--crosshair",
+  [Cursors.Text]: "fctrd--curs--text",
+  [Cursors.VerticalText]: "fctrd--curs--vertical-text",
+  [Cursors.Alias]: "fctrd--curs--alias",
+  [Cursors.Copy]: "fctrd--curs--copy",
+  [Cursors.Move]: "fctrd--curs--move",
+  [Cursors.NoDrop]: "fctrd--curs--no-drop",
+  [Cursors.NotAllowed]: "fctrd--curs--not-allowed",
+  [Cursors.Grab]: "fctrd--curs--grab",
+  [Cursors.Grabbing]: "fctrd--curs--grabbing",
+  [Cursors.ZoomIn]: "fctrd--curs--zoom-in",
+  [Cursors.ZoomOut]: "fctrd--curs--zoom-out",
 };

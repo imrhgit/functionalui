@@ -1,10 +1,25 @@
 import { useSpring } from "@react-spring/web";
-import { Container, ContainerRef, F__Button, Text_Span } from "functionalui";
-import { BoxShadows, ColorPalettes } from "functionalui/types";
+import {
+  Container,
+  ContainerRef,
+  F__Button,
+  Layout,
+  Text_Span,
+} from "functionalui";
+import {
+  BoxShadows,
+  ColorPalettes,
+  Displays,
+  FlexAlignItems,
+  FlexJustifyContents,
+  FontWeights,
+} from "functionalui/types";
+import { FC, useState } from "react";
 import useMeasure from "react-use-measure";
 import {
   BUTTON_COLORS,
   BUTTON_SIZE,
+  BUTTON_STATE,
   BUTTON_STYLE,
   ButtonColors,
   ButtonIconPositions,
@@ -15,7 +30,6 @@ import {
 } from "../../../styles/types/ui/button/types";
 import LabelText from "../label/LabelText";
 import ButtonIcon from "./components/ButtonIcon";
-import { FC, useState } from "react";
 
 type ButtonProps = {
   name: string;
@@ -64,28 +78,40 @@ const Button: FC<ButtonProps> = ({
   var disabled = buttonState === ButtonStates.Disabled;
   const [onHover, setOnHover] = useState(hover);
   // measure half of the button width
-  const [containerRef, containerBounds] = useMeasure();
+  const [containerRef, containerBounds] = useMeasure({ debounce: 500 });
   const [styles, api] = useSpring(() => ({
     y: 0,
     transform: "scale(1.0)",
   }));
 
+  // const animateButton1: boolean =
+  //   (!disabled && animate) ||
+  //   (typeof BUTTON_STATE[buttonState]?.animation === "undefined" &&
+  //     !BUTTON_STATE[buttonState].animation);
+  // const typeofUndefined =
+  //   typeof BUTTON_STATE[buttonState]?.animation === "undefined";
+  // const setstyle = BUTTON_STATE[buttonState].animation;
+  const isAnimated =
+    animate &&
+    !disabled &&
+    typeof BUTTON_STATE[buttonState]?.animation === "undefined";
+
   return (
     <ContainerRef
       ref={containerRef}
       onMouseEnter={() => {
-        !disabled && api({ y: -3 });
+        // !disabled && api({ y: -3 });
         setOnHover(true);
       }}
       onMouseLeave={() => {
-        !disabled && api({ y: 0 });
+        // !disabled && api({ y: 0 });
         setOnHover(false);
       }}
-      onMouseDown={() => !disabled && api({ transform: "scale(0.9)" })}
-      onMouseUp={() => !disabled && api({ transform: "scale(1.0)" })}
-      onTouchStart={() => !disabled && api({ transform: "scale(0.9)" })}
-      onTouchCancel={() => !disabled && api({ transform: "scale(1.0)" })}
-      onTouchEnd={() => !disabled && api({ transform: "scale(1.0)" })}
+      onMouseDown={() => isAnimated && api({ transform: "scale(0.9)" })}
+      onMouseUp={() => isAnimated && api({ transform: "scale(1.0)" })}
+      onTouchStart={() => isAnimated && api({ transform: "scale(0.9)" })}
+      onTouchCancel={() => isAnimated && api({ transform: "scale(1.0)" })}
+      onTouchEnd={() => isAnimated && api({ transform: "scale(1.0)" })}
     >
       {hover && (
         <LabelText
@@ -97,7 +123,8 @@ const Button: FC<ButtonProps> = ({
       )}
       <Container
         // style={animate && !disabled ? buttonClickAnimation : undefined}
-        style={animate ? styles : undefined}
+        // style={animate ? styles : undefined}
+        style={isAnimated ? styles : undefined}
       >
         {/*<Container
           style={animate && !disabled ? buttonHoverAnimation : undefined}
@@ -115,52 +142,91 @@ const Button: FC<ButtonProps> = ({
           borderWidth={BUTTON_STYLE[buttonStyle].border.borderWidth}
           borderStyle={BUTTON_STYLE[buttonStyle].border.borderStyle}
           // shadow     -- [elevation]
-          boxShadow={buttonShadow}
+          boxShadow={
+            buttonStyle && BUTTON_STYLE[buttonStyle]?.shadow
+              ? BUTTON_STYLE[buttonStyle].shadow
+              : buttonShadow
+          }
           // color      -- [color]
-          bgColor={BUTTON_COLORS[buttonColor].background} // consider [styling]
-          borderColor={BUTTON_COLORS[buttonColor].borderColor}
+          bgColor={
+            buttonStyle === ButtonStyles.Gray &&
+            buttonState === ButtonStates.Error
+              ? BUTTON_STYLE[buttonStyle].bgColor
+              : BUTTON_STATE[buttonState]?.color?.bgColor &&
+                  buttonStyle !== ButtonStyles.Outlined &&
+                  buttonStyle !== ButtonStyles.Plain
+                ? BUTTON_STATE[buttonState]?.color?.bgColor
+                : buttonStyle && BUTTON_STYLE[buttonStyle]?.bgColor
+                  ? BUTTON_STYLE[buttonStyle].bgColor
+                  : BUTTON_COLORS[buttonColor].background
+          } // consider [styling]
+          borderColor={
+            BUTTON_STATE[buttonState]?.color?.borderColor
+              ? BUTTON_STATE[buttonState]?.color?.borderColor
+              : BUTTON_COLORS[buttonColor].borderColor
+          }
+          cursor={
+            BUTTON_STATE[buttonState]?.cursor
+              ? BUTTON_STATE[buttonState].cursor
+              : BUTTON_STYLE[buttonStyle].cursor
+          }
         >
-          {iconPosition === ButtonIconPositions.Left ? (
-            <>
-              {icon && (
-                <ButtonIcon
-                  icon={icon}
-                  iconSize={BUTTON_SIZE[buttonSize].icon}
-                  iconState={buttonState}
-                  iconColor={iconColor}
-                />
-              )}
-              {name !== "" && !hover && (
-                <Text_Span
-                  fontSize={BUTTON_SIZE[buttonSize].text}
-                  paletteColor={BUTTON_COLORS[buttonColor].text}
-                  className={`name ${icon ? "icon-left" : ""}`}
-                >
-                  {name}
-                </Text_Span>
-              )}
-            </>
-          ) : (
-            <>
-              {name !== "" && !hover && (
-                <Text_Span
-                  fontSize={BUTTON_SIZE[buttonSize].text}
-                  paletteColor={BUTTON_COLORS[buttonColor].text}
-                  className={`name ${icon ? "icon-right" : ""}`}
-                >
-                  {name}
-                </Text_Span>
-              )}
-              {icon && (
-                <ButtonIcon
-                  icon={icon}
-                  iconSize={BUTTON_SIZE[buttonSize].icon}
-                  iconState={buttonState}
-                  iconColor={iconColor}
-                />
-              )}
-            </>
-          )}
+          <Layout
+            display={Displays.Flex}
+            flexJustifyContent={FlexJustifyContents.Center}
+            flexAlignItem={FlexAlignItems.Center}
+          >
+            {iconPosition === ButtonIconPositions.Left ? (
+              <>
+                {icon && (
+                  <ButtonIcon
+                    icon={icon}
+                    iconSize={BUTTON_SIZE[buttonSize].icon}
+                    iconState={buttonState}
+                    iconColor={iconColor}
+                    iconPosition={iconPosition}
+                    iconMargin={BUTTON_SIZE[buttonSize].iconMargin}
+                  />
+                )}
+                {name !== "" && !hover && (
+                  <Text_Span
+                    fontSize={BUTTON_SIZE[buttonSize].text}
+                    fontWeight={FontWeights.Size3}
+                    paletteColor={
+                      BUTTON_STATE[buttonState]?.text?.color
+                        ? BUTTON_STATE[buttonState]?.text?.color
+                        : buttonStyle && BUTTON_STYLE[buttonStyle]?.fontColor
+                          ? BUTTON_STYLE[buttonStyle].fontColor
+                          : BUTTON_COLORS[buttonColor].text
+                    }
+                    className={`name ${icon ? "icon-left" : ""}`}
+                  >
+                    {name}
+                  </Text_Span>
+                )}
+              </>
+            ) : (
+              <>
+                {name !== "" && !hover && (
+                  <Text_Span
+                    fontSize={BUTTON_SIZE[buttonSize].text}
+                    paletteColor={BUTTON_COLORS[buttonColor].text}
+                    className={`name ${icon ? "icon-right" : ""}`}
+                  >
+                    {name}
+                  </Text_Span>
+                )}
+                {icon && (
+                  <ButtonIcon
+                    icon={icon}
+                    iconSize={BUTTON_SIZE[buttonSize].icon}
+                    iconState={buttonState}
+                    iconColor={iconColor}
+                  />
+                )}
+              </>
+            )}
+          </Layout>
         </F__Button>
         {/*</Container>*/}
       </Container>

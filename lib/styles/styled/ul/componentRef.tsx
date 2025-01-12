@@ -36,6 +36,7 @@ import {
 	UlProps,
 } from "functionalui/types";
 import { forwardRef } from "react";
+import { CURSOR_CLASSES } from "../../types/classes";
 
 const F__UlRef = forwardRef(
 	(
@@ -71,6 +72,7 @@ const F__UlRef = forwardRef(
 			bottom,
 			left,
 			right,
+			cursor,
 			className,
 			children,
 			...props
@@ -171,6 +173,9 @@ const F__UlRef = forwardRef(
 		}
 		if (right) {
 			classes[POSITION_RIGHT_CLASSES[right]] = true;
+		}
+		if (cursor) {
+			classes[CURSOR_CLASSES[cursor]] = true;
 		}
 		return (
 			<animated.ul
