@@ -5,6 +5,8 @@ import {
 	BorderWidths,
 	ColorPalettes,
 	Displays,
+	FlexAlignItems,
+	Icons,
 	Radiuses,
 	Spacings,
 	ButtonSizes as STORY_ITEM,
@@ -35,17 +37,24 @@ export const Default = () => (
 	<Layout>
 		{buttonSizes.map((item, idx) => (
 			<ShowcaseContainer key={idx}>
-				<Button name={`Button${item.value}`} buttonSize={item.value} />
-				<Text_Span
-					paletteColor={ColorPalettes.Grey1}
-					style={{
-						textAlign: "center",
-						width: "100%",
-						display: "inline-block",
-					}}
-				>
-					{item.name}
-				</Text_Span>
+				<Layout display={Displays.Flex} flexAlignItem={FlexAlignItems.Center}>
+					<Text_Span
+						paletteColor={ColorPalettes.Grey1}
+						style={{
+							textAlign: "center",
+							width: "100%",
+							display: "inline-block",
+						}}
+					>
+						{item.name}
+					</Text_Span>
+					<Button name={`Button${item.value}`} buttonSize={item.value} />
+					<Button
+						name={`Button${item.value}`}
+						buttonSize={item.value}
+						icon={Icons.Box}
+					/>
+				</Layout>
 			</ShowcaseContainer>
 		))}
 	</Layout>

@@ -1,4 +1,6 @@
 import type { StorybookConfig } from "@storybook/react-vite";
+// import { mergeConfig } from "vite";
+// import { default as tsconfigPaths } from 'vite-tsconfig-paths';
 
 const config: StorybookConfig = {
   stories: ["../lib/**/*.mdx", "../lib/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
@@ -15,5 +17,16 @@ const config: StorybookConfig = {
   core: {
     disableTelemetry: true, // 👈 Disables telemetry
   },
+  // typescript: {
+  //   check: false,
+  //   skipCompiler: false,
+  //   reactDocgenTypescriptOptions: {
+  //     compilerOptions: {
+  //       paths: {
+  //         "functionalui": ["../lib/main.ts"],
+  //       },
+  //     },
+  //   },
+  // },
 };
 export default config;
