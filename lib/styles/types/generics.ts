@@ -132,3 +132,26 @@ export enum OutlineStyles {
   Double,
   Auto,
 }
+
+export enum Cursors {
+  Auto = 1,
+  Default,
+  Pointer,
+  ContextMenu,
+  Help,
+  Progress,
+  Wait,
+  Cell,
+  Crosshair,
+  Text,
+  VerticalText,
+  Alias,
+  Copy,
+  Move,
+  NoDrop,
+  NotAllowed,
+  Grab,
+  Grabbing,
+  ZoomIn,
+  ZoomOut,
+}

@@ -36,6 +36,7 @@ import {
     UlProps,
 } from "functionalui/types";
 import { FC } from "react";
+import { CURSOR_CLASSES } from "../../types/classes";
 
 const F__Ul: FC<UlProps> = ({
 	margin,
@@ -70,6 +71,7 @@ const F__Ul: FC<UlProps> = ({
 	left,
 	right,
 	className,
+	cursor,
 	children,
 	...props
 }) => {
@@ -167,6 +169,9 @@ const F__Ul: FC<UlProps> = ({
 	}
 	if (right) {
 		classes[POSITION_RIGHT_CLASSES[right]] = true;
+	}
+	if (cursor) {
+		classes[CURSOR_CLASSES[cursor]] = true;
 	}
 	return (
 		<animated.ul

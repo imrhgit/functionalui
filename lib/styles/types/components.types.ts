@@ -27,6 +27,7 @@ import {
 	Spacings,
 	TextAligns,
 } from "functionalui/types";
+import { Cursors } from "./generics";
 // import { ButtonColors, ButtonSizes, ButtonTypes } from "./ui/button/types";
 
 export interface StyleProps {
@@ -77,6 +78,8 @@ export interface StyleProps {
 	right?: Positions;
 
 	// className?: string; // incompatible with html element classname
+
+	cursor?: Cursors;
 }
 
 export interface LayoutProps {
@@ -111,6 +114,9 @@ export interface TextStyleProps {
 	// text align
 	textAlign?: TextAligns;
 	// -- letter
+
+	// styles
+	cursor?: Cursors;
 }
 
 export interface ButtonStyleProps {

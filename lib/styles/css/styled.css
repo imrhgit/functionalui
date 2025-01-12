@@ -160,6 +160,28 @@
   --md--size-laptop: 1024px;
   --md--size-large: 1200px;
   --md--size-extra: 3000000px;
+
+  /* cursor  */
+  --curs--auto: auto;
+  --curs--default: default;
+  --curs--pointer: pointer;
+  --curs--context-menu: context-menu;
+  --curs--help: help;
+  --curs--progress: progress;
+  --curs--wait: wait;
+  --curs--cell: cell;
+  --curs--crosshair: crosshair;
+  --curs--text: text;
+  --curs--vertical-text: vertical-text;
+  --curs--alias: alias;
+  --curs--copy: copy;
+  --curs--move: move;
+  --curs--no-drop: no-drop;
+  --curs--not-allowed: not-allowed;
+  --curs--grab: grab;
+  --curs--grabbing: grabbing;
+  --curs--zoom-in: zoom-in;
+  --curs--zoom-out: zoom-out;
 }
 
 .athm-def {
@@ -895,7 +917,9 @@
 .fctrd--pos-r-s6 { right: var(--space-l);}
 .fctrd--pos-r-s7 { right: var(--space-xl);}
 .fctrd--pos-r-s8 { right: var(--space-2xl);}
-.fctrd--pos-r-s9 { right: var(--space-3xl);}
+.fctrd--pos-r-s9 { 
+  right: var(--space-3xl);
+}
 
 .fctrd--outl-st-none { outline-style: none;}
 .fctrd--outl-st-solid { outline-style: solid;}
@@ -904,7 +928,9 @@
 .fctrd--outl-st-dotted { outline-style: dotted;}
 .fctrd--outl-st-dashed { outline-style: dashed;}
 .fctrd--outl-st-double { outline-style: double;}
-.fctrd--outl-st-auto { outline-style: auto;}
+.fctrd--outl-st-auto { 
+  outline-style: auto;
+}
 
 .fctrd--outl-wd-s1 { outline-width: var(--space-3xs);}
 .fctrd--outl-wd-s2 { outline-width: var(--space-2xs);}
@@ -914,12 +940,40 @@
 .fctrd--outl-wd-s6 { outline-width: var(--space-l);}
 .fctrd--outl-wd-s7 { outline-width: var(--space-xl);}
 .fctrd--outl-wd-s8 { outline-width: var(--space-2xl);}
-.fctrd--outl-wd-s9 { outline-width: var(--space-3xl);}
+.fctrd--outl-wd-s9 { 
+  outline-width: var(--space-3xl);
+}
 
 .fctrd--resize-none { resize: none;}
 .fctrd--resize-both { resize: both;}
 .fctrd--resize-horizontal { resize: horizontal;}
-.fctrd--resize-vertical { resize: vertical;}
+.fctrd--resize-vertical { 
+  resize: vertical;
+}
+
+/*cursors*/
+.fctrd--curs--auto { cursor: var(--curs--auto);}
+.fctrd--curs--default { cursor: var(--curs--default);}
+.fctrd--curs--pointer { cursor: var(--curs--pointer);}
+.fctrd--curs--context-menu { cursor: var(--curs--context-menu);}
+.fctrd--curs--help { cursor: var(--curs--help);}
+.fctrd--curs--progress { cursor: var(--curs--progress);}
+.fctrd--curs--wait { cursor: var(--curs--wait);}
+.fctrd--curs--cell { cursor: var(--curs--cell);}
+.fctrd--curs--crosshair { cursor: var(--curs--crosshair);}
+.fctrd--curs--text { cursor: var(--curs--text);}
+.fctrd--curs--vertical-text { cursor: var(--curs--vertical-text);}
+.fctrd--curs--alias { cursor: var(--curs--alias);}
+.fctrd--curs--copy { cursor: var(--curs--copy);}
+.fctrd--curs--move { cursor: var(--curs--move);}
+.fctrd--curs--no-drop { cursor: var(--curs--no-drop);}
+.fctrd--curs--not-allowed { cursor: var(--curs--not-allowed);}
+.fctrd--curs--grab { cursor: var(--curs--grab);}
+.fctrd--curs--grabbing { cursor: var(--curs--grabbing);}
+.fctrd--curs--zoom-in { cursor: var(--curs--zoom-in);}
+.fctrd--curs--zoom-out { 
+  cursor: var(--curs--zoom-out);
+}
 
 /*\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
 
@@ -991,15 +1045,15 @@
 
 /*COLOR **** color*/
 .fctrd--cl-trans { color: var(--cl-transp); }
-.fctrd--cl-grey-1 { color: var(--cl-gr-1); }
-.fctrd--cl-grey-2 { color: var(--cl-gr-2); }
-.fctrd--cl-grey-3 { color: var(--cl-gr-3); }
-.fctrd--cl-grey-4 { color: var(--cl-gr-4); }
-.fctrd--cl-grey-5 { color: var(--cl-gr-5); }
-.fctrd--cl-grey-6 { color: var(--cl-gr-6); }
-.fctrd--cl-grey-7 { color: var(--cl-gr-7); }
-.fctrd--cl-grey-8 { color: var(--cl-gr-8); }
-.fctrd--cl-grey-9 { color: var(--cl-gr-9); }
+.fctrd--cl-grey-1 { color: var(--cl-grey-1); }
+.fctrd--cl-grey-2 { color: var(--cl-grey-2); }
+.fctrd--cl-grey-3 { color: var(--cl-grey-3); }
+.fctrd--cl-grey-4 { color: var(--cl-grey-4); }
+.fctrd--cl-grey-5 { color: var(--cl-grey-5); }
+.fctrd--cl-grey-6 { color: var(--cl-grey-6); }
+.fctrd--cl-grey-7 { color: var(--cl-grey-7); }
+.fctrd--cl-grey-8 { color: var(--cl-grey-8); }
+.fctrd--cl-grey-9 { color: var(--cl-grey-9); }
 .fctrd--cl-grey-10 { color: var(--cl-grey-10); }
 .fctrd--cl-pri-1 { color: var(--cl-pri-1); }
 .fctrd--cl-pri-2 { color: var(--cl-pri-2); }

@@ -19,6 +19,7 @@ import {
 	BOX_SIZING_CLASSES,
 	ButtonProps,
 	COLOR_CLASSES,
+	CURSOR_CLASSES,
 	MARGIN_BOTTOM_CLASSES,
 	MARGIN_CLASSES,
 	MARGIN_LEFT_CLASSES,
@@ -71,6 +72,7 @@ const F__ButtonRef = forwardRef(
 			bottom,
 			left,
 			right,
+			cursor,
 
 			children,
 			className,
@@ -173,6 +175,9 @@ const F__ButtonRef = forwardRef(
 		if (right) {
 			classes[POSITION_RIGHT_CLASSES[right]] = true;
 		}
+		if (cursor) {
+			classes[CURSOR_CLASSES[cursor]] = true;
+		}
 		return (
 			<animated.button
 				ref={ref}
@@ -185,4 +190,4 @@ const F__ButtonRef = forwardRef(
 	},
 );
 
-export default F__ButtonRef
+export default F__ButtonRef;

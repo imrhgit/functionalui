@@ -38,6 +38,7 @@ import {
   OUTLINE_COLOR_CLASSES,
 } from "functionalui/types";
 import { DivProps } from "functionalui/types";
+import { CURSOR_CLASSES } from "../../types/classes";
 
 const ContainerRef = forwardRef(
   (
@@ -73,6 +74,7 @@ const ContainerRef = forwardRef(
       bottom,
       left,
       right,
+      cursor,
 
       children,
       className,
@@ -175,6 +177,9 @@ const ContainerRef = forwardRef(
     if (right) {
       classes[POSITION_RIGHT_CLASSES[right]] = true;
     }
+    if (cursor) {
+      classes[CURSOR_CLASSES[cursor]] = true;
+    }
     return (
       <animated.div
         ref={ref}
@@ -187,4 +192,4 @@ const ContainerRef = forwardRef(
   },
 );
 
-export default ContainerRef
+export default ContainerRef;
