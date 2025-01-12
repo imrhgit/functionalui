@@ -4,10 +4,12 @@ import {
   BoxShadows,
   ColorPalettes,
   FontSizes,
+  Icons,
   Radiuses,
   Sizings,
   Spacings,
 } from "functionalui/types";
+import { Cursors } from "../../generics";
 
 export enum ButtonIconPositions {
   Left = 1,
@@ -43,19 +45,76 @@ export const BUTTON_SHADOWS_CLASSES = {
 };
 
 export enum ButtonStates {
-  Icon = 1,
+  Icon = 1, // default
   Loading,
   Success,
   Error,
   Disabled,
 }
+type ButtonStateType = {
+  icon?: {
+    icon?: Icons | string;
+    iconColor?: ColorPalettes;
+  };
+  color?: {
+    bgColor?: ColorPalettes;
+    borderColor?: ColorPalettes;
+  };
+  text?: {
+    color?: ColorPalettes;
+  };
+  cursor?: Cursors;
+  animation?: boolean;
+};
+export const BUTTON_STATE: { [key: number]: ButtonStateType } = {
+  [ButtonStates.Icon]: {},
+  [ButtonStates.Success]: {
+    icon: {
+      icon: "check",
+    },
+  },
+  [ButtonStates.Loading]: {
+    icon: {
+      icon: "spinner",
+    },
+    cursor: Cursors.Progress,
+    animation: false,
+  },
+  [ButtonStates.Error]: {
+    icon: {
+      icon: "alert-triangle",
+      iconColor: ColorPalettes.Red4,
+    },
+    color: {
+      bgColor: ColorPalettes.Red9,
+      borderColor: ColorPalettes.Red4,
+    },
+    text: {
+      color: ColorPalettes.Red4,
+    },
+  },
+  [ButtonStates.Disabled]: {
+    icon: {
+      icon: "minus-circle",
+      iconColor: ColorPalettes.Grey5,
+    },
+    color: {
+      bgColor: ColorPalettes.Grey8,
+      borderColor: ColorPalettes.Grey5,
+    },
+    text: {
+      color: ColorPalettes.Grey5,
+    },
+    cursor: Cursors.NotAllowed,
+    animation: false,
+  },
+};
 export const ButtonStateIcon = {
   [ButtonStates.Loading]: "spinner",
   [ButtonStates.Success]: "check",
   [ButtonStates.Error]: "x",
   [ButtonStates.Disabled]: "minus-circle",
 };
-
 // export const ButtonIconState = {
 //   [ButtonStates.Icon]: icon,
 // }
@@ -166,6 +225,7 @@ type ButtonSizeType = {
   paddingLeft: Spacings;
   paddingRight: Spacings;
   icon: Sizings;
+  iconMargin?: Spacings;
   text: FontSizes;
   borderRadius: Radiuses;
 };
@@ -175,7 +235,8 @@ export const BUTTON_SIZE: { [key: number]: ButtonSizeType } = {
     paddingBottom: Spacings.Size1,
     paddingLeft: Spacings.Size2,
     paddingRight: Spacings.Size2,
-    icon: Sizings.Size1,
+    icon: Sizings.Size3,
+    iconMargin: Spacings.Size0,
     text: FontSizes.Size1,
     borderRadius: Radiuses.Size5,
   },
@@ -184,7 +245,8 @@ export const BUTTON_SIZE: { [key: number]: ButtonSizeType } = {
     paddingBottom: Spacings.Size2,
     paddingLeft: Spacings.Size3,
     paddingRight: Spacings.Size3,
-    icon: Sizings.Size2,
+    icon: Sizings.Size4,
+    iconMargin: Spacings.Size0,
     text: FontSizes.Size2,
     borderRadius: Radiuses.Size6,
   },
@@ -193,17 +255,19 @@ export const BUTTON_SIZE: { [key: number]: ButtonSizeType } = {
     paddingBottom: Spacings.Size3,
     paddingLeft: Spacings.Size4,
     paddingRight: Spacings.Size4,
-    icon: Sizings.Size2,
+    icon: Sizings.Size5,
+    iconMargin: Spacings.Size1,
     text: FontSizes.Size3,
     borderRadius: Radiuses.Size7,
   },
   [ButtonSizes.Medium]: {
-    paddingTop: Spacings.Size4,
-    paddingBottom: Spacings.Size4,
-    paddingLeft: Spacings.Size5,
-    paddingRight: Spacings.Size5,
-    icon: Sizings.Size3,
-    text: FontSizes.Size3,
+    paddingTop: Spacings.Size3,
+    paddingBottom: Spacings.Size3,
+    paddingLeft: Spacings.Size4,
+    paddingRight: Spacings.Size4,
+    icon: Sizings.Size6,
+    iconMargin: Spacings.Size1,
+    text: FontSizes.Size4,
     borderRadius: Radiuses.Size7,
   },
   [ButtonSizes.Big]: {
@@ -211,23 +275,25 @@ export const BUTTON_SIZE: { [key: number]: ButtonSizeType } = {
     paddingBottom: Spacings.Size4,
     paddingLeft: Spacings.Size5,
     paddingRight: Spacings.Size5,
-    icon: Sizings.Size4,
-    text: FontSizes.Size4,
-    borderRadius: Radiuses.Size8,
+    icon: Sizings.Size7,
+    iconMargin: Spacings.Size1,
+    text: FontSizes.Size5,
+    borderRadius: Radiuses.Size7,
   },
   [ButtonSizes.Large]: {
-    paddingTop: Spacings.Size5,
-    paddingBottom: Spacings.Size5,
-    paddingLeft: Spacings.Size6,
-    paddingRight: Spacings.Size6,
-    icon: Sizings.Size5,
-    text: FontSizes.Size5,
-    borderRadius: Radiuses.Size9,
+    paddingTop: Spacings.Size4,
+    paddingBottom: Spacings.Size4,
+    paddingLeft: Spacings.Size5,
+    paddingRight: Spacings.Size5,
+    icon: Sizings.Size9,
+    iconMargin: Spacings.Size1,
+    text: FontSizes.Size6,
+    borderRadius: Radiuses.Size8,
   },
 };
 
 export enum ButtonStyles {
-  Plain,
+  Plain = 1,
   Gray,
   Tinted,
   Outlined,
@@ -238,43 +304,55 @@ type ButtonStyleType = {
   // textcolor
   // iconcolor
   // withborder
-  // bgColor: ColorPalettes;   // this should be on color
-  // textColor: ColorPalettes; // this should be on color
+  bgColor?: ColorPalettes; // overwrite color preset
+  fontColor?: ColorPalettes; // this should be on color | overwrites
   // iconColor: ColorPalettes; // this should be on color
   border: {
     borderWidth: BorderWidths;
-    // borderColor: ColorPalettes; // this should be on color
+    borderColor?: ColorPalettes; // this should be on color | overwrites
     borderStyle: BorderStyles;
   };
+  shadow?: BoxShadows;
+  cursor?: Cursors;
 };
 export const BUTTON_STYLE: { [key: number]: ButtonStyleType } = {
   [ButtonStyles.Plain]: {
-    // bgColor: ColorPalettes.Transparent,
+    bgColor: ColorPalettes.Transparent,
+    fontColor: ColorPalettes.Primary5,
     border: {
       borderWidth: BorderWidths.Size0,
       borderStyle: BorderStyles.None,
     },
+    shadow: BoxShadows.Size0,
+    cursor: Cursors.Pointer,
   },
   [ButtonStyles.Gray]: {
-    // bgColor: ColorPalettes.Grey5,
+    bgColor: ColorPalettes.Grey6,
+    fontColor: ColorPalettes.Grey10,
     border: {
       borderWidth: BorderWidths.Size0,
       borderStyle: BorderStyles.None,
     },
+    cursor: Cursors.Pointer,
   },
   [ButtonStyles.Tinted]: {
-    // bgColor: ColorPalettes.Transparent,
+    bgColor: ColorPalettes.Primary9,
+    fontColor: ColorPalettes.Primary5,
     border: {
       borderWidth: BorderWidths.Size0,
       borderStyle: BorderStyles.None,
     },
+    cursor: Cursors.Pointer,
   },
   [ButtonStyles.Outlined]: {
-    // bgColor: ColorPalettes.Transparent,
+    bgColor: ColorPalettes.Transparent,
+    fontColor: ColorPalettes.Primary5,
     border: {
-      borderWidth: BorderWidths.Size0,
+      borderWidth: BorderWidths.Size2,
       borderStyle: BorderStyles.Solid,
+      borderColor: ColorPalettes.Primary5,
     },
+    cursor: Cursors.Pointer,
   },
   [ButtonStyles.Filled]: {
     // bgColor: ColorPalettes.Transparent,
@@ -282,5 +360,13 @@ export const BUTTON_STYLE: { [key: number]: ButtonStyleType } = {
       borderWidth: BorderWidths.Size0,
       borderStyle: BorderStyles.None,
     },
+    cursor: Cursors.Pointer,
   },
 };
+
+// level of importance    state > style > default
+// 20250110_1516
+// state should be changed by animation api
+// so, style > color > default
+// 20250111_1213
+// animation > state style > style > color > default
