@@ -15,6 +15,7 @@ import { FC } from "react";
 import { Themes } from "../../contexts/ui/types";
 import Spinner from "./Spinner";
 import { UICON_SIZING } from "../../styles/types/icons/values";
+import { Cursors } from "../../styles/types/generics";
 
 /*
 	@todo_20241220_1655("")
@@ -23,6 +24,7 @@ import { UICON_SIZING } from "../../styles/types/icons/values";
 
 type P = {
 	name: Icons | string;
+	withMargin?: boolean;
 	size?: Sizings;
 	width?: number;
 	height?: number;
@@ -31,16 +33,19 @@ type P = {
 	colorDark?: ColorPalettes;
 	iconAction?: (v?: any) => void;
 	animated?: boolean;
+	cursor?: Cursors;
 };
 
 const UIcon: FC<P> = ({
 	name,
 	size = Sizings.Size5,
+	withMargin = true,
 	width,
 	height,
 	colorLight = ColorPalettes.Grey5,
 	colorDark = ColorPalettes.Grey5,
 	iconAction,
+	cursor = Cursors.Default,
 	animated = true,
 }) => {
 	const { theme } = useUiContext();
@@ -96,7 +101,8 @@ const UIcon: FC<P> = ({
 			}
 		>
 			<Container
-				padding={UICON_SIZING[size].padding}
+				padding={withMargin ? UICON_SIZING[size].padding : undefined}
+				cursor={cursor}
 				style={
 					clickable
 						? {

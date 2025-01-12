@@ -35,3 +35,6 @@ textarea,
 select {
   font: inherit;
 }
+span {
+  line-height: 1;
+}
