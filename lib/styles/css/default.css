@@ -38,3 +38,6 @@ select {
 span {
   line-height: 1;
 }
+li {
+  list-style: none;
+}
