@@ -25,3 +25,5 @@ dist-ssr
 
 .archives/
 *storybook.log
+.nonpublic/
+src/
