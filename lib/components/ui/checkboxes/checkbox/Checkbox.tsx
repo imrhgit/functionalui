@@ -18,16 +18,21 @@ type Props = {
   children?: React.ReactNode;
   size?: CheckboxSizes;
   checkboxColor?: CheckboxColors;
+  onClick?: (v?: any) => void;
 };
 // @todo_20240518_1016("custom color")
 const Checkbox = ({
   isChecked,
   size,
   checkboxColor = CheckboxColors.Grey5,
+  onClick,
 }: Props) => {
   return (
-    <CheckboxStyles isChecked={isChecked} checkboxColor={checkboxColor}>
-      {" "}
+    <CheckboxStyles
+      isChecked={isChecked}
+      checkboxColor={checkboxColor}
+      onClick={onClick}
+    >
       {/* the box design */}
       <Layout
         display={Displays.Flex}
@@ -50,9 +55,12 @@ const CheckboxStyles = ({
   checkboxColor = CheckboxColors.Grey5,
   size = CheckboxSizes.Size3,
   children,
+  onClick,
 }: Props) => {
   const [styles, api] = useSpring(() => ({
-    borderColor: CHECKBOX_COLORS[CheckboxColors.Grey5].borderColor,
+    borderColor: isChecked
+      ? CHECKBOX_COLORS[checkboxColor].borderColor
+      : CHECKBOX_COLORS[CheckboxColors.Grey5].borderColor,
   }));
   api.start({
     borderColor: isChecked
@@ -61,12 +69,15 @@ const CheckboxStyles = ({
   });
   return (
     <Container
+      onClick={onClick}
       borderRadius={CHECKBOX_SIZES[size].boxBorderRadius}
       style={{
         padding: CHECKBOX_SIZES[size].padding,
         borderWidth: CHECKBOX_SIZES[size].borderWidth,
         ...styles1,
         ...styles,
+        width: "max-content",
+        cursor: onClick ? "pointer" : "default",
       }}
     >
       {children}
@@ -80,9 +91,11 @@ const Box = ({
   size = CheckboxSizes.Size3,
 }: Props) => {
   const [styles, api] = useSpring(() => ({
-    backgroundColor: "transparent",
-    scale: 0.8,
-    opacity: 0,
+    backgroundColor: isChecked
+      ? CHECKBOX_COLORS[checkboxColor].checkedColor
+      : CHECKBOX_COLORS[CheckboxColors.Grey5].checkedColor,
+    scale: isChecked ? 1 : 0.8,
+    opacity: isChecked ? 1 : 0,
   }));
   api.start({
     backgroundColor: isChecked
