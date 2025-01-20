@@ -20,15 +20,15 @@ import cstyles from "./galleryModal.module.css";
 interface P {
   showModal: boolean;
   closeModal: (v?: any) => void;
-  activeIdx?: number;
-  setActiveIdx: (v: number) => void;
+  // activeIdx?: number;
+  // setActiveIdx: (v: number) => void;
   images: Array<any>;
 }
 const GalleryModal: FC<P> = ({
   showModal,
   closeModal,
-  activeIdx = 0,
-  setActiveIdx,
+  // activeIdx = 0,
+  // setActiveIdx,
   images = [],
 }) => {
   return (
@@ -36,8 +36,8 @@ const GalleryModal: FC<P> = ({
       <GalleryModalC
         showModal={showModal}
         closeModal={closeModal}
-        activeIdx={activeIdx}
-        setActiveIdx={setActiveIdx}
+        // activeIdx={activeIdx}
+        // setActiveIdx={setActiveIdx}
         images={images}
       />
     </ContextWrapper>

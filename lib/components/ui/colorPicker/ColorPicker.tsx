@@ -7,14 +7,18 @@ import Picker from "./Picker";
 interface P {
   defaultColor?: string;
   setInput?: (v: any) => any;
+  setColor?: (color: string) => void;
   inputName?: string | undefined;
   closePicker?: ((p?: boolean) => void) | undefined;
+  position?: "absolute" | "static";
 }
 const ColorPicker: FC<P> = ({
   defaultColor = "#eeeeee",
   setInput,
+  setColor,
   inputName = undefined,
   closePicker = undefined,
+  position = "absolute",
 }) => {
   const [selectColor, setSelectColor] = useState(
     defaultColor ? defaultColor : "#eee",
@@ -33,13 +37,16 @@ const ColorPicker: FC<P> = ({
 
   const debouncedColor = useDebounce(selectColor, 250);
   useEffect(() => {
+    if (setColor) {
+      setColor(debouncedColor);
+    }
     if (setInput) {
       setInput((prev: any) => ({
         ...prev,
         [`${inputName ? inputName : "edit_color"}`]: debouncedColor,
       }));
     }
-  }, [debouncedColor, inputName, setInput]);
+  }, [debouncedColor, inputName, setInput, setColor]);
 
   return (
     <div>
@@ -50,7 +57,7 @@ const ColorPicker: FC<P> = ({
       <Picker
         selectColor={selectColor}
         handleColorChange={handleColorChange}
-        position="absolute"
+        position={position}
         closePicker={closePicker}
       />
     </div>

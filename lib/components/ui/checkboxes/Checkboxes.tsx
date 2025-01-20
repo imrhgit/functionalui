@@ -22,14 +22,14 @@ type CheckboxesProps = {
   options: CheckboxOption[];
   multiselect: boolean;
   checkboxColor: CheckboxColors;
-  size: CheckboxSizes;
+  size?: CheckboxSizes;
   handleClick: (v: any) => void;
 };
 const Checkboxes = ({
   options,
   multiselect = false,
   checkboxColor = CheckboxColors.Primary5,
-  size = CheckboxSizes.Size1,
+  size, //= CheckboxSizes.Size1,
   handleClick,
 }: CheckboxesProps) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -89,7 +89,7 @@ type CheckboxesItemProps = {
   isChecked: boolean;
 
   checkboxColor: CheckboxColors;
-  size: CheckboxSizes;
+  size?: CheckboxSizes;
   handleClickBox: (id: number, v?: any) => void;
 };
 

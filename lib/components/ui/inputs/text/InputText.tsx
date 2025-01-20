@@ -37,9 +37,9 @@ import {
 interface P {
   id: string;
   name: string;
-  type: InputTextTypes;
+  type?: InputTextTypes;
   value: any;
-  modes: InputTextModes;
+  modes?: InputTextModes;
   label: string;
   // optional properties
   focus?: boolean;
@@ -54,7 +54,7 @@ interface P {
   min?: number;
 
   // methods
-  handleChange: (v?: any) => void;
+  handleChange: (v: ChangeEvent<HTMLInputElement>) => void;
   handleFocus?: (v?: any) => void;
   handleBlur?: (v?: any) => void;
   handleCheck?: (v?: any) => Promise<any> | void;
@@ -82,9 +82,9 @@ const InputText: FC<P> = ({
   // required
   id,
   name,
-  type,
+  type = InputTextTypes.Text,
   value,
-  modes,
+  modes = InputTextModes.Default,
   label,
   // optional properties
   focus,

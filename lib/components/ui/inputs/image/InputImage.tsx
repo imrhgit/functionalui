@@ -10,7 +10,7 @@ interface P {
   name: string;
   // handleImageChange: (v: File | undefined, w: string | undefined) => Promise<void>;
   handleImageChange: (v: File | undefined) => void;
-  labelname: string;
+  labelname?: string;
   defaultValue?: string;
   width?: number | string;
   height?: number | string;
@@ -94,10 +94,11 @@ const InputImage: FC<P> = ({
             <Container marginRight={Spacings.Size1}>
               <Text_Span>{labelname ? labelname : "Upload image"}</Text_Span>
             </Container>
-            <Container className={`${cstyles.iconContainer} desktop`}>
+            {/* Icon */}
+            <Container className={`${cstyles.iconContainerDesktop}`}>
               <UIcon name="image" />
             </Container>
-            <Container className={`${cstyles.iconContainer} mobile`}>
+            <Container className={`${cstyles.iconContainerMobile}`}>
               <UIcon name="camera" />
             </Container>
           </Layout>

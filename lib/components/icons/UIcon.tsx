@@ -15,7 +15,7 @@ import { FC } from "react";
 import { Themes } from "../../contexts/ui/types";
 import Spinner from "./Spinner";
 import { UICON_SIZING } from "../../styles/types/icons/values";
-import { Cursors } from "../../styles/types/generics";
+import { Cursors, Radiuses } from "../../styles/types/generics";
 
 /*
 	@todo_20241220_1655("")
@@ -34,6 +34,8 @@ type P = {
 	iconAction?: (v?: any) => void;
 	animated?: boolean;
 	cursor?: Cursors;
+	overflow?: string;
+	borderRadius?: string;
 };
 
 const UIcon: FC<P> = ({
@@ -47,6 +49,8 @@ const UIcon: FC<P> = ({
 	iconAction,
 	cursor = Cursors.Default,
 	animated = true,
+	overflow = "hidden",
+	borderRadius = "50%",
 }) => {
 	const { theme } = useUiContext();
 	const [styles, api] = useSpring(() => ({
@@ -68,8 +72,8 @@ const UIcon: FC<P> = ({
 				width: "max-content",
 				color: color,
 				cursor: clickable ? "pointer" : "default",
-				borderRadius: "50%",
-				overflow: "hidden",
+				borderRadius: borderRadius,
+				overflow: overflow,
 			}}
 			// hover
 			onMouseEnter={() =>
@@ -107,11 +111,11 @@ const UIcon: FC<P> = ({
 					clickable
 						? {
 								...styles,
-								borderRadius: "50%",
+								borderRadius: borderRadius,
 								display: "flex",
 							}
 						: {
-								borderRadius: "50%",
+								borderRadius: borderRadius,
 								display: "flex",
 							}
 				}
