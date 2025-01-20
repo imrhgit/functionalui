@@ -232,6 +232,8 @@ export {
   AdmonitionIcons,
   AdmonitionLevels,
   AdmonitionTitles,
+  AdmonitionSizes,
+  ADMONITION_SIZE,
 } from "./ui/admonition/types";
 export { AVATAR_SIZE, AvatarSizes } from "./ui/avatar/types";
 export {

@@ -1,4 +1,10 @@
-import { ColorPalettes } from "functionalui/types";
+import {
+  ColorPalettes,
+  FontSizes,
+  FontWeights,
+  Sizings,
+  Spacings,
+} from "functionalui/types";
 
 export enum AdmonitionLevels {
   Info = 1,
@@ -68,7 +74,7 @@ export const AdmonitionIcons = {
     titleIcon: "info",
   },
   [AdmonitionLevels.Success]: {
-    titleIcon: "check-cirlce",
+    titleIcon: "check",
   },
   [AdmonitionLevels.Warning]: {
     titleIcon: "alert-circle",
@@ -87,4 +93,81 @@ export const AdmonitionTitles = {
   [AdmonitionLevels.Warning]: "Warning",
   [AdmonitionLevels.Attention]: "Attention",
   [AdmonitionLevels.Error]: "Error",
+};
+
+export enum AdmonitionSizes {
+  Small = 1,
+  Medium,
+  Big,
+}
+
+interface AdmoitionSize {
+  title: {
+    padding: Spacings;
+    paddingBottom: Spacings;
+    paddingLeft?: Spacings;
+    paddingRight?: Spacings;
+    fontSize: FontSizes;
+    fontWeight: FontWeights;
+    iconSize: Sizings;
+    iconMargin: Spacings;
+  };
+  content: {
+    padding: Spacings;
+    paddingTop: Spacings;
+    paddingLeft?: Spacings;
+    paddingRight?: Spacings;
+    fontSize: FontSizes;
+  };
+}
+export const ADMONITION_SIZE: { [key: number]: AdmoitionSize } = {
+  [AdmonitionSizes.Small]: {
+    title: {
+      padding: Spacings.Size1,
+      paddingBottom: Spacings.Size1,
+      paddingLeft: Spacings.Size2,
+      paddingRight: Spacings.Size2,
+      fontSize: FontSizes.Size3,
+      fontWeight: FontWeights.Size4,
+      iconSize: Sizings.Size4,
+      iconMargin: Spacings.Size1,
+    },
+    content: {
+      padding: Spacings.Size1,
+      paddingTop: Spacings.Size0,
+      paddingLeft: Spacings.Size2,
+      paddingRight: Spacings.Size2,
+      fontSize: FontSizes.Size3,
+    },
+  },
+  [AdmonitionSizes.Medium]: {
+    title: {
+      padding: Spacings.Size2,
+      paddingBottom: Spacings.Size2,
+      fontSize: FontSizes.Size5,
+      fontWeight: FontWeights.Size3,
+      iconSize: Sizings.Size5,
+      iconMargin: Spacings.Size1,
+    },
+    content: {
+      padding: Spacings.Size2,
+      paddingTop: Spacings.Size0,
+      fontSize: FontSizes.Size4,
+    },
+  },
+  [AdmonitionSizes.Big]: {
+    title: {
+      padding: Spacings.Size3,
+      paddingBottom: Spacings.Size3,
+      fontSize: FontSizes.Size6,
+      fontWeight: FontWeights.Size3,
+      iconSize: Sizings.Size7,
+      iconMargin: Spacings.Size2,
+    },
+    content: {
+      padding: Spacings.Size3,
+      paddingTop: Spacings.Size0,
+      fontSize: FontSizes.Size5,
+    },
+  },
 };
