@@ -13,9 +13,9 @@ import {
 } from "functionalui/types";
 import { FC } from "react";
 import { Themes } from "../../contexts/ui/types";
-import Spinner from "./Spinner";
+import { Cursors } from "../../styles/types/generics";
 import { UICON_SIZING } from "../../styles/types/icons/values";
-import { Cursors, Radiuses } from "../../styles/types/generics";
+import Spinner from "./Spinner";
 
 /*
 	@todo_20241220_1655("")

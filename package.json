@@ -1,6 +1,6 @@
 {
   "name": "@functionalui/functionalui",
-  "version": "0.0.5001",
+  "version": "0.0.5002",
   "type": "module",
   "files": [
     "dist"
@@ -13,7 +13,7 @@
       "require": "./dist/main.cjs"
     },
     "./types": "./dist/types.js",
-    "./dist/style.css": "./dist/style.css"
+    "./dist/functionalui.css": "./dist/functionalui.css"
   },
   "typesVersions": {
     "*": {
