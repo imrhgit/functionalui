@@ -12,7 +12,7 @@ import {
 	Radiuses,
 	Spacings,
 } from "functionalui/types";
-import { ButtonStates, ButtonStyles } from "../../types/ui/button/types";
+import { ButtonStates, ButtonStyles } from "../../../types/ui/button/types";
 
 const meta: Meta<typeof Button> = {
 	title: "Components/Button",

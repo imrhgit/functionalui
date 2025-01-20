@@ -4,6 +4,7 @@
 import type { Preview } from "@storybook/react";
 import "../lib/styles/css/default.css";
 import "../lib/styles/css/styled.css";
+import "../lib/styles/css/portals.css";
 
 const preview: Preview = {
   parameters: {

@@ -5,7 +5,7 @@ import {
 	Radiuses,
 	Spacings,
 } from "functionalui/types";
-import { Button, Container, Text_Span } from "../../../main.ts";
+import { Button, Container, Text_Span } from "../../../../main.ts";
 
 const Dev1Comp = () => {
 	return (
