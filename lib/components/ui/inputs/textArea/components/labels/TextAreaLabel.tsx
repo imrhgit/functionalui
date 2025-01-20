@@ -28,7 +28,10 @@ const TextAreaLabel: FC<P> = ({
   labelTextColor,
 }) => {
   return (
-    <Container paddingLeft={TEXT_AREA_SIZE[size].paddings.left}>
+    <Container
+      paddingLeft={TEXT_AREA_SIZE[size].paddings.left}
+      paddingBottom={TEXT_AREA_SIZE[size].paddings.bottom}
+    >
       <label htmlFor={id}>
         <Text_Span
           fontWeight={FontWeights.Size3}

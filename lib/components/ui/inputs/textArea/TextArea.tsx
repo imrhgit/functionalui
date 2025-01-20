@@ -24,7 +24,7 @@ interface P {
   id: string;
   name: string;
   value: any;
-  modes: TextAreaModes;
+  modes?: TextAreaModes;
   label: string;
   // optional properties
   rows?: number;
@@ -53,7 +53,7 @@ const TextArea: FC<P> = ({
   id,
   name,
   value,
-  modes,
+  modes = TextAreaModes.Default,
   label,
   // optional properties
   required = false,

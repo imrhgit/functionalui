@@ -87,13 +87,13 @@ export const TEXT_AREA_SIZE: { [key: number]: any } = {
   },
   [TextAreaSizes.Huge]: {
     paddings: {
-      top: Spacings.Size1,
-      bottom: Spacings.Size1,
-      left: Spacings.Size2,
-      right: Spacings.Size2,
+      top: Spacings.Size2,
+      bottom: Spacings.Size2,
+      left: Spacings.Size3,
+      right: Spacings.Size3,
     },
     font: {
-      size: FontSizes.Size1,
+      size: FontSizes.Size4,
       weight: FontWeights.Size2,
     }
   },
