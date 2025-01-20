@@ -5,6 +5,7 @@ import {
 } from "../../../../styles/types/ui/avatar/types";
 import DivContainer from "../../../../styles/styled/container/component";
 import { Container, Text_Span } from "functionalui";
+import { BoxShadows, ColorPalettes, Radiuses, Spacings } from "functionalui/types";
 
 interface P {
   hoverAnimation: any;
@@ -21,7 +22,22 @@ const AvatarName: FC<P> = ({
   if (withHover) {
     if (avatarName) {
       return (
-        <Container style={hoverAnimation}>
+        <Container
+          bgColor={ColorPalettes.Primary4}
+          padding={Spacings.Size1}
+          paddingLeft={Spacings.Size2}
+          paddingRight={Spacings.Size2}
+          borderRadius={Radiuses.Size4}
+          boxShadow={BoxShadows.Size3}
+          style={{
+            position: "absolute",
+            left: "50%",
+            transform: "translateX(-50%)",
+            width: "max-content",
+            zIndex: 1,
+            ...hoverAnimation,
+          }}
+        >
           <Text_Span fontSize={AVATAR_SIZE[size].fontSize}>
             {avatarName}
           </Text_Span>

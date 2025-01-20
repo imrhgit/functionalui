@@ -13,6 +13,7 @@ import {
   AvatarSizes,
 } from "../../../styles/types/ui/avatar/types";
 import AvatarName from "./components/AvatarName";
+import generateGradient from "../../../utils/gradientGenerator/gradientGenerator";
 
 interface P {
   isLoading?: boolean;
@@ -20,7 +21,7 @@ interface P {
   avatarName?: string | null;
   withHover?: boolean;
   onClick?: (v?: any) => void;
-  children: ReactNode;
+  children?: ReactNode;
   border?: boolean;
   borderColor?: ColorPalettes;
 }
@@ -34,17 +35,22 @@ const Avatar: FC<P> = ({
   children,
 }) => {
   const [nameHoverAnim, api] = useSpring(() => ({
-    // @todo_20241228_1242("hover tooltip animation")
     opacity: 0,
-    x: -5,
+    y: -5,
+    scale: 0.7,
+    transformOrigin: "top center",
+    pointerEvents: "auto",
   }));
   return (
     <Container
-      onMouseEnter={() => api.start({ opacity: 1, x: 0 })}
-      onMouseLeave={() => api.start({ opacity: 0, x: -5 })}
+      style={{ width: "max-content" }}
+      onMouseEnter={() => api.start({ opacity: 1, y: 3, scale: 1 })}
+      onMouseLeave={() =>
+        api.start({ opacity: 0, y: -5, scale: 0.7, pointerEvents: "none" })
+      }
       onClick={onClick}
     >
-      <Layout>
+      <Layout style={{ width: "max-content", position: "relative" }}>
         {/* image */}
         <Layout
           display={Displays.Flex}
@@ -56,7 +62,7 @@ const Avatar: FC<P> = ({
               border
                 ? borderColor
                   ? borderColor
-                  : ColorPalettes.Primary3
+                  : ColorPalettes.Grey3
                 : undefined
             }
             borderStyle={border ? BorderStyles.Solid : undefined}
@@ -69,7 +75,17 @@ const Avatar: FC<P> = ({
               height: AVATAR_SIZE[size].image,
             }}
           >
-            {children}
+            {children ? (
+              <>{children}</>
+            ) : (
+              <Container
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  background: generateGradient(),
+                }}
+              />
+            )}
           </Container>
         </Layout>
 
