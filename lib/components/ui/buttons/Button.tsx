@@ -98,6 +98,7 @@ const Button: FC<ButtonProps> = ({
 
   return (
     <ContainerRef
+      style={{ width: "max-content" }}
       ref={containerRef}
       onMouseEnter={() => {
         // !disabled && api({ y: -3 });
