@@ -38,7 +38,7 @@ interface P {
   id: string;
   name: string;
   type?: InputTextTypes;
-  value: any;
+  value?: any;
   modes?: InputTextModes;
   label: string;
   // optional properties
@@ -54,7 +54,7 @@ interface P {
   min?: number;
 
   // methods
-  handleChange: (v: ChangeEvent<HTMLInputElement>) => void;
+  handleChange?: (v: ChangeEvent<HTMLInputElement>) => void;
   handleFocus?: (v?: any) => void;
   handleBlur?: (v?: any) => void;
   handleCheck?: (v?: any) => Promise<any> | void;
@@ -141,7 +141,9 @@ const InputText: FC<P> = ({
 
   const onHandleChange = (e: ChangeEvent<HTMLInputElement>) => {
     // setIsEmpty(false)
-    handleChange(e);
+    if (handleChange) {
+      handleChange(e);
+    }
   };
   const onHandleBlur = useCallback(
     async (e: ChangeEvent<HTMLInputElement>) => {
@@ -225,7 +227,7 @@ const InputText: FC<P> = ({
           value={value}
           min={min}
           step={step}
-          onChange={onHandleChange}
+          onChange={handleChange ? onHandleChange : undefined}
           onFocus={onHandleFocus}
           onBlur={onHandleBlur}
           className={cstyles.inputtext}
