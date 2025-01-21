@@ -65,6 +65,7 @@ export { default as GalleryModal } from "./components/ui/galleryModal/GalleryMod
 export { default as LabelText } from "./components/ui/label/LabelText";
 export { default as Modal } from "./components/ui/modals/Modal";
 export { default as GlobalEventPortal } from "./components/ui/portals/GlobalEventPortal";
+export { PORTAL as FunctionalUiPortals } from "./components/ui/portals/types";
 
 export { default as InputImage } from "./components/ui/inputs/image/InputImage";
 export { default as Radio } from "./components/ui/inputs/radio/Radio";
