@@ -1,18 +1,23 @@
 "use client";
 
-import { Container } from "functionalui";
-import { ColorSets } from "functionalui/types";
+import { Container, Layout } from "functionalui";
+import {
+  ColorSets,
+  Displays,
+  FlexAlignItems,
+  Radiuses,
+} from "functionalui/types";
 import { FC, useEffect, useState } from "react";
 import InsetItem from "./components/InsetItem";
 import cstyles from "./styles.module.css";
+import { InsetGroupOption } from "../../../styles/types/ui/insetGroup/types";
 
 interface P {
-  options: any;
-  valueIndex: any;
   id: any;
-  setInput: any;
-  setSelect: any;
-  // rgbBg: any;
+  options: InsetGroupOption[];
+  valueIndex?: any;
+  setInput?: any;
+  setSelect?: (v: InsetGroupOption) => void;
   insetColor?: ColorSets;
 }
 const InsetGroup: FC<P> = ({
@@ -21,10 +26,10 @@ const InsetGroup: FC<P> = ({
   id,
   setInput,
   setSelect,
-  // rgbBg,
   insetColor,
 }) => {
   const [selectedInsetIdx, setSelectedInsetIdx] = useState(valueIndex);
+
   useEffect(() => {
     if (typeof valueIndex === "number") {
       setSelectedInsetIdx(valueIndex);
@@ -44,8 +49,8 @@ const InsetGroup: FC<P> = ({
     }
   };
   return (
-    <Container className={cstyles.insetGroupContainer}>
-      {options.map((item: any, index: number) => (
+    <Layout display={Displays.Flex} flexAlignItem={FlexAlignItems.Center}>
+      {options.map((item: InsetGroupOption, index: number) => (
         <InsetItem
           key={index}
           text={item.text}
@@ -54,11 +59,18 @@ const InsetGroup: FC<P> = ({
           id={item.id}
           handleSelectInset={handleSelectInset}
           isSelected={index === selectedInsetIdx}
-          // rgbBg={rgbBg}
           insetColor={insetColor}
+          borderTopLeftRadius={index === 0 ? Radiuses.Size4 : undefined}
+          borderTopRightRadius={
+            index === options.length - 1 ? Radiuses.Size4 : undefined
+          }
+          borderBottomLeftRadius={index === 0 ? Radiuses.Size4 : undefined}
+          borderBottomRightRadius={
+            index === options.length - 1 ? Radiuses.Size4 : undefined
+          }
         />
       ))}
-    </Container>
+    </Layout>
   );
 };
 

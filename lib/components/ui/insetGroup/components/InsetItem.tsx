@@ -4,6 +4,7 @@ import {
   COLOR_VALUES,
   ColorRanges,
   ColorSets,
+  Radiuses,
   Spacings,
 } from "functionalui/types";
 import { FC } from "react";
@@ -17,6 +18,10 @@ interface P {
   isSelected: any;
   // rgbBg: any;
   insetColor?: ColorSets;
+  borderTopLeftRadius?: Radiuses;
+  borderTopRightRadius?: Radiuses;
+  borderBottomLeftRadius?: Radiuses;
+  borderBottomRightRadius?: Radiuses;
 }
 const InsetItem: FC<P> = ({
   text,
@@ -27,6 +32,10 @@ const InsetItem: FC<P> = ({
   isSelected,
   // rgbBg,
   insetColor = ColorSets.Primarys,
+  borderTopLeftRadius,
+  borderTopRightRadius,
+  borderBottomLeftRadius,
+  borderBottomRightRadius,
 }) => {
   const animStyles = useSpring({
     // backgroundColor: isSelected ? rgbBg ? rgbBg : "rgb(255,255,255)" : "rgb(222,226,230)",
@@ -57,10 +66,22 @@ const InsetItem: FC<P> = ({
       paddingBottom={Spacings.Size1}
       paddingLeft={Spacings.Size2}
       paddingRight={Spacings.Size2}
+      borderTopLeftRadius={borderTopLeftRadius}
+      borderTopRightRadius={borderTopRightRadius}
+      borderBottomLeftRadius={borderBottomLeftRadius}
+      borderBottomRightRadius={borderBottomRightRadius}
       onClick={() => handleSelectInset(idx)}
     >
       <Container style={textStyles}>
-        <Text_Span style={{ color: "inherit" }}>{text}</Text_Span>
+        <Text_Span
+          style={{
+            color: "inherit",
+            transform: "translateY(-1px)",
+            display: "inline-block",
+          }}
+        >
+          {text}
+        </Text_Span>
       </Container>
     </Container>
   );

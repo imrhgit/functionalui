@@ -301,3 +301,5 @@ export {
 } from "./ui/toggleswitch/types";
 
 export { Icons } from "./icons/icons";
+
+export type { InsetGroupOption } from "./ui/insetGroup/types";
