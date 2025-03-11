@@ -1,6 +1,6 @@
 "use client";
 
-import { Container, Layout } from "functionalui";
+import { Layout } from "functionalui";
 import {
   ColorSets,
   Displays,
@@ -9,7 +9,6 @@ import {
 } from "functionalui/types";
 import { FC, useEffect, useState } from "react";
 import InsetItem from "./components/InsetItem";
-import cstyles from "./styles.module.css";
 import { InsetGroupOption } from "../../../styles/types/ui/insetGroup/types";
 
 interface P {
@@ -18,6 +17,7 @@ interface P {
   valueIndex?: any;
   setInput?: any;
   setSelect?: (v: InsetGroupOption) => void;
+  // rgbBg: any;
   insetColor?: ColorSets;
 }
 const InsetGroup: FC<P> = ({
