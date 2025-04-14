@@ -1,5 +1,5 @@
 import { Layout } from "functionalui";
-import { TableRowElement } from "functionalui/types";
+import { Displays, TableRowElement } from "functionalui/types";
 import { FC, useState } from "react";
 import TableRowAnimation from "./TableRowAnimation";
 import TableRowCell from "./TableRowCell";
@@ -28,11 +28,12 @@ const TableRow: FC<TableRowElement> = ({
             onClickRow(rowId, e);
           }
         }}
+        display={Displays.Grid}
         style={{ gridTemplateColumns: templateColumns.join(" ") }}
       >
-        {cells.map((item) => (
+        {cells.map((item, idx) => (
           <TableRowCell
-            key={item.cellId}
+            key={item.cellId || idx}
             cellId={item.cellId}
             element={item.element}
             styles={item.styles}
