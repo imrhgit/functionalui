@@ -35,6 +35,7 @@ const AvatarGroup: FC<P> = ({
 		<Layout display={Displays.Flex}>
 			{props.map((p, i) => (
 				<animated.div
+					key={i}
 					style={p}
 					// hover
 					onMouseEnter={() =>

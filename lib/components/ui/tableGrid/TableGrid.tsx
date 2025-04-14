@@ -35,9 +35,9 @@ const TableGrid: FC<P> = ({
       />
       {tableRows.length !== 0 ? (
         <>
-          {tableRows.map((item) => (
+          {tableRows.map((item, idx) => (
             <TableRow
-              key={item.rowId}
+              key={item.rowId || idx}
               rowId={item.rowId}
               templateColumns={templateColumns}
               cells={item.cells}
