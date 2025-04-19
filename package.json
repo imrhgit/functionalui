@@ -1,6 +1,6 @@
 {
   "name": "@functionalui/functionalui",
-  "version": "0.0.5005",
+  "version": "0.0.5006",
   "type": "module",
   "files": [
     "dist"

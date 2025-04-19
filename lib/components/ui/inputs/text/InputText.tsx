@@ -110,13 +110,19 @@ const InputText: FC<P> = ({
   // customizations
   labelTextColor = true,
   transparent,
-  // defaultValue,
+  defaultValue,
   ...props
 }) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   // const [isFocus, setIsFocus] = useState<boolean>(focus || false)
   // const [isEmpty, setIsEmpty] = useState(true);
+
+  useEffect(() => {
+    if (defaultValue && inputRef.current) {
+      value = defaultValue
+    }
+  }, [defaultValue])
 
   useEffect(() => {
     if (modes === InputTextModes.Disabled) return;
