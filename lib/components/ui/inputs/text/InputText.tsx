@@ -76,11 +76,10 @@ interface P extends HTMLAttributes<HTMLInputElement> {
    * - border color, input text color, label color, icon color
    */
   labelTextColor?: boolean | ColorPalettes;
-
   transparent?: boolean;
-  // defaultValue?: string;
 }
-const InputText: FC<P> = ({
+
+const InputText = ({
   // required
   id,
   name,
@@ -110,19 +109,12 @@ const InputText: FC<P> = ({
   // customizations
   labelTextColor = true,
   transparent,
-  defaultValue,
   ...props
-}) => {
+}: P) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   // const [isFocus, setIsFocus] = useState<boolean>(focus || false)
   // const [isEmpty, setIsEmpty] = useState(true);
-
-  useEffect(() => {
-    if (defaultValue && inputRef.current) {
-      value = defaultValue
-    }
-  }, [defaultValue])
 
   useEffect(() => {
     if (modes === InputTextModes.Disabled) return;
@@ -241,7 +233,6 @@ const InputText: FC<P> = ({
           onFocus={onHandleFocus}
           onBlur={onHandleBlur}
           className={cstyles.inputtext}
-          // defaultValue={defaultValue}
           {...props}
         />
         {type === InputTextTypes.Password && (
