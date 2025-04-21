@@ -3,6 +3,7 @@
 import {
   ChangeEvent,
   FC,
+  HTMLAttributes,
   useCallback,
   useEffect,
   useRef,
@@ -34,7 +35,7 @@ import {
  * icon on left or right side
  */
 
-interface P {
+interface P extends HTMLAttributes<HTMLInputElement> {
   id: string;
   name: string;
   type?: InputTextTypes;
@@ -75,10 +76,10 @@ interface P {
    * - border color, input text color, label color, icon color
    */
   labelTextColor?: boolean | ColorPalettes;
-
   transparent?: boolean;
 }
-const InputText: FC<P> = ({
+
+const InputText = ({
   // required
   id,
   name,
@@ -108,7 +109,8 @@ const InputText: FC<P> = ({
   // customizations
   labelTextColor = true,
   transparent,
-}) => {
+  ...props
+}: P) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   // const [isFocus, setIsFocus] = useState<boolean>(focus || false)
@@ -231,6 +233,7 @@ const InputText: FC<P> = ({
           onFocus={onHandleFocus}
           onBlur={onHandleBlur}
           className={cstyles.inputtext}
+          {...props}
         />
         {type === InputTextTypes.Password && (
           <ShowHidePassword
