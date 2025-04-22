@@ -7,6 +7,7 @@ import {
   FontWeights,
   Radiuses,
   Sizings,
+  Spacings,
 } from "functionalui/types";
 
 export const INPUT_TEXT_COLOR: { [key: number]: any } = {
@@ -71,10 +72,10 @@ export enum InputTextSizes {
 export const INPUT_TEXT_SIZE: { [key: number]: any } = {
   [InputTextSizes.Small]: {
     paddings: {
-      top: Sizings.Size1,
-      bottom: Sizings.Size1,
-      left: Sizings.Size2,
-      right: Sizings.Size2,
+      top: Spacings.Size1,
+      bottom: Spacings.Size1,
+      left: Spacings.Size2,
+      right: Spacings.Size2,
     },
     font: {
       size: FontSizes.Size1,
@@ -83,10 +84,10 @@ export const INPUT_TEXT_SIZE: { [key: number]: any } = {
   },
   [InputTextSizes.Default]: {
     paddings: {
-      top: Sizings.Size1,
-      bottom: Sizings.Size1,
-      left: Sizings.Size2,
-      right: Sizings.Size2,
+      top: Spacings.Size1,
+      bottom: Spacings.Size1,
+      left: Spacings.Size2,
+      right: Spacings.Size2,
     },
     font: {
       size: FontSizes.Size3,
@@ -95,10 +96,10 @@ export const INPUT_TEXT_SIZE: { [key: number]: any } = {
   },
   [InputTextSizes.Big]: {
     paddings: {
-      top: Sizings.Size1,
-      bottom: Sizings.Size1,
-      left: Sizings.Size2,
-      right: Sizings.Size2,
+      top: Spacings.Size1,
+      bottom: Spacings.Size1,
+      left: Spacings.Size2,
+      right: Spacings.Size2,
     },
     font: {
       size: FontSizes.Size4,
@@ -107,10 +108,10 @@ export const INPUT_TEXT_SIZE: { [key: number]: any } = {
   },
   [InputTextSizes.Huge]: {
     paddings: {
-      top: Sizings.Size1,
-      bottom: Sizings.Size1,
-      left: Sizings.Size2,
-      right: Sizings.Size2,
+      top: Spacings.Size1,
+      bottom: Spacings.Size1,
+      left: Spacings.Size2,
+      right: Spacings.Size2,
     },
     font: {
       size: FontSizes.Size5,

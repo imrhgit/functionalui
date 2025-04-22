@@ -1,26 +1,22 @@
 "use client";
 
-import {
-  ChangeEvent,
-  FC,
-  HTMLAttributes,
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
-import InputTextHelper from "../text/components/InputTextHelper";
-import ShowHidePassword from "../text/components/ShowHidePassword";
-import InputTextLabel from "./components/labels/InputTextLabel";
+import { Container, F__TextInputRef } from "functionalui";
 import {
   BoxSizings,
   ColorPalettes,
   ColorSets,
   FontSizes,
   FontWeights,
+  SPACING_VALUES,
 } from "functionalui/types";
-import { Container, F__TextInputRef } from "functionalui";
-import cstyles from "./styles.module.css";
+import {
+  ChangeEvent,
+  HTMLAttributes,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import {
   INPUT_TEXT_COLOR,
   INPUT_TEXT_SIZE,
@@ -30,6 +26,10 @@ import {
   InputTextStyles,
   InputTextTypes,
 } from "../../../../styles/types/ui/inputs/text/types";
+import InputTextHelper from "../text/components/InputTextHelper";
+import ShowHidePassword from "../text/components/ShowHidePassword";
+import InputTextLabel from "./components/labels/InputTextLabel";
+import cstyles from "./styles.module.css";
 
 /**
  * icon on left or right side
@@ -132,13 +132,18 @@ const InputText = ({
   }, [focus, modes, value]);
 
   const [inputType, setInputType] = useState<InputTextTypes>(type);
-  const [showText, setShowText] = useState(true);
+  // useEffect(() => {
+  //   setInputType(type);
+  // }, [type]);
+  const [showText, setShowText] = useState(false);
   const handleShowText = () => {
     setShowText((prev) => !prev);
   };
   useEffect(() => {
-    if (showText) setInputType(InputTextTypes.Text);
-    else setInputType(InputTextTypes.Password);
+    if (type === InputTextTypes.Password) {
+      if (showText) setInputType(InputTextTypes.Text);
+      else setInputType(InputTextTypes.Password);
+    }
   }, [showText]);
 
   const onHandleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -208,7 +213,10 @@ const InputText = ({
           // position: "relative",
           // width: fullWidth ? "100%" : width ? width : 350,
           paddingTop: inputStyle !== InputTextStyles.Outlined ? 1 : "",
-          paddingBottom: inputStyle !== InputTextStyles.Outlined ? 1 : "",
+          paddingBottom:
+            inputStyle !== InputTextStyles.Outlined
+              ? SPACING_VALUES[INPUT_TEXT_SIZE[size].paddings.bottom]
+              : "",
           // display: size === InputTextSizes.Small ? "flex" : "block",
           display: inputStyle !== InputTextStyles.Outlined ? "flex" : "block",
           cursor: "text",
