@@ -108,11 +108,11 @@ const Button: FC<ButtonProps> = ({
         // !disabled && api({ y: 0 });
         setOnHover(false);
       }}
-      onMouseDown={() => isAnimated && api({ transform: "scale(0.9)" })}
-      onMouseUp={() => isAnimated && api({ transform: "scale(1.0)" })}
-      onTouchStart={() => isAnimated && api({ transform: "scale(0.9)" })}
-      onTouchCancel={() => isAnimated && api({ transform: "scale(1.0)" })}
-      onTouchEnd={() => isAnimated && api({ transform: "scale(1.0)" })}
+      onMouseDown={() => isAnimated && api.start({ transform: "scale(0.9)" })}
+      onMouseUp={() => isAnimated && api.start({ transform: "scale(1.0)" })}
+      onTouchStart={() => isAnimated && api.start({ transform: "scale(0.9)" })}
+      onTouchCancel={() => isAnimated && api.start({ transform: "scale(1.0)" })}
+      onTouchEnd={() => isAnimated && api.start({ transform: "scale(1.0)" })}
     >
       {hover && (
         <LabelText

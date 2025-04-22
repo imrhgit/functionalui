@@ -28,7 +28,10 @@ const InputTextLabel: FC<P> = ({
   inputColor,
 }) => {
   return (
-    <Container paddingLeft={INPUT_TEXT_SIZE[size].paddings.left}>
+    <Container
+      paddingLeft={INPUT_TEXT_SIZE[size].paddings.left}
+      paddingBottom={INPUT_TEXT_SIZE[size].paddings.bottom}
+    >
       <label htmlFor={id}>
         <Text_Span
           fontWeight={FontWeights.Size3}

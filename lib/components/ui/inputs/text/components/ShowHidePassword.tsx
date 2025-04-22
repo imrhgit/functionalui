@@ -1,5 +1,5 @@
 import { Container, UIcon } from "functionalui";
-import { ColorPalettes, Sizings } from "functionalui/types";
+import { ColorPalettes, Cursors, Icons, Sizings } from "functionalui/types";
 import { FC } from "react";
 import cstyles from "../styles.module.css";
 
@@ -11,20 +11,21 @@ const ShowHidePassword: FC<P> = ({ isShow, handleShowHideText }) => {
   return (
     <Container
       className={cstyles.showHidePassword}
-      // style={{
-      //   position: "absolute",
-      //   bottom: ".75rem",
-      //   left: "88%",
-      //   zIndex: 4,
-      //   cursor: "pointer",
-      // }}
+      style={{
+        position: "absolute",
+        bottom: ".75rem",
+        left: "88%",
+        zIndex: 4,
+        cursor: "pointer",
+      }}
       onClick={() => handleShowHideText()}
     >
       <UIcon
-        name={!isShow ? "eye_show" : "eye_hide"}
+        name={!isShow ? Icons.Eye : Icons.EyeOff}
         size={Sizings.Size3}
         colorLight={ColorPalettes.Primary5}
         colorDark={ColorPalettes.Primary5}
+        cursor={Cursors.Pointer}
       />
     </Container>
   );
