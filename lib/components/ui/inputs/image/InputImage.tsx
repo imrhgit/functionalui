@@ -2,20 +2,21 @@
 
 import { Container, Layout, Text_Span, UIcon } from "functionalui";
 import { Displays, FlexAlignItems, Spacings } from "functionalui/types";
-import { ChangeEvent, FC, useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import cstyles from "./inputImage.module.css";
 
 interface P {
   id: string;
   name: string;
   // handleImageChange: (v: File | undefined, w: string | undefined) => Promise<void>;
-  handleImageChange: (v: File | undefined) => void;
+  handleImageChange?: (v: File | undefined) => void;
   labelname?: string;
   defaultValue?: string;
   width?: number | string;
   height?: number | string;
 }
-const InputImage: FC<P> = ({
+
+const InputImage = ({
   id,
   name,
   handleImageChange,
@@ -23,7 +24,7 @@ const InputImage: FC<P> = ({
   defaultValue,
   width = "100%",
   height,
-}) => {
+}: P) => {
   const [selectedFile, setSelectedFile] = useState<File | undefined>();
   const [preview, setPreview] = useState<string | undefined>(defaultValue);
   // create a preview as a side effect
@@ -39,7 +40,17 @@ const InputImage: FC<P> = ({
     setPreview(objectUrl);
 
     // free memory when ever this component is unmounted
-    return () => URL.revokeObjectURL(objectUrl);
+    return () => {
+      var v: string;
+      if (objectUrl !== "") {
+        v = objectUrl;
+      } else if (selectedFile && preview) {
+        v = preview;
+      } else return;
+      try {
+        URL.revokeObjectURL(v);
+      } catch (_) {}
+    };
   }, [defaultValue, selectedFile]);
 
   const onSelectFile = async (e: ChangeEvent<HTMLInputElement>) => {
@@ -52,13 +63,13 @@ const InputImage: FC<P> = ({
     // to update defaultValue -- when reupload
     const objectUrl = URL.createObjectURL(e.target.files[0]);
     setPreview(objectUrl);
-    handleImageChange(e.target.files[0]);
+    handleImageChange && handleImageChange(e.target.files[0]);
   };
 
   const handleCancel = () => {
     setSelectedFile(undefined);
     setPreview(undefined);
-    handleImageChange(undefined);
+    handleImageChange && handleImageChange(undefined);
   };
 
   return (
