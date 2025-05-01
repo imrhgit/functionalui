@@ -7,7 +7,7 @@ import {
   Radiuses,
   TabMenu,
 } from "functionalui/types";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useMeasure from "react-use-measure";
 import TabsMenu from "./TabsMenu";
 import TabsRoom from "./TabsRoom";
@@ -20,6 +20,9 @@ type P = {
 
 const Tabs = ({ tabMenu, tab, setTab }: P) => {
   const [activeItem, setActiveItem] = useState(tab || 0);
+  useEffect(() => {
+    setActiveItem(tab)
+  }, [tab])
   const handleSelectTab = (v: number) => {
     setTab && setTab(v);
     setActiveItem(v);
