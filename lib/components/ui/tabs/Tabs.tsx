@@ -14,16 +14,16 @@ import {
 import { useState } from "react";
 import useMeasure from "react-use-measure";
 
-type Props = {
+type P = {
   tab: number;
   tabMenu: TabMenu[];
-  setTab: (a: number) => void;
+  setTab?: (a: number) => void;
 };
 
-const Tabs = ({ tabMenu, tab, setTab }: Props) => {
+const Tabs = ({ tabMenu, tab, setTab }: P) => {
   const [activeItem, setActiveItem] = useState(tab || 0);
   const handleSelectTab = (v: number) => {
-    setTab(v);
+    setTab && setTab(v);
     setActiveItem(v);
   };
   const [ref, bounds] = useMeasure();
