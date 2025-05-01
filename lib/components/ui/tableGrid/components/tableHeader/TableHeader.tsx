@@ -7,7 +7,7 @@ import cstyles from "./styles.module.css";
 interface P {
   headers: TableHeaderElement[];
   templateColumns: string[];
-  setTableRows: (v?: any) => void;
+  setTableRows?: (v?: any) => void;
 }
 
 const TableHeader: FC<P> = ({

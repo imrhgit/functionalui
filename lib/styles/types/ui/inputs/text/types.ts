@@ -1,12 +1,11 @@
 import {
-    BorderStyles,
-    BorderWidths,
+  BorderStyles,
+  BorderWidths,
   ColorPalettes,
   ColorSets,
   FontSizes,
   FontWeights,
   Radiuses,
-  Sizings,
   Spacings,
 } from "functionalui/types";
 
@@ -120,12 +119,10 @@ export const INPUT_TEXT_SIZE: { [key: number]: any } = {
   },
 };
 
-
-
 export enum InputTextStyles {
-  Default = 1,    // border bottom
-  Outlined,       // outline overall
-  Filled,         // border bottom & bg color
+  Default = 1, // border bottom
+  Outlined, // outline overall
+  Filled, // border bottom & bg color
 }
 export const INPUT_TEXT_STYLE: { [key: number]: any } = {
   [InputTextStyles.Default]: {
@@ -135,7 +132,7 @@ export const INPUT_TEXT_STYLE: { [key: number]: any } = {
       style: BorderStyles.Solid,
       bottom: {
         style: BorderStyles.Solid,
-        width: BorderWidths.Size1
+        width: BorderWidths.Size1,
       },
       top: undefined,
       left: undefined,
@@ -150,7 +147,7 @@ export const INPUT_TEXT_STYLE: { [key: number]: any } = {
       borders: {
         style: BorderStyles.Solid,
         width: BorderWidths.Size1,
-      }
+      },
     },
   },
   [InputTextStyles.Filled]: {
@@ -161,7 +158,7 @@ export const INPUT_TEXT_STYLE: { [key: number]: any } = {
       borders: undefined,
     },
   },
-}
+};
 
 export enum InputTextModes {
   Default = 1,

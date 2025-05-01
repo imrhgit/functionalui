@@ -74,6 +74,10 @@ export { default as TextArea } from "./components/ui/inputs/textArea/TextArea";
 export { default as InsetGroup } from "./components/ui/insetGroup/InsetGroup";
 export { default as NotificationSystem } from "./components/ui/notifications/NotificationSystem";
 export { default as SelectSpring } from "./components/ui/selectSpring/SelectSpring";
+
 export { default as TableGrid } from "./components/ui/tableGrid/TableGrid";
+export { default as TableRow } from "./components/ui/tableGrid/components/tableRow/TableRow";
+export { default as TableHeader } from "./components/ui/tableGrid/components/tableHeader/TableHeader";
+
 export { default as Tabs } from "./components/ui/tabs/Tabs";
 export { default as ToggleSwitch } from "./components/ui/toggleSwitch/ToggleSwitch";
