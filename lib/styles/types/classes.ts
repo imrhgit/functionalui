@@ -10,6 +10,7 @@ import {
   FontStyles,
   FontWeights,
   MediaSizes,
+  OutlineStyles,
   Positions,
   Radiuses,
   Spacings,
@@ -415,4 +416,15 @@ export const CURSOR_CLASSES: ClassType = {
   [Cursors.Grabbing]: "fctrd--curs--grabbing",
   [Cursors.ZoomIn]: "fctrd--curs--zoom-in",
   [Cursors.ZoomOut]: "fctrd--curs--zoom-out",
+};
+
+export const OUTLINE_STYLE_CLASSES: ClassType = {
+  [OutlineStyles.Auto]: "fctrd--outl-st-auto",
+  [OutlineStyles.Dashed]: "fctrd--outl-st-dashed",
+  [OutlineStyles.Dotted]: "fctrd--outl-st-dotted",
+  [OutlineStyles.Double]: "fctrd--outl-st-double",
+  [OutlineStyles.Inset]: "fctrd--outl-st-inset",
+  [OutlineStyles.None]: "fctrd--outl-st-none",
+  [OutlineStyles.Outset]: "fctrd--outl-st-outset",
+  [OutlineStyles.Solid]: "fctrd--outl-st-solid",
 };
