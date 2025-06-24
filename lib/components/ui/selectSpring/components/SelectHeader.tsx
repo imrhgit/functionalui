@@ -2,9 +2,11 @@ import { useSpring } from "@react-spring/web";
 import HeaderValues from "./HeaderValues";
 import {
   ColorPalettes,
+  Cursors,
   Displays,
   FlexAlignItems,
   FlexJustifyContents,
+  Radiuses,
   SelectedValuesStyles,
   SelectOption,
   Spacings,
@@ -54,6 +56,8 @@ const SelectHeader = ({
       borderRadius={SELECT_STATES[selectState].header.borderRadius}
       borderWidth={SELECT_STATES[selectState].header.borderWidth}
       borderColor={SELECT_STATES[selectState].header.borderColor}
+      borderTopLeftRadius={openDropdown ? Radiuses.Size0 : undefined}
+      borderTopRightRadius={openDropdown ? Radiuses.Size0 : undefined}
       bgColor={SELECT_STATES[selectState].header.bgColor}
       onClick={() => setOpenDropdown((prev: boolean) => !prev)}
     >
@@ -125,9 +129,11 @@ export default SelectHeader;
 const SelectSpringIcon = ({
   isSelectOpen,
   sizes,
+  cursor = Cursors.Pointer,
 }: {
   isSelectOpen: boolean;
   sizes: SelectSizes;
+  cursor?: Cursors;
 }) => {
   const iconChevronAnimation = useSpring({
     rotateX: isSelectOpen ? 180 : 0,
@@ -142,6 +148,7 @@ const SelectSpringIcon = ({
         colorLight={ColorPalettes.Grey5}
         colorDark={ColorPalettes.Grey5}
         size={SELECT_SIZES[sizes].icon.size}
+        cursor={cursor}
       />
     </Container>
   );

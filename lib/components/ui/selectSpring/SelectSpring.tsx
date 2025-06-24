@@ -1,4 +1,4 @@
-import { Layout } from "functionalui";
+import { LayoutRef } from "functionalui";
 import {
   ColorSets,
   Displays,
@@ -8,14 +8,14 @@ import {
 import { FC, useEffect, useReducer, useState } from "react";
 import useMeasure from "react-use-measure";
 import useClickOutsideDOM from "../../../hooks/useClickOutsideDOM";
-import SelectDropdown from "./components/SelectDropdown";
-import SelectHeader from "./components/SelectHeader";
 import {
   DropdownHeightStyles,
-  SelectedValuesStyles,
   DropdownPositions,
+  SelectedValuesStyles,
   SelectStates,
 } from "../../../styles/types/ui/selectSpring/types";
+import SelectDropdown from "./components/SelectDropdown";
+import SelectHeader from "./components/SelectHeader";
 
 interface P {
   id: string | number;
@@ -57,7 +57,7 @@ function reducer(state: ReducerStates, action: any): ReducerStates {
             if (action.value === i) {
               return { ...item, selected: true };
             } else return { ...item, selected: false };
-          },
+          }
         ),
         openDropdown: false,
         selectState: SelectStates.Selected,
@@ -169,57 +169,58 @@ const SelectSpring: FC<P> = ({
   });
   const [headerRef, headerBounds] = useMeasure();
 
-  console.log(
-    "devel:SelectSpring",
-    "\n",
-    "id",
-    id,
-    "\n",
-    "selectedIdx",
-    selectedIdx,
-    "\n",
-  );
+  // console.log(
+  //   "devel:SelectSpring",
+  //   "\n",
+  //   "id",
+  //   id,
+  //   "\n",
+  //   "selectedIdx",
+  //   selectedIdx,
+  //   "\n"
+  // );
 
   return (
-    <div ref={nodeDOM}>
-      <Layout
-        display={Displays.Flex}
-        flexDirection={FlexDirections.Column}
-        style={{ width: w, maxWidth: w }}
-      >
-        <div ref={headerRef}>
-          <SelectHeader
-            w={w}
-            setOpenDropdown={() => dispatch({ type: "open-close" })}
-            selectState={selectState}
-            setSelectState={(s: SelectStates) =>
-              dispatch({ type: "field", field: "selectState", value: s })
-            }
-            openDropdown={openDropdown}
-            // selectedItemIdx={typeof selectedItemIdx === "number" && selectedItemIdx !== -1 ? selectedItemIdx : null}
-            title={title}
-            doubleZero={doubleZero}
-            selectedValues={selectOptions.filter((v) => v.selected === true)}
-            selectedValueStyles={selectedValuesStyle}
-            options={options}
-          />
-        </div>
-
-        {/* dropdown */}
-        <SelectDropdown
-          isSelectOpen={openDropdown} // to open or close dropdown
-          closeSelect={() => dispatch({ type: "close" })}
-          selectOptions={selectOptions} // to show the options list
-          handleSelectItem={handleSelectItem} // to handle select option
+    // <div ref={nodeDOM}>
+    <LayoutRef
+      ref={nodeDOM}
+      display={Displays.Flex}
+      flexDirection={FlexDirections.Column}
+      style={{ width: w, maxWidth: w }}
+    >
+      <div ref={headerRef}>
+        <SelectHeader
+          w={w}
+          setOpenDropdown={() => dispatch({ type: "open-close" })}
           selectState={selectState}
-          dropdownHeightStyle={dropdownHeightStyle}
-          dropdownPosition={dropdownPosition}
-          colorSet={colorSet}
-          headerHeight={headerBounds.height}
-          w={headerBounds.width}
+          setSelectState={(s: SelectStates) =>
+            dispatch({ type: "field", field: "selectState", value: s })
+          }
+          openDropdown={openDropdown}
+          // selectedItemIdx={typeof selectedItemIdx === "number" && selectedItemIdx !== -1 ? selectedItemIdx : null}
+          title={title}
+          doubleZero={doubleZero}
+          selectedValues={selectOptions.filter((v) => v.selected === true)}
+          selectedValueStyles={selectedValuesStyle}
+          options={options}
         />
-      </Layout>
-    </div>
+      </div>
+
+      {/* dropdown */}
+      <SelectDropdown
+        isSelectOpen={openDropdown} // to open or close dropdown
+        closeSelect={() => dispatch({ type: "close" })}
+        selectOptions={selectOptions} // to show the options list
+        handleSelectItem={handleSelectItem} // to handle select option
+        selectState={selectState}
+        dropdownHeightStyle={dropdownHeightStyle}
+        dropdownPosition={dropdownPosition}
+        colorSet={colorSet}
+        headerHeight={headerBounds.height}
+        w={headerBounds.width}
+      />
+    </LayoutRef>
+    // </div>
   );
 };
 

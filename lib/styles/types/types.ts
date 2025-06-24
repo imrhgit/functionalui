@@ -8,6 +8,7 @@ import {
   TextStyleProps,
 } from "./components.types";
 import { ElementResizes, OutlineStyles } from "./generics";
+import { ToastTypes } from "./types";
 
 export {
   BORDER_BOTTOM_LEFT_RADIUS_CLASSES,
@@ -131,7 +132,7 @@ export {
 
 export type GlobalEventContextType = {
   globalEventRef: any | null;
-  handleGlobalEventRef: any | undefined;
+  handleGlobalEventRef: (props: string, type: ToastTypes) => void;
   // handleGlobaEventRef: ((props: string, type: ToastTypes) => void) | undefined;
   catchUserAxiosNextApiError: any | undefined;
   catchUserAxiosFetcherError: any | undefined;
@@ -247,6 +248,7 @@ export {
   ButtonStateIcon,
   ButtonStates,
   ButtonTypes,
+  ButtonStyles,
 } from "./ui/button/types";
 export {
   CHECKBOX_COLORS,

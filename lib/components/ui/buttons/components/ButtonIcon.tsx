@@ -55,7 +55,14 @@ const ButtonIcon = ({
       }
       style={{
         position: "relative",
-        [iconMargin === Spacings.Size0 ? "marginRight" : ""]: 2,
+        // [iconMargin === Spacings.Size0 ? "marginRight" : "marginLeft"]: 2,
+        [iconMargin === Spacings.Size0
+          ? iconPosition === ButtonIconPositions.Left
+            ? "marginRight"
+            : iconPosition === ButtonIconPositions.Right
+            ? "marginLeft"
+            : ""
+          : ""]: 2,
         // marginRight:
         //   iconPosition === ButtonIconPositions.Left && !iconMargin ? 3 : "auto",
         // marginLeft:

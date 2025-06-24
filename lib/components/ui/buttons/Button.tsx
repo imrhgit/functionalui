@@ -211,7 +211,14 @@ const Button: FC<ButtonProps> = ({
                 {name !== "" && !hover && (
                   <Text_Span
                     fontSize={BUTTON_SIZE[buttonSize].text}
-                    paletteColor={BUTTON_COLORS[buttonColor].text}
+                    fontWeight={FontWeights.Size3}
+                    paletteColor={
+                      BUTTON_STATE[buttonState]?.text?.color
+                        ? BUTTON_STATE[buttonState]?.text?.color
+                        : buttonStyle && BUTTON_STYLE[buttonStyle]?.fontColor
+                          ? BUTTON_STYLE[buttonStyle].fontColor
+                          : BUTTON_COLORS[buttonColor].text
+                    }
                     className={`name ${icon ? "icon-right" : ""}`}
                   >
                     {name}
@@ -223,6 +230,8 @@ const Button: FC<ButtonProps> = ({
                     iconSize={BUTTON_SIZE[buttonSize].icon}
                     iconState={buttonState}
                     iconColor={iconColor}
+                    iconPosition={iconPosition}
+                    iconMargin={BUTTON_SIZE[buttonSize].iconMargin}
                   />
                 )}
               </>
