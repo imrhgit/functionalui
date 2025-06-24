@@ -12,7 +12,7 @@ import {
 	Radiuses,
 	Spacings,
 } from "functionalui/types";
-import { ButtonStates, ButtonStyles } from "../../../types/ui/button/types";
+import { ButtonIconPositions, ButtonStates, ButtonStyles } from "../../../types/ui/button/types";
 
 const meta: Meta<typeof Button> = {
 	title: "Components/Button",
@@ -36,7 +36,7 @@ export const Styles = () => {
 						display={Displays.Grid}
 						gridAlignContent={GridAlignContents.Center}
 						gridJustifyContent={GridJustifyContents.Center}
-						style={{ gridTemplateColumns: "100px 150px 150px" }}
+						style={{ gridTemplateColumns: "100px 150px 150px 150px" }}
 					>
 						<Text_Span paletteColor={ColorPalettes.Grey1}>
 							{item.name}
@@ -51,6 +51,13 @@ export const Styles = () => {
 							name="Button"
 							icon={Icons.Box}
 							buttonSize={ButtonSizes.Small}
+						/>
+						<Button
+							buttonStyle={item.value}
+							name="Button"
+							icon={Icons.Box}
+							buttonSize={ButtonSizes.Small}
+							iconPosition={ButtonIconPositions.Right}
 						/>
 					</Layout>
 				</ShowcaseContainer>
@@ -125,6 +132,8 @@ export const States = () => {
 							name="Button"
 							icon={Icons.Box}
 							buttonSize={ButtonSizes.Small}
+
+							iconPosition={ButtonIconPositions.Right}
 						/>
 					</Layout>
 				</ShowcaseContainer>
