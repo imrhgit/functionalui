@@ -14,6 +14,7 @@ import {
 import { forwardRef } from "react";
 import { THEME_CLASSES } from "../../../../contexts/ui/types";
 import { useUiContext } from "functionalui";
+import { OUTLINE_STYLE_CLASSES } from "../../../types/classes";
 
 const F__TextAreaRef = forwardRef(
 	(
@@ -25,6 +26,7 @@ const F__TextAreaRef = forwardRef(
 			fontStyle,
 			textAlign,
 			resize,
+			outlineStyle,
 			className,
 			children,
 			...props
@@ -53,6 +55,9 @@ const F__TextAreaRef = forwardRef(
 		}
 		if (resize) {
 			classes[ELEMENT_RESIZE_CLASSES[resize]] = true;
+		}
+		if (outlineStyle) {
+			classes[OUTLINE_STYLE_CLASSES[outlineStyle]] = true;
 		}
 		return (
 			<animated.textarea
