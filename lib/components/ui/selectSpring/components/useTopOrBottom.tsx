@@ -20,8 +20,14 @@ const useTopOrBottom = (elem: D, margin?: number): number => {
         height: window.innerHeight,
       });
     };
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    if (window) {
+      window.addEventListener("resize", handleResize);
+    }
+    return () => {
+      if (window) {
+        window.removeEventListener("resize", handleResize);
+      }
+    };
   }, []);
 
   const elemTotalHeight: number = elem.height + (margin ? margin : 10);
