@@ -18,9 +18,12 @@ const PlatformPortal = ({ children }: { children: React.ReactNode }) => {
     };
   }, []);
 
-  const elem = document.querySelector(
-    PORTAL[Portals.GlobalEventNotification].id,
-  );
-
-  return mounted && elem ? createPortal(children, elem) : null;
+  if (document) {
+    const elem = document.querySelector(
+      PORTAL[Portals.GlobalEventNotification].id
+    );
+    return mounted && elem ? createPortal(children, elem) : null;
+  } else {
+    return null;
+  }
 };

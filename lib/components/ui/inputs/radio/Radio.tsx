@@ -41,9 +41,13 @@ const Radio: FC<P> = ({
         handleSelect(true);
       }
     };
-    document.addEventListener("keydown", callbackHandler, false);
+    if (document) {
+      document.addEventListener("keydown", callbackHandler, false);
+    }
     return () => {
-      document.removeEventListener("keydown", callbackHandler, false);
+      if (document) {
+        document.removeEventListener("keydown", callbackHandler, false);
+      }
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isFocused, isChecked]);
@@ -132,7 +136,7 @@ const InputShown = ({ checked, size }: { checked: boolean; size: Sizings }) => {
                 backgroundColor: COLOR_VALUES[ColorPalettes.Primary5],
               }}
             />
-          ),
+          )
       )}
     </Container>
   );

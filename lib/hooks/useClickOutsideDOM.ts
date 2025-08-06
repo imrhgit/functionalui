@@ -13,9 +13,13 @@ const useClickOutsideDOM = (handler: any) => {
         handler();
       }
     };
-    document.addEventListener("mousedown", domHandler);
+    if (document) {
+      document.addEventListener("mousedown", domHandler);
+    }
     return () => {
-      document.removeEventListener("mousedown", domHandler);
+      if (document) {
+        document.removeEventListener("mousedown", domHandler);
+      }
     };
   });
   return domNodeRef;

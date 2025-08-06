@@ -20,13 +20,17 @@ const Zzz: FC<P> = ({ children }) => {
     useGalleryContext();
   useEffect(() => {
     const handler = (e: any) => e.preventDefault();
-    document.addEventListener("gesturestart", handler);
-    document.addEventListener("gesturechange", handler);
-    document.addEventListener("gestureend", handler);
+    if (document) {
+      document.addEventListener("gesturestart", handler);
+      document.addEventListener("gesturechange", handler);
+      document.addEventListener("gestureend", handler);
+    }
     return () => {
-      document.removeEventListener("gesturestart", handler);
-      document.removeEventListener("gesturechange", handler);
-      document.removeEventListener("gestureend", handler);
+      if (document) {
+        document.removeEventListener("gesturestart", handler);
+        document.removeEventListener("gesturechange", handler);
+        document.removeEventListener("gestureend", handler);
+      }
     };
   }, []);
 
@@ -109,7 +113,7 @@ const Zzz: FC<P> = ({ children }) => {
       // pinch: { scaleBounds: { min: 0.5, max: 2 }, rubberband: true },
       pinch: { scaleBounds: { min: 1, max: 2 }, rubberband: true },
       wheel: { axis: "y" },
-    },
+    }
   );
 
   return (

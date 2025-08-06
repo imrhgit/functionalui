@@ -10,14 +10,14 @@ interface D {
 const useTopOrBottom = (elem: D, margin?: number): number => {
   // 1 top, -1 bottom, 0 invalid
   const [windowDimensions, setWindowDimensions] = useState({
-    width: window.innerWidth,
-    height: window.innerHeight,
+    width: window ? window.innerWidth : 0,
+    height: window ? window.innerHeight : 0,
   });
   useEffect(() => {
     const handleResize = () => {
       setWindowDimensions({
-        width: window.innerWidth,
-        height: window.innerHeight,
+        width: window ? window.innerWidth : 0,
+        height: window ? window.innerHeight : 0,
       });
     };
     if (window) {

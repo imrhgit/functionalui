@@ -1,5 +1,6 @@
+"use client";
+
 import { FC } from "react";
-// import { useInView } from "react-intersection-observer";
 import { Container, ContainerRef, Text_Span } from "functionalui";
 import {
   ColorSets,
