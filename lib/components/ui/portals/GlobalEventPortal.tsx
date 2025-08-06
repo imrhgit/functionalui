@@ -18,12 +18,20 @@ const PlatformPortal = ({ children }: { children: React.ReactNode }) => {
     };
   }, []);
 
-  if (document) {
-    const elem = document.querySelector(
-      PORTAL[Portals.GlobalEventNotification].id
-    );
-    return mounted && elem ? createPortal(children, elem) : null;
-  } else {
-    return null;
-  }
+  // if (document) {
+  //   const elem = document.querySelector(
+  //     PORTAL[Portals.GlobalEventNotification].id
+  //   );
+  //   return mounted && elem ? createPortal(children, elem) : null;
+  // } else {
+  //   return null;
+  // }
+
+  return mounted
+    ? createPortal(
+        children,
+        document.querySelector(PORTAL[Portals.GlobalEventNotification].id) ||
+          document.body
+      )
+    : null;
 };

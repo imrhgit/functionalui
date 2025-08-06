@@ -11,12 +11,18 @@ const ModalPortal = ({ children }: { children: ReactNode }) => {
       setMounted(false);
     };
   }, []);
-  if (document) {
-    const elem = document.querySelector(PORTAL[Portals.Modals].id);
-    return mounted && elem ? createPortal(children, elem) : null;
-  } else {
-    return null;
-  }
+  // if (document) {
+  //   const elem = document.querySelector(PORTAL[Portals.Modals].id);
+  //   return mounted && elem ? createPortal(children, elem) : null;
+  // } else {
+  //   return null;
+  // }
+  return mounted
+    ? createPortal(
+        children,
+        document.querySelector(PORTAL[Portals.Modals].id) || document.body
+      )
+    : null;
 };
 
 export default ModalPortal;
