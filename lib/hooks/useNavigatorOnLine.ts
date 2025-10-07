@@ -11,10 +11,13 @@ const useNavigatorOnLine = () => {
   const setOffline = () => setStatus(false)
 
   useEffect(() => {
-    window.addEventListener('online', setOnline)
-    window.addEventListener('offline', setOffline)
+    if (window) {
+      window.addEventListener('online', setOnline)
+      window.addEventListener('offline', setOffline)
+    }
 
     return () => {
+      if (!window) return
       window.removeEventListener('online', setOnline)
       window.removeEventListener('offline', setOffline)
     }

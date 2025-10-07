@@ -10,18 +10,24 @@ interface D {
 const useTopOrBottom = (elem: D, margin?: number): number => {
   // 1 top, -1 bottom, 0 invalid
   const [windowDimensions, setWindowDimensions] = useState({
-    width: window.innerWidth,
-    height: window.innerHeight,
+    width: 0,
+    height: 0,
   });
   useEffect(() => {
     const handleResize = () => {
       setWindowDimensions({
-        width: window.innerWidth,
-        height: window.innerHeight,
+        width: window ? window.innerWidth : 0,
+        height: window ? window.innerHeight : 0,
       });
     };
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    if (window) {
+      window.addEventListener("resize", handleResize);
+    }
+    return () => {
+      if (window) {
+        window.removeEventListener("resize", handleResize);
+      }
+    };
   }, []);
 
   const elemTotalHeight: number = elem.height + (margin ? margin : 10);

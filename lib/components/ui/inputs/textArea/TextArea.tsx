@@ -1,7 +1,6 @@
 "use client";
 
-import { ChangeEvent, FC, useCallback, useRef } from "react";
-import useAutosizeTextAreaV2 from "../../../../hooks/useAutosizeTextAreaV2";
+import { Container, F__TextAreaRef } from "functionalui";
 import {
   BoxSizings,
   ColorPalettes,
@@ -9,9 +8,8 @@ import {
   ElementResizes,
   OutlineStyles,
 } from "functionalui/types";
-import { Container, F__TextAreaRef } from "functionalui";
-import TextAreaLabel from "./components/labels/TextAreaLabel";
-import cstyles from "./styles.module.css";
+import { ChangeEvent, HTMLAttributes, useCallback, useRef } from "react";
+import useAutosizeTextAreaV2 from "../../../../hooks/useAutosizeTextAreaV2";
 import {
   TEXT_AREA_SIZE,
   TEXT_AREA_STYLE,
@@ -19,8 +17,10 @@ import {
   TextAreaSizes,
   TextAreaStyles,
 } from "../../../../styles/types/ui/inputs/textarea/types";
+import TextAreaLabel from "./components/labels/TextAreaLabel";
+import cstyles from "./styles.module.css";
 
-interface P {
+interface P extends HTMLAttributes<HTMLTextAreaElement> {
   id: string;
   name: string;
   value: any;
@@ -48,7 +48,7 @@ interface P {
   noLabel?: boolean;
 }
 
-const TextArea: FC<P> = ({
+const TextArea = ({
   // required
   id,
   name,
@@ -73,7 +73,8 @@ const TextArea: FC<P> = ({
   // customization
   labelTextColor,
   noLabel,
-}) => {
+  ...props
+}: P) => {
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
   useAutosizeTextAreaV2(textAreaRef.current, value);
 
@@ -96,14 +97,14 @@ const TextArea: FC<P> = ({
         return;
       }
     },
-    [handleBlur, handleCheck],
+    [handleBlur, handleCheck]
   );
   const onHandleChange = useCallback(
     (e: ChangeEvent<HTMLTextAreaElement>) => {
       if (handleChange) handleChange(e);
       // setIsEmpty(false)
     },
-    [handleChange],
+    [handleChange]
   );
   const onHandleFocus = useCallback(() => {
     if (modes === TextAreaModes.Disabled) return;
@@ -174,6 +175,7 @@ const TextArea: FC<P> = ({
           fontWeight={TEXT_AREA_SIZE[size].font.weight}
           // onClick={() => textAreaRef.current && textAreaRef.current.selectionStart && setTitleCursor(textAreaRef.current.selectionStart)}
           className={cstyles.textareaBare}
+          {...props}
         />
       </Container>
     </Container>

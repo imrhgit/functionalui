@@ -23,7 +23,7 @@ export type TableRowCellElement = {
 }
 export type TableRowElement = {
   rowId: string | number;
-  templateColumns?: string[];
+  templateColumns: string[];
   cells: TableRowCellElement[];
   hover: boolean;
   onClickRow?: (v?: string | number, e?: any) => void; // rowId

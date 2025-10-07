@@ -1,17 +1,17 @@
 import { Layout } from "functionalui";
 import { Displays, TableRowElement } from "functionalui/types";
-import { FC, useState } from "react";
+import { useState } from "react";
 import TableRowAnimation from "./TableRowAnimation";
 import TableRowCell from "./TableRowCell";
 import cstyles from "./styles.module.css";
 
-const TableRow: FC<TableRowElement> = ({
+const TableRow = ({
   rowId,
   templateColumns = [],
   cells = [],
   hover,
   onClickRow,
-}) => {
+}: TableRowElement) => {
   const [onHover, setOnHover] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
 

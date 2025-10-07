@@ -52,7 +52,9 @@ function MessageHub({
 }: HubProps) {
   const refMap = useMemo(() => new WeakMap(), []);
   const cancelMap = useMemo(() => new WeakMap(), []);
-  const [items, setItems] = useState<any[]>([]);
+  const [items, setItems] = useState<
+    { key: number; msg: string; type: ToastNotification }[]
+  >([]);
 
   //animation definition
   const transitions = useTransition(items, {
@@ -67,20 +69,21 @@ function MessageHub({
       });
       await next({ life: "0%" });
     },
-    leave: [{ opacity: 0 }, { height: 0 }],
+    leave: [{ opacity: 0, y: 50 }, { height: 0 }],
     // onRest: (result: any, ctrl: any, item: any) => {
     onRest: (_result: any, _ctrl: any, item: any) => {
       setItems((state: any) =>
         state.filter((i: any) => {
           return i.key !== item.key;
-        }),
+        })
       );
     },
     // config: (item, index, phase) => key => phase === 'enter' && key === 'life' ? { duration: toastTypes[item.type].isTimeout ? timeout : 1000 * 60 * 60 * 24 } : config,
     config: (item, _index, phase) => (key) =>
       phase === "enter" && key === "life"
-        ? { duration: item?.isTimeout ? timeout : 1000 * 60 * 60 * 24 }
-        : config,
+        ? { duration: item.type.isTimeout ? timeout : 1000 * 60 * 60 * 24 }
+        : // ? { duration: item?.isTimeout ? timeout : 1000 * 60 * 60 * 24 }
+          config,
   });
 
   useEffect(() => {
@@ -154,19 +157,20 @@ const MessageItem = ({
             <Container marginRight={Spacings.Size2}>
               <UIcon
                 name={type.icon}
-                size={Sizings.Size3}
+                size={Sizings.Size6}
                 colorLight={type.color}
                 colorDark={type.color}
+                withMargin={false}
               />
             </Container>
             {/* <p>{msg ? msg : toastTypes[type].default}</p> */}
-            <Text_P fontSize={FontSizes.Size2}>
+            <Text_P fontSize={FontSizes.Size4}>
               {msg ? msg : type.default}
             </Text_P>
             <Container marginLeft={Spacings.Auto} paddingLeft={Spacings.Size3}>
               <UIcon
                 name="x-circle"
-                size={Sizings.Size2}
+                size={Sizings.Size4}
                 iconAction={() => {
                   // e.stopPropagation()
                   if (isCanceled) return;
@@ -174,12 +178,13 @@ const MessageItem = ({
                     cancelMap.get(item)();
                   setIsCanceled(true);
                 }}
+                withMargin={false}
               />
             </Container>
             {type?.isTimeout && (
               <Container
                 className={`${cstyles.life} ${type.classname}`}
-                style={{ right: life }}
+                style={{ right: life, transform: "translateY(8px)" }}
               />
             )}
           </Layout>

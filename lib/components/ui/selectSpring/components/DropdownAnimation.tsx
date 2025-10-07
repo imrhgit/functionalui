@@ -1,5 +1,5 @@
-import { useTransition } from "@react-spring/web";
-import { F__Ul, SpringOpenCloseHeight } from "functionalui";
+import { config, useTransition } from "@react-spring/web";
+import { F__Ul } from "functionalui";
 import {
   // DropdownHeightStyles,
   // DropdownPositions,
@@ -10,6 +10,7 @@ import {
   DropdownHeightStyles,
   DropdownPositions,
 } from "../../../../styles/types/ui/selectSpring/types";
+import ctyles from "./styles.module.css";
 
 const DROPDOWN_POSITION = {
   [DropdownPositions.Top]: {
@@ -93,50 +94,37 @@ const DefaultDropdown = ({
     from: {
       opacity: 0,
       ...DROPDOWN_POSITION[dropdownPosition].from,
-      transformOrigin:
-        dropdownPosition === DropdownPositions.Top
-          ? "bottom center"
-          : dropdownPosition === DropdownPositions.Bottom
-            ? "top center"
-            : position < 0
-              ? "bottom center"
-              : "top center",
     },
     enter: {
       opacity: 1,
       ...DROPDOWN_POSITION[dropdownPosition].enter,
-      transformOrigin:
-        dropdownPosition === DropdownPositions.Top
-          ? "bottom center"
-          : dropdownPosition === DropdownPositions.Bottom
-            ? "top center"
-            : position < 0
-              ? "bottom center"
-              : "top center",
     },
     leave: {
       opacity: 0,
       ...DROPDOWN_POSITION[dropdownPosition].leave,
-      transformOrigin:
-        dropdownPosition === DropdownPositions.Top
-          ? "bottom center"
-          : dropdownPosition === DropdownPositions.Bottom
-            ? "top center"
-            : position < 0
-              ? "bottom center"
-              : "top center",
     },
   });
   return dropdownTransition(
     (styles, item) =>
       item && (
         <F__Ul
-          style={styles}
+          style={{
+            ...styles,
+            transformOrigin:
+              dropdownPosition === DropdownPositions.Top
+                ? "bottom center"
+                : dropdownPosition === DropdownPositions.Bottom
+                ? "top center"
+                : position < 0
+                ? "bottom center"
+                : "top center",
+          }}
+          className={ctyles.ul}
           // className={`${classStyles} ${hasSelect ? "has-select" : ""} ${selectState ? "error-required" : ""} drop-${dropdownHeightStyle}`}
         >
           {children}
         </F__Ul>
-      ),
+      )
   );
 };
 const WithHeightDropdown = ({
@@ -151,59 +139,42 @@ const WithHeightDropdown = ({
     from: {
       opacity: 0,
       scaleY: 0,
-      transformOrigin:
-        dropdownPosition === DropdownPositions.Top
-          ? "bottom center"
-          : dropdownPosition === DropdownPositions.Bottom
-            ? "top center"
-            : position < 0
-              ? "bottom center"
-              : "top center",
-      height: "0%",
     },
     enter: {
       opacity: 1,
       scaleY: 1,
-      transformOrigin:
-        dropdownPosition === DropdownPositions.Top
-          ? "bottom center"
-          : dropdownPosition === DropdownPositions.Bottom
-            ? "top center"
-            : position < 0
-              ? "bottom center"
-              : "top center",
-      height: "100%",
     },
     leave: {
       opacity: 0,
-      scaleY: 0,
-      transformOrigin:
-        dropdownPosition === DropdownPositions.Top
-          ? "bottom center"
-          : dropdownPosition === DropdownPositions.Bottom
-            ? "top center"
-            : position < 0
-              ? "bottom center"
-              : "top center",
-      height: "0%",
+      scaleY: 0.5,
     },
-    // from: { opacity: 0, scaleY: 0, transformOrigin: "bottom center", height: "0%" },
-    // enter: { opacity: 1, scaleY: 1, transformOrigin: "bottom center", height: "100%" },
-    // leave: { opacity: 0, scaleY: 0, transformOrigin: "bottom center", height: "0%" },
+    config(_item, _index, state) {
+      if (state === "leave") {
+        return { duration: 100 };
+      }
+      return config.default;
+    },
   });
-  return (
-    <SpringOpenCloseHeight isOpen={isOpen}>
-      {dropdownTransition(
-        (styles, item) =>
-          item && (
-            <F__Ul
-              style={styles}
-              // className={`${classStyles} ${hasSelect ? "has-select" : ""} ${selectState ? "error-required" : ""} drop-${dropdownHeightStyle}`}
-            >
-              {children}
-            </F__Ul>
-          ),
-      )}
-    </SpringOpenCloseHeight>
+  return dropdownTransition(
+    (styles, item) =>
+      item && (
+        <F__Ul
+          style={{
+            ...styles,
+            transformOrigin:
+              dropdownPosition === DropdownPositions.Top
+                ? "bottom center"
+                : dropdownPosition === DropdownPositions.Bottom
+                ? "top center"
+                : position < 0
+                ? "bottom center"
+                : "top center",
+          }}
+          className={ctyles.ul}
+          // className={`${classStyles} ${hasSelect ? "has-select" : ""} ${selectState ? "error-required" : ""} drop-${dropdownHeightStyle}`}
+        >
+          {children}
+        </F__Ul>
+      )
   );
 };

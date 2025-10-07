@@ -6,7 +6,7 @@ import { TOAST_TYPE, ToastTypes } from "../../styles/types/notification/types";
 
 const GlobalEventContext = createContext<GlobalEventContextType>({
   globalEventRef: null,
-  handleGlobalEventRef: undefined,
+  handleGlobalEventRef: () => {},
   catchUserAxiosNextApiError: undefined,
   catchUserAxiosFetcherError: undefined,
 });
@@ -34,7 +34,7 @@ function useSetGlobalEvent() {
     (props: string, type: ToastTypes) => {
       globalEventRef.current?.(props, TOAST_TYPE[type]);
     },
-    [],
+    []
   );
 
   const catchUserAxiosNextApiError = useCallback((error: any) => {

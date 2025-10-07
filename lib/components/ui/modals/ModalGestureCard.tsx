@@ -40,7 +40,7 @@ const ModalGesturedCard: FC<P> = ({ closeModal, modalStyles, children }) => {
     <ContainerRef
       className={
         modalStyles === ModalStyles.Nocard
-          ? `${cstyles.modalCardCopyOriAnimated} no-card`
+          ? `${cstyles.modalCardCopyOriAnimated} ${cstyles["no-card"]}`
           : `${cstyles.modalCardCopyOriAnimated}`
       }
       {...bind()}

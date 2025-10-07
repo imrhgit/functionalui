@@ -8,6 +8,7 @@ import {
   Spacings,
 } from "functionalui/types";
 import { FC } from "react";
+import ctyles from "./styles.module.css";
 
 interface P {
   handleSelectItem: (id: string | number, idx: number) => void;
@@ -28,10 +29,12 @@ const DropdownLi: FC<P> = ({
   }));
   return (
     <F__Li
+      className={ctyles.li}
       paddingTop={Spacings.Size1}
       paddingBottom={Spacings.Size1}
       paddingLeft={Spacings.Size2}
       paddingRight={Spacings.Size2}
+      marginTop={Spacings.Size0}
       style={{
         listStyle: "none",
         cursor: "pointer",

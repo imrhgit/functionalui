@@ -15,6 +15,7 @@
 	left: 0px;
 	width: auto;
 	background-image: linear-gradient(130deg, #00b4e6, #00f0e0);
+	border-radius: 6px;
 	&.red {
 		background-image: linear-gradient(130deg, #c40233, #ff6347);
 	}

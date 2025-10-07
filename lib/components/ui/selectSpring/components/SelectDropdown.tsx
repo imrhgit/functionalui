@@ -1,9 +1,11 @@
+"use client";
+
 import { FC } from "react";
-// import { useInView } from "react-intersection-observer";
-import { Container, Text_Span } from "functionalui";
+import { Container, ContainerRef, Text_Span } from "functionalui";
 import {
   ColorSets,
   DropdownHeightStyles,
+  Radiuses,
   SelectOption,
   SelectStates,
   Spacings,
@@ -12,7 +14,10 @@ import useMeasure from "react-use-measure";
 import DropdownAnimation from "./DropdownAnimation";
 import DropdownLi from "./DropdownLi";
 import useTopOrBottom from "./useTopOrBottom";
-import { DropdownPositions } from "../../../../styles/types/ui/selectSpring/types";
+import {
+  DropdownPositions,
+  SELECT_STATES,
+} from "../../../../styles/types/ui/selectSpring/types";
 
 interface P {
   isSelectOpen: boolean;
@@ -40,10 +45,15 @@ const SelectDropdown: FC<P> = ({
 }) => {
   const [ref, bounds] = useMeasure();
   const position = useTopOrBottom(bounds);
-  const translateY = position > 0 ? headerHeight : -bounds.height;
+  const translateY = position > 0 ? headerHeight - 1 : -bounds.height;
   return (
-    <div
+    <ContainerRef
       ref={ref}
+      borderRadius={SELECT_STATES[selectState].dropdown.borderRadius}
+      borderBottomLeftRadius={Radiuses.Size0}
+      borderBottomRightRadius={Radiuses.Size0}
+      borderWidth={SELECT_STATES[selectState].header.borderWidth}
+      borderColor={SELECT_STATES[selectState].header.borderColor}
       style={{
         maxHeight: 250,
         width: w,
@@ -82,7 +92,7 @@ const SelectDropdown: FC<P> = ({
         ))}
         {/* <DivInView setClose={closeSelect} /> */}
       </DropdownAnimation>
-    </div>
+    </ContainerRef>
   );
 };
 

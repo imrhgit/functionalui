@@ -34,16 +34,21 @@ const ButtonIcon = ({
     from: { opacity: 0, transform: "scale(0.6)" },
     enter: { opacity: 1, transform: "scale(1)" },
     leave: { opacity: 0, transform: "scale(0.6)" },
-    // onRest: () => {
-    //   if (
-    //     iconState === ButtonStates.Success ||
-    //     iconState !== ButtonStates.Error
-    //   ) {
-    //     setTimeout(() => {
-    //       setButtonState(ButtonStates.Icon);
-    //     }, 10000);
-    //   }
-    // },
+    onRest: () => {
+      if (
+        iconState === ButtonStates.Success ||
+        iconState !== ButtonStates.Error
+      ) {
+        setTimeout(() => {
+          if (
+            buttonState === ButtonStates.Success ||
+            buttonState !== ButtonStates.Error
+          ) {
+            setButtonState(ButtonStates.Icon);
+          }
+        }, 3000);
+      }
+    },
   });
   return (
     <Container
@@ -55,7 +60,14 @@ const ButtonIcon = ({
       }
       style={{
         position: "relative",
-        [iconMargin === Spacings.Size0 ? "marginRight" : ""]: 2,
+        // [iconMargin === Spacings.Size0 ? "marginRight" : "marginLeft"]: 2,
+        [iconMargin === Spacings.Size0
+          ? iconPosition === ButtonIconPositions.Left
+            ? "marginRight"
+            : iconPosition === ButtonIconPositions.Right
+            ? "marginLeft"
+            : ""
+          : ""]: 2,
         // marginRight:
         //   iconPosition === ButtonIconPositions.Left && !iconMargin ? 3 : "auto",
         // marginLeft:
