@@ -1,10 +1,20 @@
-import { BorderStyles, BorderWidths, ColorPalettes, ColorSets, FontSizes, FontWeights, Radiuses, Spacings } from "functionalui/types";
+import {
+  BorderStyles,
+  BorderWidths,
+  ColorPalettes,
+  ColorSets,
+  FontSizes,
+  FontWeights,
+  Radiuses,
+  Spacings,
+} from "functionalui/types";
 
 export enum TextAreaStyles {
-  Default = 1,    // outline
-  Outlined,       // outline overall
-  Filled,         // border bottom & bg color
+  Default = 1, // outline
+  Outlined, // outline overall
+  Filled, // border bottom & bg color
   BorderBottom,
+  Transparent,
 }
 export const TEXT_AREA_STYLE: { [key: number]: any } = {
   [TextAreaStyles.BorderBottom]: {
@@ -16,31 +26,38 @@ export const TEXT_AREA_STYLE: { [key: number]: any } = {
       top: undefined,
       left: undefined,
       right: undefined,
-    }
+    },
   },
-  [TextAreaStyles.Default]: { // same as outline
+  [TextAreaStyles.Default]: {
+    // same as outline
     borders: {
       width: BorderWidths.Size1,
       radius: Radiuses.Size3,
       style: BorderStyles.Solid,
-    }
+    },
   },
   [TextAreaStyles.Outlined]: {
     borders: {
       width: BorderWidths.Size1,
       radius: Radiuses.Size3,
       style: BorderStyles.Solid,
-    }
+    },
   },
   [TextAreaStyles.Filled]: {
     borders: {
       width: undefined,
       radius: undefined,
       style: undefined,
-    }
+    },
   },
-}
-
+  [TextAreaStyles.Transparent]: {
+    borders: {
+      width: undefined,
+      radius: undefined,
+      style: undefined,
+    },
+  },
+};
 
 export enum TextAreaSizes {
   Small = 1,
@@ -59,7 +76,7 @@ export const TEXT_AREA_SIZE: { [key: number]: any } = {
     font: {
       size: FontSizes.Size1,
       weight: FontWeights.Size2,
-    }
+    },
   },
   [TextAreaSizes.Default]: {
     paddings: {
@@ -71,7 +88,7 @@ export const TEXT_AREA_SIZE: { [key: number]: any } = {
     font: {
       size: FontSizes.Size3,
       weight: FontWeights.Size2,
-    }
+    },
   },
   [TextAreaSizes.Big]: {
     paddings: {
@@ -83,7 +100,7 @@ export const TEXT_AREA_SIZE: { [key: number]: any } = {
     font: {
       size: FontSizes.Size4,
       weight: FontWeights.Size2,
-    }
+    },
   },
   [TextAreaSizes.Huge]: {
     paddings: {
@@ -95,9 +112,9 @@ export const TEXT_AREA_SIZE: { [key: number]: any } = {
     font: {
       size: FontSizes.Size4,
       weight: FontWeights.Size2,
-    }
+    },
   },
-}
+};
 
 export enum TextAreaModes {
   Default = 1,
@@ -106,7 +123,6 @@ export enum TextAreaModes {
   ReadOnly,
   // Focus,
 }
-
 
 export const TEXT_AREA_COLOR: { [key: number]: any } = {
   [ColorSets.Transparents]: undefined,
@@ -152,4 +168,4 @@ export const TEXT_AREA_COLOR: { [key: number]: any } = {
     fontColor: ColorPalettes.Grey10,
     bgColor: ColorPalettes.Yellow3,
   },
-}
+};
