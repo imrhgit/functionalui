@@ -23,10 +23,9 @@ import cstyles from "./styles.module.css";
 interface P extends HTMLAttributes<HTMLTextAreaElement> {
   id: string;
   name: string;
-  value: any;
+  value?: any;
   modes?: TextAreaModes;
   label: string;
-  // optional properties
   rows?: number;
   focus?: boolean;
   width?: number;
@@ -35,7 +34,7 @@ interface P extends HTMLAttributes<HTMLTextAreaElement> {
   helperText?: string;
   placeholder?: string;
   // methods
-  handleChange: (v: ChangeEvent<HTMLTextAreaElement>) => void;
+  onChange?: (v: ChangeEvent<HTMLTextAreaElement>) => void;
   handleBlur?: (...args: any[]) => void;
   handleFocus?: (...args: any[]) => void;
   handleCheck?: (v?: any) => Promise<any> | void;
@@ -62,7 +61,7 @@ const TextArea = ({
   fullWidth,
   placeholder = "Insert text", // helperText,
   // methods
-  handleChange,
+  onChange,
   handleBlur,
   handleFocus,
   handleCheck,
@@ -98,13 +97,6 @@ const TextArea = ({
       }
     },
     [handleBlur, handleCheck]
-  );
-  const onHandleChange = useCallback(
-    (e: ChangeEvent<HTMLTextAreaElement>) => {
-      if (handleChange) handleChange(e);
-      // setIsEmpty(false)
-    },
-    [handleChange]
   );
   const onHandleFocus = useCallback(() => {
     if (modes === TextAreaModes.Disabled) return;
@@ -165,15 +157,13 @@ const TextArea = ({
           required={required}
           outlineStyle={OutlineStyles.None}
           resize={ElementResizes.None}
-          onChange={onHandleChange}
+          onChange={onChange}
           onFocus={onHandleFocus}
           onBlur={onHandleBlur}
           placeholder={placeholder}
           rows={rows}
-          // fontColor={}
           fontSize={TEXT_AREA_SIZE[size].font.size}
           fontWeight={TEXT_AREA_SIZE[size].font.weight}
-          // onClick={() => textAreaRef.current && textAreaRef.current.selectionStart && setTitleCursor(textAreaRef.current.selectionStart)}
           className={cstyles.textareaBare}
           {...props}
         />
