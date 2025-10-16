@@ -24,5 +24,6 @@ dist-ssr
 *.sw?
 
 .archives/
+*storybook.log
 .nonpublic/
 src/
