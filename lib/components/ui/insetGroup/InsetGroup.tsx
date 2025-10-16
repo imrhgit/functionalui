@@ -26,10 +26,10 @@ const InsetGroup: FC<P> = ({
   id,
   setInput,
   setSelect,
-  // rgbBg,
   insetColor,
 }) => {
   const [selectedInsetIdx, setSelectedInsetIdx] = useState(valueIndex);
+
   useEffect(() => {
     if (typeof valueIndex === "number") {
       setSelectedInsetIdx(valueIndex);
@@ -59,7 +59,6 @@ const InsetGroup: FC<P> = ({
           id={item.id}
           handleSelectInset={handleSelectInset}
           isSelected={index === selectedInsetIdx}
-          // rgbBg={rgbBg}
           insetColor={insetColor}
           borderTopLeftRadius={index === 0 ? Radiuses.Size4 : undefined}
           borderTopRightRadius={
