@@ -113,10 +113,18 @@ const UIcon: FC<P> = ({
 								...styles,
 								borderRadius: borderRadius,
 								display: "flex",
+								alignItems: "center",
+								justifyContent: "center",
+								minWidth: UICON_SIZING[size].size + 3,
+								minHeight: UICON_SIZING[size].size + 3,
 							}
 						: {
 								borderRadius: borderRadius,
 								display: "flex",
+								alignItems: "center",
+								justifyContent: "center",
+								minWidth: UICON_SIZING[size].size + 3,
+								minHeight: UICON_SIZING[size].size + 3,
 							}
 				}
 			>
