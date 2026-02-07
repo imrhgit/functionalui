@@ -1,4 +1,4 @@
-import { Meta } from "@storybook/react";
+import { Meta } from "@storybook/react-vite";
 import { Button, ColorPicker as COMPONENT, Text_Span } from "functionalui";
 import { Icons } from "functionalui/types";
 import { useState } from "react";

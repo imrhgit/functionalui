@@ -1,4 +1,4 @@
-import { Meta } from "@storybook/react";
+import { Meta } from "@storybook/react-vite";
 import { Radio as COMPONENT, Text_Span } from "functionalui";
 import { useState } from "react";
 

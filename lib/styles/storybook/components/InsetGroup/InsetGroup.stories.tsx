@@ -1,4 +1,4 @@
-import { Meta } from "@storybook/react";
+import { Meta } from "@storybook/react-vite";
 import { InsetGroup as COMPONENT } from "functionalui";
 import { InsetGroupOption } from "functionalui/types";
 import { useState } from "react";

@@ -1,4 +1,4 @@
-import { Meta } from "@storybook/react";
+import { Meta } from "@storybook/react-vite";
 import { Chip as COMPONENT } from "functionalui";
 import { ChipSizes, ChipStyles } from "../../../types/ui/chip/types";
 

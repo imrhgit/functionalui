@@ -1,4 +1,4 @@
-import { Meta } from "@storybook/react";
+import { Meta } from "@storybook/react-vite";
 import Component from "./component.tsx";
 import GlobalEventToast from "../../../../components/ui/notifications/globalEventNotifications/GlobalEventToast.tsx";
 

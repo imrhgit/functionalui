@@ -1,4 +1,4 @@
-import { Meta } from "@storybook/react";
+import { Meta } from "@storybook/react-vite";
 import { InputText as COMPONENT, Text_Header } from "functionalui";
 import { InputTextSizes } from "functionalui/types";
 import { ChangeEvent, useState } from "react";

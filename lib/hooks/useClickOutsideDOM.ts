@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 
 const useClickOutsideDOM = (handler: any) => {
-  const domNodeRef = useRef<any>();
+  const domNodeRef = useRef<any>(null);
   useEffect(() => {
     const domHandler = (e: any) => {
       if (!domNodeRef.current) {

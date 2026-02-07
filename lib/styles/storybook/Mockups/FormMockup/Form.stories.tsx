@@ -1,4 +1,4 @@
-import { Meta } from "@storybook/react";
+import { Meta } from "@storybook/react-vite";
 import { Button, Container, InputText } from "functionalui";
 import {
 	ButtonTypes,

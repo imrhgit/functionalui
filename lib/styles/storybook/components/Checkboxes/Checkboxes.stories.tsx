@@ -1,4 +1,4 @@
-import { Meta } from "@storybook/react";
+import { Meta } from "@storybook/react-vite";
 import { Checkboxes as COMPONENT } from "functionalui";
 import { CheckboxOption } from "../../../../components/ui/checkboxes/Checkboxes";
 import { useState } from "react";

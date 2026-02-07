@@ -1,4 +1,4 @@
-import type { Meta } from "@storybook/react";
+import type { Meta } from "@storybook/react-vite";
 import { Container, ContainerRef, Layout, Text_Span } from "functionalui";
 import {
 	BorderStyles,

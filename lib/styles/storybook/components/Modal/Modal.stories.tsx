@@ -1,4 +1,4 @@
-import { Meta } from "@storybook/react";
+import { Meta } from "@storybook/react-vite";
 import { Modal as COMPONENT } from "functionalui";
 import Component from "./component.tsx";
 

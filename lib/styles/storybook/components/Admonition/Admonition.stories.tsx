@@ -1,4 +1,4 @@
-import { Meta } from "@storybook/react";
+import { Meta } from "@storybook/react-vite";
 import { Admonition as COMPONENT, Container } from "functionalui";
 import { AdmonitionLevels, AdmonitionSizes } from "functionalui/types";
 

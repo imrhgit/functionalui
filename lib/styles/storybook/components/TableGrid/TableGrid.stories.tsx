@@ -1,4 +1,4 @@
-import { Meta } from "@storybook/react";
+import { Meta } from "@storybook/react-vite";
 import { TableGrid as COMPONENT } from "functionalui";
 import Component from "./component.tsx";
 
