@@ -9,6 +9,7 @@ import {
 } from "./components.types";
 import { ElementResizes, OutlineStyles } from "./generics";
 import { ToastTypes } from "./types";
+import { TextAreaStyles } from "./types";
 
 export {
   BORDER_BOTTOM_LEFT_RADIUS_CLASSES,
@@ -173,11 +174,6 @@ export interface TextInputProps
   children?: ReactNode;
 }
 
-interface TextAreaStyles {
-  resize?: ElementResizes;
-  outlineStyle?: OutlineStyles;
-}
-
 interface TextAreaProp {
   type?: string;
   required?: boolean | undefined;
@@ -188,11 +184,13 @@ interface TextAreaProp {
   min?: number | undefined;
   step?: number | undefined;
   rows?: number | undefined;
+  resize?: ElementResizes;
+  outlineStyle?: OutlineStyles;
+  textAreaStyle?: TextAreaStyles;
 }
 export interface TextAreaProps
   extends AnimatedProps<HTMLAttributes<HTMLTextAreaElement>>,
     TextStyleProps,
-    TextAreaStyles,
     TextAreaProp {
   children?: ReactNode;
 }
