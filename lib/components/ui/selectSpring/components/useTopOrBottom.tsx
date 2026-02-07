@@ -7,12 +7,14 @@ interface D {
   width: number;
   top: number;
 }
+interface WindowDimension {
+  width: number;
+  height: number;
+}
 const useTopOrBottom = (elem: D, margin?: number): number => {
   // 1 top, -1 bottom, 0 invalid
-  const [windowDimensions, setWindowDimensions] = useState({
-    width: 0,
-    height: 0,
-  });
+  const [windowDimensions, setWindowDimensions] =
+    useState<WindowDimension | null>(null);
   useEffect(() => {
     const handleResize = () => {
       setWindowDimensions({
@@ -31,6 +33,9 @@ const useTopOrBottom = (elem: D, margin?: number): number => {
   }, []);
 
   const elemTotalHeight: number = elem.height + (margin ? margin : 10);
+  if (!windowDimensions) {
+    return 1;
+  }
   if (elemTotalHeight + elem.top > windowDimensions.height) {
     return -1;
   } else return 1;
