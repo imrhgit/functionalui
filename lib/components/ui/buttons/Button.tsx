@@ -53,7 +53,6 @@ type ButtonProps = {
   type?: "submit" | "reset" | "button";
 
   clickAction?: (v: any) => void;
-  // clickAction?: () => {},
 };
 
 const Button: FC<ButtonProps> = ({

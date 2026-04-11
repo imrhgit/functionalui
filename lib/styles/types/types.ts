@@ -1,5 +1,5 @@
 import { AnimatedProps } from "@react-spring/web";
-import type { HTMLAttributes, ReactNode } from "react";
+import type { HTMLAttributes, ReactNode, RefObject } from "react";
 import {
   ButtonStyleProps,
   HeaderProps,
@@ -143,11 +143,13 @@ export interface DivProps
   extends AnimatedProps<HTMLAttributes<HTMLDivElement>>,
     StyleProps {
   children?: ReactNode;
+  ref?: RefObject<HTMLDivElement | null>;
 }
 export interface LayoutDivProps
   extends AnimatedProps<HTMLAttributes<HTMLDivElement>>,
     LayoutProps {
   children?: ReactNode;
+  ref?: RefObject<HTMLDivElement | null>;
 }
 
 export interface ButtonProps
@@ -155,6 +157,7 @@ export interface ButtonProps
     StyleProps,
     ButtonStyleProps {
   children?: ReactNode;
+  ref?: RefObject<HTMLButtonElement | null>;
 }
 
 interface TextInputProp {
@@ -172,6 +175,7 @@ export interface TextInputProps
     TextStyleProps,
     TextInputProp {
   children?: ReactNode;
+  ref?: RefObject<HTMLInputElement | null>;
 }
 
 interface TextAreaProp {
@@ -193,18 +197,21 @@ export interface TextAreaProps
     TextStyleProps,
     TextAreaProp {
   children?: ReactNode;
+  ref?: RefObject<HTMLTextAreaElement | null>;
 }
 
 export interface LiProps
   extends AnimatedProps<HTMLAttributes<HTMLLIElement>>,
     StyleProps {
   children?: ReactNode;
+  ref?: RefObject<HTMLLIElement | null>;
 }
 
 export interface UlProps
   extends AnimatedProps<HTMLAttributes<HTMLUListElement>>,
     StyleProps {
   children?: ReactNode;
+  ref?: RefObject<HTMLUListElement | null>;
 }
 
 export interface HeadElementProps
@@ -212,18 +219,21 @@ export interface HeadElementProps
     TextStyleProps,
     HeaderProps {
   children?: ReactNode;
+  ref?: RefObject<HTMLHeadingElement | null>;
 }
 
 export interface ParagraphProps
   extends AnimatedProps<HTMLAttributes<HTMLParagraphElement>>,
     TextStyleProps {
   children?: ReactNode;
+  ref?: RefObject<HTMLParagraphElement | null>;
 }
 
 export interface SpanProps
   extends AnimatedProps<HTMLAttributes<HTMLSpanElement>>,
     TextStyleProps {
   children?: ReactNode;
+  ref?: RefObject<HTMLSpanElement | null>;
 }
 
 export {

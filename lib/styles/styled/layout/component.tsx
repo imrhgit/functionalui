@@ -1,7 +1,6 @@
 "use client";
 
 import { animated } from "@react-spring/web";
-import { FC } from "react";
 import {
   ALIGN_SELF_CLASSES,
   DISPLAY_CLASSES,
@@ -16,8 +15,9 @@ import {
   GRID_JUSTIFY_CONTENT_CLASSES,
   GRID_ROW_GAP_CLASSES,
   JUSTIFY_SELF_CLASSES,
+  LayoutDivProps,
 } from "functionalui/types";
-import { LayoutDivProps } from "functionalui/types"; 
+import { FC } from "react";
 
 const Layout: FC<LayoutDivProps> = ({
   display,
@@ -35,6 +35,7 @@ const Layout: FC<LayoutDivProps> = ({
   alignSelf,
   className,
   children,
+  ref,
   ...props
 }) => {
   const classes: any = {};
@@ -79,7 +80,10 @@ const Layout: FC<LayoutDivProps> = ({
   }
   return (
     <animated.div
-      className={`${Object.keys(classes).join(" ")} ${className ? className : ""}`}
+      ref={ref}
+      className={`${Object.keys(classes).join(" ")} ${
+        className ? className : ""
+      }`}
       {...props}
     >
       {children}
@@ -87,4 +91,4 @@ const Layout: FC<LayoutDivProps> = ({
   );
 };
 
-export default Layout
+export default Layout;

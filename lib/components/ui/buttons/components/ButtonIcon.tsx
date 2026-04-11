@@ -72,10 +72,12 @@ const ButtonIcon = ({
         //   iconPosition === ButtonIconPositions.Left && !iconMargin ? 3 : "auto",
         // marginLeft:
         //   iconPosition === ButtonIconPositions.Right && !iconMargin ? 3 : "auto",
-        minWidth: iconSize,
-        maxWidth: iconSize,
-        minHeight: iconSize,
-        maxHeight: iconSize,
+        // minWidth: iconSize,
+        // maxWidth: iconSize,
+        // minHeight: iconSize,
+        // maxHeight: iconSize,
+        width: iconSize + 3,
+        height: iconSize + 3,
       }}
     >
       {iconTransitions((styles) => (
