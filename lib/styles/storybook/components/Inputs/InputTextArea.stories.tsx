@@ -17,7 +17,7 @@ import {
   TextAreaSizes,
   TextAreaStyles,
 } from "functionalui/types";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useRef, useState } from "react";
 
 const meta: Meta<typeof COMPONENT> = {
   title: "Components/Inputs/TextArea",
@@ -150,6 +150,13 @@ export const InputTextarea = () => {
       {/* styles */}
       <br />
       <br />
+      <Text_Header header="h3">Unit tests</Text_Header>
+      <Text_Header header="h4">Forward ref</Text_Header>
+      <FocusTextArea />
+
+      {/* styles */}
+      <br />
+      <br />
       <Text_Header header="h3">Styles Composition</Text_Header>
       <Layout
         display={Displays.Flex}
@@ -183,3 +190,40 @@ export const InputTextarea = () => {
     </>
   );
 };
+
+/**
+ * is a unit test
+ * to test ref prop
+ */
+function FocusTextArea() {
+  const ref = useRef<HTMLTextAreaElement>(null);
+  const [value, setValue] = useState(
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+  );
+  return (
+    <div>
+      <COMPONENT
+        onChange={(e: ChangeEvent<HTMLTextAreaElement>) =>
+          setValue(e.target?.value || "")
+        }
+        ref={ref}
+        id="textarea-id-st-3"
+        label="TextAreaStyles.Filled"
+        name="textarea-id"
+        value={value}
+        defaultValue={value}
+        textAreaStyle={TextAreaStyles.Outlined}
+      />
+
+      <Button
+        name="Focus"
+        icon={Icons.MousePointer}
+        buttonSize={ButtonSizes.Small}
+        iconPosition={ButtonIconPositions.Right}
+        clickAction={() => {
+          if (ref.current) ref.current.focus();
+        }}
+      />
+    </div>
+  );
+}

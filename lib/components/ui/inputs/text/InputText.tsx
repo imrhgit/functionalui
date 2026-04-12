@@ -1,6 +1,6 @@
 "use client";
 
-import { Container, F__TextInputRef } from "functionalui";
+import { Container, F__TextInput } from "functionalui";
 import {
   BoxSizings,
   ColorPalettes,
@@ -12,11 +12,13 @@ import {
 import {
   ChangeEvent,
   HTMLAttributes,
+  RefObject,
   useCallback,
   useEffect,
   useRef,
   useState,
 } from "react";
+import useCombinedRef from "../../../../hooks/useCombinedRef";
 import {
   INPUT_TEXT_COLOR,
   INPUT_TEXT_SIZE,
@@ -77,6 +79,7 @@ interface P extends HTMLAttributes<HTMLInputElement> {
    */
   labelTextColor?: boolean | ColorPalettes;
   transparent?: boolean;
+  ref?: RefObject<HTMLInputElement | null>;
 }
 
 const InputText = ({
@@ -109,9 +112,11 @@ const InputText = ({
   // customizations
   labelTextColor = true,
   transparent,
+  ref,
   ...props
 }: P) => {
   const inputRef = useRef<HTMLInputElement>(null);
+  const combinedRef = useCombinedRef(inputRef, ref);
 
   // const [isFocus, setIsFocus] = useState<boolean>(focus || false)
   // const [isEmpty, setIsEmpty] = useState(true);
@@ -169,7 +174,7 @@ const InputText = ({
         return;
       }
     },
-    [handleBlur, handleCheck],
+    [handleBlur, handleCheck]
   );
   const onHandleFocus = useCallback(() => {
     if (modes === InputTextModes.Disabled) return;
@@ -223,8 +228,8 @@ const InputText = ({
         }}
         onClick={() => onHandleFocus()}
       >
-        <F__TextInputRef
-          ref={inputRef}
+        <F__TextInput
+          ref={combinedRef}
           type={inputType}
           required={required}
           disabled={modes !== InputTextModes.Disabled ? undefined : true}
@@ -259,7 +264,7 @@ export default InputText;
 
 const returnBorderStyleWidth = (
   inputStyle: InputTextStyles,
-  transparent: boolean = false,
+  transparent: boolean = false
 ) => {
   if (transparent) return {};
   return {

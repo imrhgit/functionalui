@@ -10,15 +10,23 @@ import {
   Sizings,
   Spacings,
 } from "functionalui/types";
-import { FC, ReactNode, useEffect, useState } from "react";
+import {
+  FC,
+  HTMLAttributes,
+  ReactNode,
+  type Ref,
+  useEffect,
+  useState,
+} from "react";
 
-interface P {
+interface P extends HTMLAttributes<HTMLInputElement> {
   checked: boolean;
   id: string;
   handleChange: (id: string, checked: boolean) => void;
   size?: Sizings;
   children: ReactNode;
   vertigo?: boolean;
+  ref?: Ref<HTMLInputElement> | undefined;
 }
 const Radio: FC<P> = ({
   id,
@@ -26,7 +34,9 @@ const Radio: FC<P> = ({
   size = Sizings.Size3,
   handleChange = () => {},
   vertigo,
+  ref,
   children,
+  ...props
 }) => {
   const [isChecked, setIsChecked] = useState(checked);
   const [isFocused, setIsFocused] = useState(false);
@@ -78,6 +88,7 @@ const Radio: FC<P> = ({
           {children}
         </Container>
         <input
+          ref={ref}
           id={id}
           checked={isChecked}
           onChange={() => {}}
@@ -88,6 +99,7 @@ const Radio: FC<P> = ({
             margin: 0,
             display: "none",
           }}
+          {...props}
         />
       </Layout>
     </Container>
