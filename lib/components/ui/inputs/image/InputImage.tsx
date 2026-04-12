@@ -2,10 +2,16 @@
 
 import { Container, Layout, Text_Span, UIcon } from "functionalui";
 import { Displays, FlexAlignItems, Spacings } from "functionalui/types";
-import { ChangeEvent, useEffect, useState } from "react";
+import {
+  ChangeEvent,
+  HTMLAttributes,
+  type Ref,
+  useEffect,
+  useState,
+} from "react";
 import cstyles from "./inputImage.module.css";
 
-interface P {
+interface P extends HTMLAttributes<HTMLInputElement> {
   id: string;
   name: string;
   // handleImageChange: (v: File | undefined, w: string | undefined) => Promise<void>;
@@ -14,6 +20,7 @@ interface P {
   defaultValue?: string;
   width?: number | string;
   height?: number | string;
+  ref?: Ref<HTMLInputElement> | undefined;
 }
 
 const InputImage = ({
@@ -24,6 +31,8 @@ const InputImage = ({
   defaultValue,
   width = "100%",
   height,
+  ref,
+  ...props
 }: P) => {
   const [selectedFile, setSelectedFile] = useState<File | undefined>();
   const [preview, setPreview] = useState<string | undefined>(defaultValue);
@@ -76,6 +85,7 @@ const InputImage = ({
     <Container>
       <input
         id={id}
+        ref={ref}
         type="file"
         name={name}
         onChange={onSelectFile}
@@ -87,6 +97,7 @@ const InputImage = ({
           height: 0,
           position: "absolute",
         }}
+        {...props}
       />
       <label
         htmlFor={id}

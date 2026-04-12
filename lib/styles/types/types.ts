@@ -1,5 +1,5 @@
 import { AnimatedProps } from "@react-spring/web";
-import type { HTMLAttributes, ReactNode, RefObject } from "react";
+import type { HTMLAttributes, ReactNode, Ref, RefObject } from "react";
 import {
   ButtonStyleProps,
   HeaderProps,
@@ -175,7 +175,7 @@ export interface TextInputProps
     TextStyleProps,
     TextInputProp {
   children?: ReactNode;
-  ref?: RefObject<HTMLInputElement | null>;
+  ref?: Ref<HTMLInputElement> | undefined;
 }
 
 interface TextAreaProp {
@@ -197,7 +197,7 @@ export interface TextAreaProps
     TextStyleProps,
     TextAreaProp {
   children?: ReactNode;
-  ref?: RefObject<HTMLTextAreaElement | null>;
+  ref?: Ref<HTMLTextAreaElement> | undefined;
 }
 
 export interface LiProps

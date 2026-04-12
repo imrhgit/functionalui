@@ -1,6 +1,6 @@
 "use client";
 
-import { Container, F__TextAreaRef } from "functionalui";
+import { Container, F__TextArea } from "functionalui";
 import {
   BoxSizings,
   ColorPalettes,
@@ -8,8 +8,15 @@ import {
   ElementResizes,
   OutlineStyles,
 } from "functionalui/types";
-import { ChangeEvent, HTMLAttributes, useCallback, useRef } from "react";
+import {
+  ChangeEvent,
+  HTMLAttributes,
+  type Ref,
+  useCallback,
+  useRef,
+} from "react";
 import useAutosizeTextAreaV2 from "../../../../hooks/useAutosizeTextAreaV2";
+import useCombinedRef from "../../../../hooks/useCombinedRef";
 import {
   TEXT_AREA_SIZE,
   TEXT_AREA_STYLE,
@@ -45,6 +52,7 @@ interface P extends HTMLAttributes<HTMLTextAreaElement> {
   // customization
   labelTextColor?: boolean | ColorPalettes;
   noLabel?: boolean;
+  ref?: Ref<HTMLTextAreaElement> | undefined;
 }
 
 const TextArea = ({
@@ -72,10 +80,13 @@ const TextArea = ({
   // customization
   labelTextColor,
   noLabel,
+  ref,
   ...props
 }: P) => {
-  const textAreaRef = useRef<HTMLTextAreaElement>(null);
-  useAutosizeTextAreaV2(textAreaRef.current, value);
+  const innerRef = useRef<HTMLTextAreaElement>(null);
+  const combinedRef = useCombinedRef(innerRef, ref);
+
+  useAutosizeTextAreaV2(innerRef, value);
 
   // const [isFocus, setIsFocus] = useState(focus);
   // const [isEmpty, setIsEmpty] = useState(true);
@@ -102,7 +113,7 @@ const TextArea = ({
     if (modes === TextAreaModes.Disabled) return;
     // setIsFocus(true)
     // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-    textAreaRef.current && textAreaRef.current.focus();
+    innerRef.current && innerRef.current.focus();
     if (handleFocus) handleFocus();
     return true;
   }, [handleFocus, modes]);
@@ -149,8 +160,8 @@ const TextArea = ({
         }}
         onClick={() => onHandleFocus()}
       >
-        <F__TextAreaRef
-          ref={textAreaRef}
+        <F__TextArea
+          ref={combinedRef}
           id={id}
           name={name}
           value={value}
