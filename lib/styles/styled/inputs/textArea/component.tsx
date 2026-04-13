@@ -14,6 +14,7 @@ import {
 import { FC } from "react";
 import { THEME_CLASSES } from "../../../../contexts/ui/types";
 import { useUiContext } from "functionalui";
+import { OUTLINE_STYLE_CLASSES } from "../../../types/classes";
 
 const F__TextArea: FC<TextAreaProps> = ({
   paletteColor,
@@ -23,6 +24,7 @@ const F__TextArea: FC<TextAreaProps> = ({
   fontStyle,
   textAlign,
   resize,
+  textOutlineStyle,
   className,
   children,
   ref,
@@ -50,6 +52,9 @@ const F__TextArea: FC<TextAreaProps> = ({
   }
   if (resize) {
     classes[ELEMENT_RESIZE_CLASSES[resize]] = true;
+  }
+  if (textOutlineStyle) {
+    classes[OUTLINE_STYLE_CLASSES[textOutlineStyle]] = true;
   }
   return (
     <animated.textarea

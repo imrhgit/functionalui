@@ -189,7 +189,7 @@ interface TextAreaProp {
   step?: number | undefined;
   rows?: number | undefined;
   resize?: ElementResizes;
-  outlineStyle?: OutlineStyles;
+  textOutlineStyle?: OutlineStyles;
   textAreaStyle?: TextAreaStyles;
 }
 export interface TextAreaProps
