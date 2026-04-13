@@ -7,6 +7,7 @@ import {
   ColorSets,
   ElementResizes,
   OutlineStyles,
+  TextAreaProps,
 } from "functionalui/types";
 import {
   ChangeEvent,
@@ -82,7 +83,7 @@ const TextArea = ({
   noLabel,
   ref,
   ...props
-}: P) => {
+}: P & TextAreaProps) => {
   const innerRef = useRef<HTMLTextAreaElement>(null);
   const combinedRef = useCombinedRef(innerRef, ref);
 
@@ -166,7 +167,7 @@ const TextArea = ({
           name={name}
           value={value}
           required={required}
-          outlineStyle={OutlineStyles.None}
+          textOutlineStyle={OutlineStyles.None}
           resize={ElementResizes.None}
           onChange={onChange}
           onFocus={onHandleFocus}

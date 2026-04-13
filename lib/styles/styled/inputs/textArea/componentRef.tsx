@@ -26,7 +26,7 @@ const F__TextAreaRef = forwardRef(
 			fontStyle,
 			textAlign,
 			resize,
-			outlineStyle,
+			textOutlineStyle,
 			className,
 			children,
 			...props
@@ -56,8 +56,8 @@ const F__TextAreaRef = forwardRef(
 		if (resize) {
 			classes[ELEMENT_RESIZE_CLASSES[resize]] = true;
 		}
-		if (outlineStyle) {
-			classes[OUTLINE_STYLE_CLASSES[outlineStyle]] = true;
+		if (textOutlineStyle) {
+			classes[OUTLINE_STYLE_CLASSES[textOutlineStyle]] = true;
 		}
 		return (
 			<animated.textarea
