@@ -180,10 +180,114 @@
   --curs--not-allowed: not-allowed;
   --curs--grab: grab;
   --curs--grabbing: grabbing;
-  --curs--zoom-in: zoom-in;
+  --curs--zoom-in: zoom-in;   
   --curs--zoom-out: zoom-out;
 }
 
+[data-theme="light"] {
+  --box-shadow-0: 0 0 0 0 rgb(0 0 0 / 0);
+  --box-shadow-1: 0 1px 2px 0 rgb(16 24 40 / 0.04);
+  --box-shadow-2: 0 1px 3px 0 rgb(16 24 40 / 0.06), 0 1px 2px -1px rgb(16 24 40 / 0.04);
+  --box-shadow-3: 0 4px 6px -1px rgb(16 24 40 / 0.07), 0 2px 4px -2px rgb(16 24 40 / 0.05);
+  --box-shadow-4: 0 10px 15px -3px rgb(16 24 40 / 0.08), 0 4px 6px -4px rgb(16 24 40 / 0.06);
+  --box-shadow-5: 0 20px 25px -5px rgb(16 24 40 / 0.10), 0 8px 10px -6px rgb(16 24 40 / 0.07);
+  --box-shadow-6: 0 25px 50px -12px rgb(16 24 40 / 0.12);
+
+  --cl-grey-1: hsla(210, 10%, 98%, 1);
+  --cl-grey-2: hsla(210, 8%, 94%, 1);
+  --cl-grey-3: hsla(210, 7%, 88%, 1);
+  --cl-grey-4: hsla(210, 6%, 76%, 1);
+  --cl-grey-5: hsla(210, 6%, 64%, 1);
+  --cl-grey-6: hsla(210, 6%, 52%, 1);
+  --cl-grey-7: hsla(210, 7%, 40%, 1);
+  --cl-grey-8: hsla(210, 8%, 30%, 1);
+  --cl-grey-9: hsla(210, 9%, 22%, 1);
+  --cl-grey-10: hsla(210, 10%, 12%, 1);
+
+  --cl-gr-1: hsla(123, 40%, 96%, 1);
+  --cl-gr-2: hsla(123, 35%, 90%, 1);
+  --cl-gr-3: hsla(123, 34%, 82%, 1);
+  --cl-gr-4: hsla(123, 33%, 72%, 1);
+  --cl-gr-5: hsla(123, 32%, 60%, 1);
+  --cl-gr-6: hsla(123, 36%, 48%, 1);
+  --cl-gr-7: hsla(123, 40%, 36%, 1);
+  --cl-gr-8: hsla(123, 46%, 26%, 1);
+  --cl-gr-9: hsla(123, 52%, 16%, 1);
+
+  --cl-yl-1: hsla(42, 95%, 98%, 1);
+  --cl-yl-2: hsla(42, 90%, 94%, 1);
+  --cl-yl-3: hsla(42, 85%, 88%, 1);
+  --cl-yl-4: hsla(42, 80%, 80%, 1);
+  --cl-yl-5: hsla(42, 78%, 70%, 1);
+  --cl-yl-6: hsla(42, 82%, 58%, 1);
+  --cl-yl-7: hsla(42, 88%, 46%, 1);
+  --cl-yl-8: hsla(42, 94%, 32%, 1);
+  --cl-yl-9: hsla(42, 100%, 18%, 1);
+
+  --cl-rd-1: hsla(12, 85%, 96%, 1);
+  --cl-rd-2: hsla(12, 80%, 92%, 1);
+  --cl-rd-3: hsla(12, 75%, 86%, 1);
+  --cl-rd-4: hsla(12, 70%, 78%, 1);
+  --cl-rd-5: hsla(12, 68%, 68%, 1);
+  --cl-rd-6: hsla(12, 64%, 56%, 1);
+  --cl-rd-7: hsla(12, 60%, 44%, 1);
+  --cl-rd-8: hsla(12, 56%, 32%, 1);
+  --cl-rd-9: hsla(12, 52%, 22%, 1);
+
+  --cl-bl-1: hsla(205, 92%, 97%, 1);
+  --cl-bl-2: hsla(205, 88%, 94%, 1);
+  --cl-bl-3: hsla(205, 82%, 88%, 1);
+  --cl-bl-4: hsla(205, 76%, 78%, 1);
+  --cl-bl-5: hsla(205, 72%, 68%, 1);
+  --cl-bl-6: hsla(205, 68%, 56%, 1);
+  --cl-bl-7: hsla(205, 66%, 44%, 1);
+  --cl-bl-8: hsla(205, 64%, 34%, 1);
+  --cl-bl-9: hsla(205, 62%, 24%, 1);
+
+  /* Primary (blue) — light mode: pale -> vivid */
+  --cl-pri-1: hsla(209, 90%, 96%, 1);
+  --cl-pri-2: hsla(209, 85%, 92%, 1);
+  --cl-pri-3: hsla(209, 80%, 86%, 1);
+  --cl-pri-4: hsla(209, 75%, 78%, 1);
+  --cl-pri-5: hsla(209, 72%, 68%, 1);
+  --cl-pri-6: hsla(209, 70%, 56%, 1);
+  --cl-pri-7: hsla(209, 68%, 44%, 1);
+  --cl-pri-8: hsla(209, 66%, 34%, 1);
+  --cl-pri-9: hsla(209, 64%, 24%, 1);
+
+  /* Secondary (warm/orange) — light mode: pale -> vivid */
+  --cl-sec-1: hsla(28, 88%, 96%, 1);
+  --cl-sec-2: hsla(28, 84%, 92%, 1);
+  --cl-sec-3: hsla(28, 78%, 86%, 1);
+  --cl-sec-4: hsla(28, 72%, 78%, 1);
+  --cl-sec-5: hsla(28, 68%, 68%, 1);
+  --cl-sec-6: hsla(28, 64%, 56%, 1);
+  --cl-sec-7: hsla(28, 60%, 44%, 1);
+  --cl-sec-8: hsla(28, 56%, 34%, 1);
+  --cl-sec-9: hsla(28, 52%, 24%, 1);
+
+  /* Accent 1 (purple) — light mode: from very pale to saturated */
+  --cl-ac1-1: hsla(25, 90%, 96%, 1);
+  --cl-ac1-2: hsla(25, 86%, 92%, 1);
+  --cl-ac1-3: hsla(25, 80%, 86%, 1);
+  --cl-ac1-4: hsla(25, 74%, 78%, 1);
+  --cl-ac1-5: hsla(25, 70%, 66%, 1);
+  --cl-ac1-6: hsla(25, 66%, 54%, 1);
+  --cl-ac1-7: hsla(25, 62%, 44%, 1);
+  --cl-ac1-8: hsla(25, 58%, 34%, 1);
+  --cl-ac1-9: hsla(25, 54%, 24%, 1);
+
+  /* Accent 2 (magenta) — light mode: pale -> vivid */
+  --cl-ac2-1: hsla(36, 100%, 90%, 1);
+  --cl-ac2-2: hsla(36, 84%, 92%, 1);
+  --cl-ac2-3: hsla(36, 78%, 86%, 1);
+  --cl-ac2-4: hsla(36, 72%, 78%, 1);
+  --cl-ac2-5: hsla(36, 68%, 68%, 1);
+  --cl-ac2-6: hsla(36, 64%, 56%, 1);
+  --cl-ac2-7: hsla(36, 60%, 44%, 1);
+  --cl-ac2-8: hsla(36, 56%, 34%, 1);
+  --cl-ac2-9: hsla(36, 52%, 24%, 1);
+}
 .athm-def {
   color: var(--cl-grey-10);
 }
