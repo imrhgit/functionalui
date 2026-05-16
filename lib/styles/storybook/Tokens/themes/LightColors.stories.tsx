@@ -10,7 +10,7 @@ import {
   FlexWraps,
   FontSizes,
   Spacings,
-  ColorSets as STORY_ITEM
+  ColorSets as STORY_ITEM,
 } from "functionalui/types";
 import { ReactNode, useEffect, useState } from "react";
 
@@ -78,6 +78,7 @@ export function LightColors() {
     </Layout>
   );
 }
+
 function ColorPallete({
   item,
   children,
@@ -86,9 +87,27 @@ function ColorPallete({
   children: ReactNode;
 }) {
   const [showName, setShowName] = useState(false);
+  const [colorValue, setColorValue] = useState<string>(item.colors[0]);
   return (
     <Layout>
       <div>{children}</div>
+      <Container>
+        <h5>Select color:</h5>
+        <Layout display={Displays.Flex}>
+          <ColorItem value={colorValue} />
+          <select
+            value={colorValue}
+            onChange={(e) => setColorValue(e.target.value)}
+          >
+            {item.colors.map((c, i) => (
+              <option key={i} value={c}>
+                {i}
+              </option>
+            ))}
+          </select>
+        </Layout>
+      </Container>
+
       {/* actions */}
       <button onClick={() => setShowName((prev) => !prev)}>
         {showName ? "hide name" : "show name"}

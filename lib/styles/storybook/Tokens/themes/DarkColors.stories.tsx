@@ -49,6 +49,45 @@ const colorPalettes = colorSets.map((item) => {
     colors: ccolors,
   };
 });
+
+export function SwitchThemes() {
+  const [theme, setTheme] = useState("dark");
+  function switchTheme(v: string) {
+    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
+    document.documentElement.setAttribute(
+      "data-theme",
+      v === "dark" ? "light" : "dark"
+    );
+  }
+  return (
+    <Layout>
+      <button onClick={() => switchTheme(theme)}>switch theme</button>
+      <Layout>
+        <Container
+          style={{ width: 75, height: 75 }}
+          bgColor={ColorPalettes.Grey1}
+        />
+        <Container
+          style={{ width: 75, height: 75 }}
+          bgColor={ColorPalettes.Grey2}
+        />
+        <Container
+          style={{ width: 75, height: 75 }}
+          bgColor={ColorPalettes.Grey3}
+        />
+        <Container
+          style={{ width: 75, height: 75 }}
+          bgColor={ColorPalettes.Grey4}
+        />
+        <Container
+          style={{ width: 75, height: 75 }}
+          bgColor={ColorPalettes.Grey5}
+        />
+      </Layout>
+    </Layout>
+  );
+}
+
 export function DarkColors() {
   // useeffect to set to dark
   useEffect(() => {
@@ -87,23 +126,24 @@ function ColorPallete({
 }) {
   const [showName, setShowName] = useState(false);
   const [colorValue, setColorValue] = useState<string>(item.colors[0]);
+  item.name === "Greys" && console.log("DEBUG#ColorPallete", item.colors);
   return (
     <Layout>
       <div>{children}</div>
-
       <Container>
         <h5>Select color:</h5>
-        <Layout>
+        <Layout display={Displays.Flex}>
+          <ColorItem value={colorValue} />
           <select
-            value={ColorPalettes.Grey1}
+            value={colorValue}
             onChange={(e) => setColorValue(e.target.value)}
           >
-            <option value={item.colors[0]}>{item.colors[0]}</option>
-            <option value={item.colors[1]}>{item.colors[1]}</option>
-            <option value={item.colors[2]}>{item.colors[2]}</option>
-            <option value={item.colors[3]}>{item.colors[3]}</option>
+            {item.colors.map((c, i) => (
+              <option key={i} value={c}>
+                {i}
+              </option>
+            ))}
           </select>
-          <ColorItem value={colorValue} />
         </Layout>
       </Container>
 
