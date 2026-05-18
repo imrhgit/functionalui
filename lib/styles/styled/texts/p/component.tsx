@@ -1,8 +1,8 @@
 "use client";
 
 import { animated } from "@react-spring/web";
+import { useUiContext } from "functionalui";
 import {
-  COLOR_CLASSES,
   FONT_FAMILY_CLASSES,
   FONT_SIZE_CLASSES,
   FONT_STYLE_CLASSES,
@@ -12,7 +12,7 @@ import {
 } from "functionalui/types";
 import { FC } from "react";
 import { BASE_FONT_SIZE, THEME_CLASSES } from "../../../../contexts/ui/types";
-import { useUiContext } from "functionalui";
+import { FONT_COLOR_CLASSES } from "../../../types/colors/classes";
 import returnSizeStr from "../utils/returnSizeStr";
 
 const Text_P: FC<ParagraphProps> = ({
@@ -41,7 +41,7 @@ const Text_P: FC<ParagraphProps> = ({
     classes[FONT_SIZE_CLASSES[baseFontSize]] = true;
   }
   if (paletteColor) {
-    classes[COLOR_CLASSES[paletteColor]] = true;
+    classes[FONT_COLOR_CLASSES[paletteColor]] = true;
   }
   if (fontSize) {
     classes[FONT_SIZE_CLASSES[fontSize]] = true;

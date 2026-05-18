@@ -2,7 +2,6 @@
 
 import { animated } from "@react-spring/web";
 import {
-  COLOR_CLASSES,
   FONT_FAMILY_CLASSES,
   FONT_SIZE_CLASSES,
   FONT_STYLE_CLASSES,
@@ -11,6 +10,7 @@ import {
   TextInputProps,
 } from "functionalui/types";
 import { FC } from "react";
+import { FONT_COLOR_CLASSES } from "../../../types/colors/classes";
 
 const F__TextInput: FC<TextInputProps> = ({
   paletteColor,
@@ -26,7 +26,7 @@ const F__TextInput: FC<TextInputProps> = ({
 }) => {
   const classes: any = {};
   if (paletteColor) {
-    classes[COLOR_CLASSES[paletteColor]] = true;
+    classes[FONT_COLOR_CLASSES[paletteColor]] = true;
   }
   if (fontSize) {
     classes[FONT_SIZE_CLASSES[fontSize]] = true;

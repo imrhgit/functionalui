@@ -3,17 +3,17 @@
 import { animated } from "@react-spring/web";
 import { useUiContext } from "functionalui";
 import {
-	COLOR_CLASSES,
 	FONT_FAMILY_CLASSES,
 	FONT_SIZE_CLASSES,
 	FONT_STYLE_CLASSES,
 	FONT_WEIGHT_CLASSES,
 	ParagraphProps,
-	TEXT_ALIGN_CLASSES,
+	TEXT_ALIGN_CLASSES
 } from "functionalui/types";
 import { forwardRef } from "react";
-import returnSizeStr from "../utils/returnSizeStr";
 import { BASE_FONT_SIZE, THEME_CLASSES } from "../../../../contexts/ui/types";
+import { FONT_COLOR_CLASSES } from "../../../types/colors/classes";
+import returnSizeStr from "../utils/returnSizeStr";
 
 export const Text_PRef = forwardRef(
 	(
@@ -44,7 +44,7 @@ export const Text_PRef = forwardRef(
 			classes[FONT_SIZE_CLASSES[baseFontSize]] = true;
 		}
 		if (paletteColor) {
-			classes[COLOR_CLASSES[paletteColor]] = true;
+			classes[FONT_COLOR_CLASSES[paletteColor]] = true;
 		}
 		if (fontSize) {
 			classes[FONT_SIZE_CLASSES[fontSize]] = true;

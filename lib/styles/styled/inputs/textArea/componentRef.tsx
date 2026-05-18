@@ -2,7 +2,6 @@
 
 import { animated } from "@react-spring/web";
 import {
-  COLOR_CLASSES,
   ELEMENT_RESIZE_CLASSES,
   FONT_FAMILY_CLASSES,
   FONT_SIZE_CLASSES,
@@ -13,6 +12,7 @@ import {
 } from "functionalui/types";
 import { forwardRef } from "react";
 import { OUTLINE_STYLE_CLASSES } from "../../../types/classes";
+import { FONT_COLOR_CLASSES } from "../../../types/colors/classes";
 
 const F__TextAreaRef = forwardRef(
   (
@@ -33,7 +33,7 @@ const F__TextAreaRef = forwardRef(
   ) => {
     const classes: any = {};
     if (paletteColor) {
-      classes[COLOR_CLASSES[paletteColor]] = true;
+      classes[FONT_COLOR_CLASSES[paletteColor]] = true;
     }
     if (fontSize) {
       classes[FONT_SIZE_CLASSES[fontSize]] = true;

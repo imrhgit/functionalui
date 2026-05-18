@@ -3,79 +3,81 @@
 import { animated } from "@react-spring/web";
 import { useUiContext } from "functionalui";
 import {
-	COLOR_CLASSES,
 	FONT_FAMILY_CLASSES,
 	FONT_SIZE_CLASSES,
 	FONT_STYLE_CLASSES,
 	FONT_WEIGHT_CLASSES,
 	SpanProps,
-	TEXT_ALIGN_CLASSES,
+	TEXT_ALIGN_CLASSES
 } from "functionalui/types";
 import { forwardRef } from "react";
-import returnSizeStr from "../utils/returnSizeStr";
 import { BASE_FONT_SIZE, THEME_CLASSES } from "../../../../contexts/ui/types";
 import { CURSOR_CLASSES } from "../../../types/classes";
+import { FONT_COLOR_CLASSES } from "../../../types/colors/classes";
+import returnSizeStr from "../utils/returnSizeStr";
 
 const Text_SpanRef = forwardRef(
-	(
-		{
-			paletteColor,
-			fontSize,
-			fontFamily,
-			fontWeight,
-			fontStyle,
-			textAlign,
-			className,
-			cursor,
-			children,
-			...props
-		}: SpanProps,
-		ref: any,
-	) => {
-		const classes: any = {};
-		const { theme, baseFontSize } = useUiContext();
-		if (fontSize) {
-			if (baseFontSize !== BASE_FONT_SIZE) {
-				classes[
-					FONT_SIZE_CLASSES[
-						returnSizeStr(fontSize, baseFontSize - BASE_FONT_SIZE)
-					]
-				] = true;
-			} else classes[FONT_SIZE_CLASSES[fontSize]] = true;
-		} else {
-			classes[FONT_SIZE_CLASSES[baseFontSize]] = true;
-		}
-		if (paletteColor) {
-			classes[COLOR_CLASSES[paletteColor]] = true;
-		}
-		if (fontSize) {
-			classes[FONT_SIZE_CLASSES[fontSize]] = true;
-		}
-		if (fontFamily) {
-			classes[FONT_FAMILY_CLASSES[fontFamily]] = true;
-		}
-		if (fontWeight) {
-			classes[FONT_WEIGHT_CLASSES[fontWeight]] = true;
-		}
-		if (fontStyle) {
-			classes[FONT_STYLE_CLASSES[fontStyle]] = true;
-		}
-		if (textAlign) {
-			classes[TEXT_ALIGN_CLASSES[textAlign]] = true;
-		}
-		if (cursor) {
-			classes[CURSOR_CLASSES[cursor]] = true;
-		}
-		return (
-			<animated.span
-				ref={ref}
-				className={`${THEME_CLASSES[theme]} ${Object.keys(classes).join(" ")} ${className ? className : ""}`}
-				{...props}
-			>
-				{children}
-			</animated.span>
-		);
-	},
+  (
+    {
+      paletteColor,
+      fontSize,
+      fontFamily,
+      fontWeight,
+      fontStyle,
+      textAlign,
+      className,
+      cursor,
+      children,
+      ...props
+    }: SpanProps,
+    ref: any
+  ) => {
+    const classes: any = {};
+    const { theme, baseFontSize } = useUiContext();
+    if (fontSize) {
+      if (baseFontSize !== BASE_FONT_SIZE) {
+        classes[
+          FONT_SIZE_CLASSES[
+            returnSizeStr(fontSize, baseFontSize - BASE_FONT_SIZE)
+          ]
+        ] = true;
+      } else classes[FONT_SIZE_CLASSES[fontSize]] = true;
+    } else {
+      classes[FONT_SIZE_CLASSES[baseFontSize]] = true;
+    }
+    if (paletteColor) {
+      classes[FONT_COLOR_CLASSES[paletteColor]] = true;
+    }
+    if (fontSize) {
+      classes[FONT_SIZE_CLASSES[fontSize]] = true;
+    }
+    if (fontFamily) {
+      classes[FONT_FAMILY_CLASSES[fontFamily]] = true;
+    }
+    if (fontWeight) {
+      classes[FONT_WEIGHT_CLASSES[fontWeight]] = true;
+    }
+    if (fontStyle) {
+      classes[FONT_STYLE_CLASSES[fontStyle]] = true;
+    }
+    if (textAlign) {
+      classes[TEXT_ALIGN_CLASSES[textAlign]] = true;
+    }
+    if (cursor) {
+      classes[CURSOR_CLASSES[cursor]] = true;
+    }
+    return (
+      <animated.span
+        ref={ref}
+        className={`${THEME_CLASSES[theme]} ${Object.keys(classes).join(" ")} ${
+          className ? className : ""
+        }`}
+        {...props}
+      >
+        {children}
+      </animated.span>
+    );
+  }
 );
 
 export default Text_SpanRef;

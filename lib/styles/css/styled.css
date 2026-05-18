@@ -324,89 +324,6 @@
 .font-size-8 { font-size: var(--font-size-8);}
 .font-size-9 { font-size: var(--font-size-9);}
 .font-size-10 { font-size: var(--font-size-10);}
-/* font -- text color */
-.font-cl-grey-1 { color: var(--cl-grey-1);}
-.font-cl-grey-2 { color: var(--cl-grey-2);}
-.font-cl-grey-3 { color: var(--cl-grey-3);}
-.font-cl-grey-4 { color: var(--cl-grey-4);}
-.font-cl-grey-5 { color: var(--cl-grey-5);}
-.font-cl-grey-6 { color: var(--cl-grey-6);}
-.font-cl-grey-7 { color: var(--cl-grey-7);}
-.font-cl-grey-8 { color: var(--cl-grey-8);}
-.font-cl-grey-9 { color: var(--cl-grey-9);}
-.font-cl-grey-10 { color: var(--cl-grey-10);}
-.font-cl-pri-1 { color: var(--cl-pri-1);}
-.font-cl-pri-2 { color: var(--cl-pri-2);}
-.font-cl-pri-3 { color: var(--cl-pri-3);}
-.font-cl-pri-4 { color: var(--cl-pri-4);}
-.font-cl-pri-5 { color: var(--cl-pri-5);}
-.font-cl-pri-6 { color: var(--cl-pri-6);}
-.font-cl-pri-7 { color: var(--cl-pri-7);}
-.font-cl-pri-8 { color: var(--cl-pri-8);}
-.font-cl-pri-9 { color: var(--cl-pri-9);}
-.font-cl-sec-1 { color: var(--cl-sec-1);}
-.font-cl-sec-2 { color: var(--cl-sec-2);}
-.font-cl-sec-3 { color: var(--cl-sec-3);}
-.font-cl-sec-4 { color: var(--cl-sec-4);}
-.font-cl-sec-5 { color: var(--cl-sec-5);}
-.font-cl-sec-6 { color: var(--cl-sec-6);}
-.font-cl-sec-7 { color: var(--cl-sec-7);}
-.font-cl-sec-8 { color: var(--cl-sec-8);}
-.font-cl-sec-9 { color: var(--cl-sec-9);}
-.font-cl-rd-1 { color: var(--cl-rd-1);}
-.font-cl-rd-2 { color: var(--cl-rd-2);}
-.font-cl-rd-3 { color: var(--cl-rd-3);}
-.font-cl-rd-4 { color: var(--cl-rd-4);}
-.font-cl-rd-5 { color: var(--cl-rd-5);}
-.font-cl-rd-6 { color: var(--cl-rd-6);}
-.font-cl-rd-7 { color: var(--cl-rd-7);}
-.font-cl-rd-8 { color: var(--cl-rd-8);}
-.font-cl-rd-9 { color: var(--cl-rd-9);}
-.font-cl-gr-1 { color: var(--cl-gr-1);}
-.font-cl-gr-2 { color: var(--cl-gr-2);}
-.font-cl-gr-3 { color: var(--cl-gr-3);}
-.font-cl-gr-4 { color: var(--cl-gr-4);}
-.font-cl-gr-5 { color: var(--cl-gr-5);}
-.font-cl-gr-6 { color: var(--cl-gr-6);}
-.font-cl-gr-7 { color: var(--cl-gr-7);}
-.font-cl-gr-8 { color: var(--cl-gr-8);}
-.font-cl-gr-9 { color: var(--cl-gr-9);}
-.font-cl-bl-1 { color: var(--cl-bl-1);}
-.font-cl-bl-2 { color: var(--cl-bl-2);}
-.font-cl-bl-3 { color: var(--cl-bl-3);}
-.font-cl-bl-4 { color: var(--cl-bl-4);}
-.font-cl-bl-5 { color: var(--cl-bl-5);}
-.font-cl-bl-6 { color: var(--cl-bl-6);}
-.font-cl-bl-7 { color: var(--cl-bl-7);}
-.font-cl-bl-8 { color: var(--cl-bl-8);}
-.font-cl-bl-9 { color: var(--cl-bl-9);}
-.font-cl-yl-1 { color: var(--cl-yl-1);}
-.font-cl-yl-2 { color: var(--cl-yl-2);}
-.font-cl-yl-3 { color: var(--cl-yl-3);}
-.font-cl-yl-4 { color: var(--cl-yl-4);}
-.font-cl-yl-5 { color: var(--cl-yl-5);}
-.font-cl-yl-6 { color: var(--cl-yl-6);}
-.font-cl-yl-7 { color: var(--cl-yl-7);}
-.font-cl-yl-8 { color: var(--cl-yl-8);}
-.font-cl-yl-9 { color: var(--cl-yl-9);}
-.font-cl-ac1-1 { color: var(--cl-ac1-1);}
-.font-cl-ac1-2 { color: var(--cl-ac1-2);}
-.font-cl-ac1-3 { color: var(--cl-ac1-3);}
-.font-cl-ac1-4 { color: var(--cl-ac1-4);}
-.font-cl-ac1-5 { color: var(--cl-ac1-5);}
-.font-cl-ac1-6 { color: var(--cl-ac1-6);}
-.font-cl-ac1-7 { color: var(--cl-ac1-7);}
-.font-cl-ac1-8 { color: var(--cl-ac1-8);}
-.font-cl-ac1-9 { color: var(--cl-ac1-9);}
-.font-cl-ac2-1 { color: var(--cl-ac2-1);}
-.font-cl-ac2-2 { color: var(--cl-ac2-2);}
-.font-cl-ac2-3 { color: var(--cl-ac2-3);}
-.font-cl-ac2-4 { color: var(--cl-ac2-4);}
-.font-cl-ac2-5 { color: var(--cl-ac2-5);}
-.font-cl-ac2-6 { color: var(--cl-ac2-6);}
-.font-cl-ac2-7 { color: var(--cl-ac2-7);}
-.font-cl-ac2-8 { color: var(--cl-ac2-8);}
-.font-cl-ac2-9 { color: var(--cl-ac2-9);}
 /* font - font-weight */
 .font-wg-size-1 { font-weight: 300; }
 .font-wg-size-2 { font-weight: 400; }
@@ -414,7 +331,6 @@
 .font-wg-size-4 { font-weight: 600; }
 .font-wg-size-5 { font-weight: 700; }
 .font-wg-size-6 { font-weight: 800; }
-
 
 
 /* LAYOUT */

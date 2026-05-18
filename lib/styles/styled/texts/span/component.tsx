@@ -3,18 +3,18 @@
 import { animated } from "@react-spring/web";
 import { useUiContext } from "functionalui";
 import {
-  COLOR_CLASSES,
   FONT_FAMILY_CLASSES,
   FONT_SIZE_CLASSES,
   FONT_STYLE_CLASSES,
   FONT_WEIGHT_CLASSES,
   SpanProps,
-  TEXT_ALIGN_CLASSES,
+  TEXT_ALIGN_CLASSES
 } from "functionalui/types";
 import { FC } from "react";
-import returnSizeStr from "../utils/returnSizeStr";
 import { BASE_FONT_SIZE, THEME_CLASSES } from "../../../../contexts/ui/types";
 import { CURSOR_CLASSES } from "../../../types/classes";
+import { FONT_COLOR_CLASSES } from "../../../types/colors/classes";
+import returnSizeStr from "../utils/returnSizeStr";
 
 const Text_Span: FC<SpanProps> = ({
   paletteColor,
@@ -43,7 +43,7 @@ const Text_Span: FC<SpanProps> = ({
     classes[FONT_SIZE_CLASSES[baseFontSize]] = true;
   }
   if (paletteColor) {
-    classes[COLOR_CLASSES[paletteColor]] = true;
+    classes[FONT_COLOR_CLASSES[paletteColor]] = true;
   }
   if (fontSize) {
     classes[FONT_SIZE_CLASSES[fontSize]] = true;
