@@ -12,8 +12,6 @@ import {
   TextAreaProps,
 } from "functionalui/types";
 import { FC } from "react";
-import { THEME_CLASSES } from "../../../../contexts/ui/types";
-import { useUiContext } from "functionalui";
 import { OUTLINE_STYLE_CLASSES } from "../../../types/classes";
 
 const F__TextArea: FC<TextAreaProps> = ({
@@ -31,7 +29,6 @@ const F__TextArea: FC<TextAreaProps> = ({
   ...props
 }) => {
   const classes: any = {};
-  const { theme } = useUiContext();
   if (paletteColor) {
     classes[COLOR_CLASSES[paletteColor]] = true;
   }
@@ -59,7 +56,7 @@ const F__TextArea: FC<TextAreaProps> = ({
   return (
     <animated.textarea
       ref={ref}
-      className={`${THEME_CLASSES[theme]} ${Object.keys(classes).join(" ")} ${
+      className={`${Object.keys(classes).join(" ")} ${
         className ? className : ""
       }`}
       {...props}

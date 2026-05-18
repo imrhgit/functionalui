@@ -1,7 +1,6 @@
 "use client";
 
 import { animated } from "@react-spring/web";
-import { useUiContext } from "functionalui";
 import {
 	COLOR_CLASSES,
 	FONT_FAMILY_CLASSES,
@@ -12,47 +11,47 @@ import {
 	TEXT_ALIGN_CLASSES,
 } from "functionalui/types";
 import { FC } from "react";
-import { THEME_CLASSES } from "../../../../contexts/ui/types";
 
 const Text_H1: FC<HeadElementProps> = ({
-	paletteColor,
-	fontSize,
-	fontFamily,
-	fontWeight,
-	fontStyle,
-	textAlign,
-	className,
-	children,
-	...props
+  paletteColor,
+  fontSize,
+  fontFamily,
+  fontWeight,
+  fontStyle,
+  textAlign,
+  className,
+  children,
+  ...props
 }) => {
-	const classes: any = {};
-	const { theme } = useUiContext();
-	if (paletteColor) {
-		classes[COLOR_CLASSES[paletteColor]] = true;
-	}
-	if (fontSize) {
-		classes[FONT_SIZE_CLASSES[fontSize]] = true;
-	}
-	if (fontFamily) {
-		classes[FONT_FAMILY_CLASSES[fontFamily]] = true;
-	}
-	if (fontWeight) {
-		classes[FONT_WEIGHT_CLASSES[fontWeight]] = true;
-	}
-	if (fontStyle) {
-		classes[FONT_STYLE_CLASSES[fontStyle]] = true;
-	}
-	if (textAlign) {
-		classes[TEXT_ALIGN_CLASSES[textAlign]] = true;
-	}
-	return (
-		<animated.h1
-			className={`${THEME_CLASSES[theme]} ${Object.keys(classes).join(" ")} ${className ? className : ""}`}
-			{...props}
-		>
-			{children}
-		</animated.h1>
-	);
+  const classes: any = {};
+  if (paletteColor) {
+    classes[COLOR_CLASSES[paletteColor]] = true;
+  }
+  if (fontSize) {
+    classes[FONT_SIZE_CLASSES[fontSize]] = true;
+  }
+  if (fontFamily) {
+    classes[FONT_FAMILY_CLASSES[fontFamily]] = true;
+  }
+  if (fontWeight) {
+    classes[FONT_WEIGHT_CLASSES[fontWeight]] = true;
+  }
+  if (fontStyle) {
+    classes[FONT_STYLE_CLASSES[fontStyle]] = true;
+  }
+  if (textAlign) {
+    classes[TEXT_ALIGN_CLASSES[textAlign]] = true;
+  }
+  return (
+    <animated.h1
+      className={`${Object.keys(classes).join(" ")} ${
+        className ? className : ""
+      }`}
+      {...props}
+    >
+      {children}
+    </animated.h1>
+  );
 };
 
 export default Text_H1;

@@ -11,8 +11,6 @@ import {
   TextInputProps,
 } from "functionalui/types";
 import { FC } from "react";
-import { THEME_CLASSES } from "../../../../contexts/ui/types";
-import { useUiContext } from "functionalui";
 
 const F__TextInput: FC<TextInputProps> = ({
   paletteColor,
@@ -27,7 +25,6 @@ const F__TextInput: FC<TextInputProps> = ({
   ...props
 }) => {
   const classes: any = {};
-  const { theme } = useUiContext();
   if (paletteColor) {
     classes[COLOR_CLASSES[paletteColor]] = true;
   }
@@ -49,7 +46,7 @@ const F__TextInput: FC<TextInputProps> = ({
   return (
     <animated.input
       ref={ref}
-      className={`${THEME_CLASSES[theme]} ${Object.keys(classes).join(" ")} ${
+      className={`${Object.keys(classes).join(" ")} ${
         className ? className : ""
       }`}
       {...props}
