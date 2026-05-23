@@ -1,59 +1,7 @@
 "use client";
 
-import {
-  FONT_FAMILY_CLASSES,
-  FONT_SIZE_CLASSES,
-  FONT_STYLE_CLASSES,
-  FONT_WEIGHT_CLASSES,
-  HeadElementProps,
-  TEXT_ALIGN_CLASSES,
-} from "functionalui/types";
-import { FC } from "react";
-import { FONT_COLOR_CLASSES } from "../../../types/colors/classes";
-import { Header } from "./Header";
+import { createHeadElement } from "../utils/createHeadElement";
 
-const Text_Header: FC<HeadElementProps> = ({
-  header,
-  paletteColor,
-  fontSize,
-  fontFamily,
-  fontWeight,
-  fontStyle,
-  textAlign,
-  className,
-  children,
-  ...props
-}) => {
-  const classes: any = {};
-  if (paletteColor) {
-    classes[FONT_COLOR_CLASSES[paletteColor]] = true;
-  }
-  if (fontSize) {
-    classes[FONT_SIZE_CLASSES[fontSize]] = true;
-  }
-  if (fontFamily) {
-    classes[FONT_FAMILY_CLASSES[fontFamily]] = true;
-  }
-  if (fontWeight) {
-    classes[FONT_WEIGHT_CLASSES[fontWeight]] = true;
-  }
-  if (fontStyle) {
-    classes[FONT_STYLE_CLASSES[fontStyle]] = true;
-  }
-  if (textAlign) {
-    classes[TEXT_ALIGN_CLASSES[textAlign]] = true;
-  }
-  return (
-    <Header
-      header={header}
-      className={`${Object.keys(classes).join(" ")} ${
-        className ? className : ""
-      }`}
-      {...props}
-    >
-      {children}
-    </Header>
-  );
-};
+const Text_Header = createHeadElement();
 
 export default Text_Header;

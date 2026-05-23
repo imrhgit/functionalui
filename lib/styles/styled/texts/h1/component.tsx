@@ -1,57 +1,10 @@
 "use client";
 
-import { animated } from "@react-spring/web";
-import {
-  FONT_FAMILY_CLASSES,
-  FONT_SIZE_CLASSES,
-  FONT_STYLE_CLASSES,
-  FONT_WEIGHT_CLASSES,
-  HeadElementProps,
-  TEXT_ALIGN_CLASSES
-} from "functionalui/types";
-import { FC } from "react";
-import { FONT_COLOR_CLASSES } from "../../../types/colors/classes";
+import { createHeadElement } from "../utils/createHeadElement";
 
-const Text_H1: FC<HeadElementProps> = ({
-  paletteColor,
-  fontSize,
-  fontFamily,
-  fontWeight,
-  fontStyle,
-  textAlign,
-  className,
-  children,
-  ...props
-}) => {
-  const classes: any = {};
-  if (paletteColor) {
-    classes[FONT_COLOR_CLASSES[paletteColor]] = true;
-  }
-  if (fontSize) {
-    classes[FONT_SIZE_CLASSES[fontSize]] = true;
-  }
-  if (fontFamily) {
-    classes[FONT_FAMILY_CLASSES[fontFamily]] = true;
-  }
-  if (fontWeight) {
-    classes[FONT_WEIGHT_CLASSES[fontWeight]] = true;
-  }
-  if (fontStyle) {
-    classes[FONT_STYLE_CLASSES[fontStyle]] = true;
-  }
-  if (textAlign) {
-    classes[TEXT_ALIGN_CLASSES[textAlign]] = true;
-  }
-  return (
-    <animated.h1
-      className={`${Object.keys(classes).join(" ")} ${
-        className ? className : ""
-      }`}
-      {...props}
-    >
-      {children}
-    </animated.h1>
-  );
-};
+/**
+ * @deprecated will be removed on future version ^0.2.x
+ */
+const Text_H1 = createHeadElement("h1");
 
 export default Text_H1;

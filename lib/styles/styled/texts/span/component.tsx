@@ -1,79 +1,32 @@
 "use client";
 
-import { animated } from "@react-spring/web";
 import { useUiContext } from "functionalui";
-import {
-  FONT_FAMILY_CLASSES,
-  FONT_SIZE_CLASSES,
-  FONT_STYLE_CLASSES,
-  FONT_WEIGHT_CLASSES,
-  SpanProps,
-  TEXT_ALIGN_CLASSES
-} from "functionalui/types";
-import { FC } from "react";
-import { BASE_FONT_SIZE, THEME_CLASSES } from "../../../../contexts/ui/types";
-import { CURSOR_CLASSES } from "../../../types/classes";
-import { FONT_COLOR_CLASSES } from "../../../types/colors/classes";
-import returnSizeStr from "../utils/returnSizeStr";
+import { SpanProps } from "functionalui/types";
+import { createTextElement } from "../utils/createTextElement";
 
-const Text_Span: FC<SpanProps> = ({
-  paletteColor,
-  fontSize,
-  fontFamily,
-  fontWeight,
-  fontStyle,
-  textAlign,
-  className,
-  cursor,
-  children,
-  ref,
-  ...props
-}) => {
-  const classes: any = {};
-  const { theme, baseFontSize } = useUiContext();
-  if (fontSize) {
-    if (baseFontSize !== BASE_FONT_SIZE) {
-      classes[
-        FONT_SIZE_CLASSES[
-          returnSizeStr(fontSize, baseFontSize - BASE_FONT_SIZE)
-        ]
-      ] = true;
-    } else classes[FONT_SIZE_CLASSES[fontSize]] = true;
-  } else {
-    classes[FONT_SIZE_CLASSES[baseFontSize]] = true;
-  }
-  if (paletteColor) {
-    classes[FONT_COLOR_CLASSES[paletteColor]] = true;
-  }
-  if (fontSize) {
-    classes[FONT_SIZE_CLASSES[fontSize]] = true;
-  }
-  if (fontFamily) {
-    classes[FONT_FAMILY_CLASSES[fontFamily]] = true;
-  }
-  if (fontWeight) {
-    classes[FONT_WEIGHT_CLASSES[fontWeight]] = true;
-  }
-  if (fontStyle) {
-    classes[FONT_STYLE_CLASSES[fontStyle]] = true;
-  }
-  if (textAlign) {
-    classes[TEXT_ALIGN_CLASSES[textAlign]] = true;
-  }
-  if (cursor) {
-    classes[CURSOR_CLASSES[cursor]] = true;
-  }
+function Text_Span({ children, ...props }: SpanProps) {
+  const { baseFontSize } = useUiContext();
+  const TextComponent = createTextElement<"span">("span", baseFontSize);
   return (
-    <animated.span
-      ref={ref}
-      className={`${THEME_CLASSES[theme]} ${Object.keys(classes).join(" ")} ${
-        className ? className : ""
-      }`}
+    <TextComponent
+      defaultValue={props.defaultValue as any}
+      defaultChecked={props.defaultChecked as any}
+      suppressContentEditableWarning={
+        props.suppressContentEditableWarning as any
+      }
+      suppressHydrationWarning={props.suppressHydrationWarning as any}
+      accessKey={props.accessKey as any}
+      autoCapitalize={props.autoCapitalize as any}
+      autoFocus={props.autoFocus as any}
+      className={props.className as any}
+      contentEditable={props.contentEditable as any}
+      contextMenu={props.contextMenu as any}
+      
       {...props}
     >
       {children}
-    </animated.span>
+    </TextComponent>
   );
-};
+}
 
 export default Text_Span;

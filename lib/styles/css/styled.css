@@ -300,6 +300,9 @@
   color: var(--cl-grey-10);
 }
 
+span, p, h1, h2, h3, h4, h5, h6 {
+  color: var(--cl-grey-10);
+}
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
