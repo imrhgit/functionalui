@@ -2,10 +2,9 @@
 
 import { useUiContext } from "functionalui";
 import { ParagraphProps } from "functionalui/types";
-import { FC } from "react";
-import { createTextElement } from "../utils/createTextElement3";
+import { createTextElement } from "../utils/createTextElement";
 
-const Text_P: FC<ParagraphProps> = ({ children, ...props }) => {
+const Text_P = ({ children, ...props }: ParagraphProps) => {
   const { baseFontSize } = useUiContext();
   const TextComponent = createTextElement<"p">("p", baseFontSize);
   return <TextComponent {...props}>{children}</TextComponent>;

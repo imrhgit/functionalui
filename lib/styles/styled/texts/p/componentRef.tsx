@@ -1,76 +1,16 @@
 "use client";
 
-import { animated } from "@react-spring/web";
 import { useUiContext } from "functionalui";
-import {
-	FONT_FAMILY_CLASSES,
-	FONT_SIZE_CLASSES,
-	FONT_STYLE_CLASSES,
-	FONT_WEIGHT_CLASSES,
-	ParagraphProps,
-	TEXT_ALIGN_CLASSES
-} from "functionalui/types";
-import { forwardRef } from "react";
-import { BASE_FONT_SIZE, THEME_CLASSES } from "../../../../contexts/ui/types";
-import { FONT_COLOR_CLASSES } from "../../../types/colors/classes";
-import returnSizeStr from "../utils/returnSizeStr";
+import { ParagraphProps } from "functionalui/types";
+import { createTextElement } from "../utils/createTextElement";
 
-export const Text_PRef = forwardRef(
-	(
-		{
-			paletteColor,
-			fontSize,
-			fontFamily,
-			fontWeight,
-			fontStyle,
-			textAlign,
-			className,
-			children,
-			...props
-		}: ParagraphProps,
-		ref: any,
-	) => {
-		const classes: any = {};
-		const { theme, baseFontSize } = useUiContext();
-		if (fontSize) {
-			if (baseFontSize !== BASE_FONT_SIZE) {
-				classes[
-					FONT_SIZE_CLASSES[
-						returnSizeStr(fontSize, baseFontSize - BASE_FONT_SIZE)
-					]
-				] = true;
-			} else classes[FONT_SIZE_CLASSES[fontSize]] = true;
-		} else {
-			classes[FONT_SIZE_CLASSES[baseFontSize]] = true;
-		}
-		if (paletteColor) {
-			classes[FONT_COLOR_CLASSES[paletteColor]] = true;
-		}
-		if (fontSize) {
-			classes[FONT_SIZE_CLASSES[fontSize]] = true;
-		}
-		if (fontFamily) {
-			classes[FONT_FAMILY_CLASSES[fontFamily]] = true;
-		}
-		if (fontWeight) {
-			classes[FONT_WEIGHT_CLASSES[fontWeight]] = true;
-		}
-		if (fontStyle) {
-			classes[FONT_STYLE_CLASSES[fontStyle]] = true;
-		}
-		if (textAlign) {
-			classes[TEXT_ALIGN_CLASSES[textAlign]] = true;
-		}
-		return (
-			<animated.p
-				ref={ref}
-				className={`${THEME_CLASSES[theme]} ${Object.keys(classes).join(" ")} ${className ? className : ""}`}
-				{...props}
-			>
-				{children}
-			</animated.p>
-		);
-	},
-);
+/**
+ * @deprecated will be removed on future version ^0.2.x
+ */
+const Text_PRef = ({ children, ...props }: ParagraphProps) => {
+  const { baseFontSize } = useUiContext();
+  const TextComponent = createTextElement<"p">("p", baseFontSize);
+  return <TextComponent {...props}>{children}</TextComponent>;
+};
 
 export default Text_PRef;
