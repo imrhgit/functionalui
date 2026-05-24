@@ -7,14 +7,13 @@ import {
   FONT_STYLE_CLASSES,
   FONT_WEIGHT_CLASSES,
   FontSizes,
-  TEXT_ALIGN_CLASSES
+  TEXT_ALIGN_CLASSES,
 } from "functionalui/types";
-import { createElement, JSX, ReactNode, Ref } from "react";
+import { createElement, JSX, Ref } from "react";
 import { FONT_COLOR_CLASSES } from "../../../types/colors/classes";
 import { TextStyleProps } from "../../../types/components.types";
 import returnSizeStr from "../utils/returnSizeStr";
 
-/* type Intrinsic = keyof JSX.IntrinsicElements; */
 type AllowedTags = "span" | "p";
 type PropsOf<T extends AllowedTags> = AnimatedProps<JSX.IntrinsicElements[T]>;
 
@@ -22,11 +21,16 @@ type TagExtraPropsMap = {
   span: TextStyleProps;
   p: TextStyleProps;
 };
-type CompProps<T extends AllowedTags> = PropsOf<T> &
-  TagExtraPropsMap[T] & {
-    children?: ReactNode;
-    ref?: Ref<any>;
-    className: string;
+
+// @todo("anti-pattern for className type any")
+type CompProps<
+  Default extends AllowedTags,
+  As extends AllowedTags = Default
+> = PropsOf<As> &
+  TagExtraPropsMap[As] & {
+    as?: As;
+    children?: React.ReactNode;
+    className?: any;
   };
 
 export function createTextElement<T extends AllowedTags>(
@@ -42,6 +46,7 @@ export function createTextElement<T extends AllowedTags>(
       fontStyle,
       textAlign,
       cursor,
+      className,
       children,
       ...rest
     } = props;
@@ -78,21 +83,21 @@ export function createTextElement<T extends AllowedTags>(
     if (cursor) {
       collectedClasses.push(CURSOR_CLASSES[cursor]);
     }
-    // extraHandled.className = [...collectedClasses, extraHandled.className]
-    //   .filter(Boolean)
-    //   .join(" ");
 
     return createElement(
       (animated as any)[`${tag}`],
-      { ref, ...extraHandled },
+      {
+        ref,
+        className: [...collectedClasses, className].filter(Boolean).join(" "),
+        ...extraHandled,
+      },
       children
     );
   }
 
   Component.displayName = `createElement(${String(tag)})`;
 
-  // return Component as React.ComponentType<AnimatedProps<JSX.IntrinsicElements[T]>>() => JSX.Element;
-  return Component as <T extends AllowedTags>(
-    props: CompProps<T> & { ref?: React.Ref<any> }
+  return Component as <As extends AllowedTags = T>(
+    props: CompProps<T, As> & { ref?: React.Ref<any> }
   ) => JSX.Element;
 }
