@@ -1,6 +1,13 @@
 import { Meta } from "@storybook/react";
-import { Container, Layout, Text_H1, Text_Header } from "functionalui";
-import { ColorPalettes, Spacings } from "functionalui/types";
+import {
+  Container,
+  Layout,
+  Text_H1,
+  Text_Header,
+  Text_P,
+  Text_Span,
+} from "functionalui";
+import { ColorPalettes, FontSizes, FontWeights, Spacings } from "functionalui/types";
 
 const meta: Meta = {
   title: "Components/Texts",
@@ -36,6 +43,15 @@ export const H1 = () => {
         <Text_Header header="h3" paletteColor={ColorPalettes.Secondary5}>
           H3 Text_Header
         </Text_Header>
+
+        <Text_Span
+          fontSize={FontSizes.Size5}
+          paletteColor={ColorPalettes.Secondary5}
+          fontWeight={FontWeights.Size6}
+        >
+          Span text
+        </Text_Span>
+        <Text_P>P text</Text_P>
       </Container>
     </Container>
   );
