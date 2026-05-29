@@ -24,6 +24,10 @@ export function ProvideUiContext({ children }: Props) {
   const value = useSetUi();
   return <UiContext.Provider value={value}>{children}</UiContext.Provider>;
 }
+
+/**
+ * @deprecated will be removed on future version ^0.2.x
+ */
 export const useUiContext = () => {
   return useContext(UiContext);
 };

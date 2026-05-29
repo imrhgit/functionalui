@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatedProps, useSpring } from "@react-spring/web";
-import { Container, Layout, useUiContext } from "functionalui";
+import { Container, Layout } from "functionalui";
 import {
   COLOR_VALUES,
   ColorPalettes,
@@ -13,7 +13,6 @@ import {
   Sizings,
 } from "functionalui/types";
 import { FC, HTMLAttributes } from "react";
-import { Themes } from "../../contexts/ui/types";
 import { Cursors, Radiuses } from "../../styles/types/generics";
 import { UICON_SIZING } from "../../styles/types/icons/values";
 import Spinner from "./Spinner";
@@ -57,13 +56,15 @@ const UIcon: FC<P> = ({
   bgColor,
   ...props
 }) => {
-  const { theme } = useUiContext();
   const [styles, api] = useSpring(() => ({
     backgroundColor: COLOR_VALUES[ColorPalettes.Transparent],
     scale: 1.0,
   }));
-  const color =
-    theme !== Themes.Light ? COLOR_VALUES[colorDark] : COLOR_VALUES[colorLight];
+
+  const collectedClasses: Array<string> = [];
+  if (colorDark || colorLight) {
+    collectedClasses.push(COLOR_VALUES[colorDark || colorLight]);
+  }
   const clickable = animated && typeof iconAction !== "undefined";
   return (
     <Layout
@@ -72,10 +73,8 @@ const UIcon: FC<P> = ({
       flexJustifyContent={FlexJustifyContents.Center}
       flexAlignItem={FlexAlignItems.Center}
       style={{
-        // width: width || size,
-        // height: height || size,
         width: "max-content",
-        color: color,
+        color: COLOR_VALUES[colorDark || colorLight],
         cursor: clickable ? "pointer" : "default",
         borderRadius: isBorderRadius(borderRadius)
           ? RADIUS_VALUES[borderRadius]
@@ -143,13 +142,16 @@ const UIcon: FC<P> = ({
         }
       >
         {name === "spinner" ? (
-          <Spinner size={UICON_SIZING[size].size} color={color} />
+          <Spinner
+            size={UICON_SIZING[size].size}
+            className={collectedClasses.filter(Boolean).join(" ")}
+          />
         ) : (
           <svg
             width={width || UICON_SIZING[size].size}
             height={height || UICON_SIZING[size].size}
             fill="none"
-            stroke={color}
+            stroke={COLOR_VALUES[colorDark || colorLight]}
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"

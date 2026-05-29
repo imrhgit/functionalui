@@ -1,7 +1,6 @@
 "use client";
 
-import { useSpring } from "@react-spring/web";
-import { Container, Layout, Text_Span, useUiContext } from "functionalui";
+import { Container, Layout, Text_Span } from "functionalui";
 import {
   COLOR_VALUES,
   ColorPalettes,
@@ -13,7 +12,6 @@ import {
   Spacings,
 } from "functionalui/types";
 import { FC, ReactNode } from "react";
-import { Themes } from "../../../contexts/ui/types";
 import {
   CHIP_SIZE,
   CHIP_STYLE,
@@ -50,27 +48,6 @@ const Chip: FC<P> = ({
   chipStyle = ChipStyles.Filled,
   size = ChipSizes.Medium,
 }) => {
-  const { theme } = useUiContext();
-  const styles = useSpring({
-    backgroundColor:
-      theme !== Themes.Light
-        ? CHIP_STYLE[chipStyle]?.bgColor
-          ? COLOR_VALUES[ColorRanges[chipColor][0] + 2]
-          : undefined
-        : CHIP_STYLE[chipStyle]?.bgColor
-          ? COLOR_VALUES[ColorRanges[chipColor][1] - 2]
-          : undefined,
-    color:
-      theme !== Themes.Light
-        ? // dark
-          CHIP_STYLE[chipStyle]?.font?.fontColor
-          ? CHIP_STYLE[chipStyle]?.font?.fontColor
-          : COLOR_VALUES[ColorRanges[chipColor][0] + 4]
-        : // light
-          CHIP_STYLE[chipStyle]?.font?.fontColor
-          ? CHIP_STYLE[chipStyle]?.font?.fontColor
-          : COLOR_VALUES[ColorRanges[chipColor][0] + 4],
-  });
   return (
     <Layout display={Displays.Flex}>
       <Container
@@ -86,8 +63,12 @@ const Chip: FC<P> = ({
         borderStyle={CHIP_STYLE[chipStyle].border?.borderStyle}
         borderWidth={CHIP_STYLE[chipStyle].border?.borderWidth}
         style={{
-          // ...style,
-          ...styles,
+          backgroundColor: CHIP_STYLE[chipStyle]?.bgColor
+            ? COLOR_VALUES[ColorRanges[chipColor][0] + 2]
+            : undefined,
+          color: CHIP_STYLE[chipStyle]?.font?.fontColor
+            ? CHIP_STYLE[chipStyle]?.font?.fontColor
+            : COLOR_VALUES[ColorRanges[chipColor][0] + 4],
         }}
       >
         <Text_Span
@@ -110,7 +91,7 @@ export default Chip;
 
 const chipPaddings = (
   paddings: "top bottom" | "left right" | "all",
-  size: ChipSizes,
+  size: ChipSizes
 ): any => {
   switch (paddings) {
     case "all":

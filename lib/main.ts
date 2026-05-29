@@ -42,7 +42,6 @@ export { default as SpringEnter } from "./components/springAnimations/springTran
 export { default as SpringEnterOffsetBy } from "./components/springAnimations/springTransitions/SpringEnterOffsetBy";
 export { default as SpringMenuTransition } from "./components/springAnimations/springTransitions/SpringMenuTransition";
 
-// export { default as ReactIcon } from "./components/icons/ReactIcon";
 export { default as UIcon } from "./components/icons/UIcon";
 
 export { ProvideUiContext, useUiContext } from "./contexts/ui/UiContexts";

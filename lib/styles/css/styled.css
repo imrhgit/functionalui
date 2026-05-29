@@ -1,15 +1,15 @@
 :root {
   /* TEXT STYLING */
-  --font-size-1: clamp(0.76rem, calc(0.76rem + 0.02vw), 0.77rem);
-  --font-size-2: clamp(0.86rem, calc(0.86rem + 0.02vw), 0.875rem);
-  --font-size-3: clamp(0.91rem, calc(0.89rem + 0.10vw), 0.96rem);
-  --font-size-4: clamp(1.09rem, calc(1.05rem + 0.21vw), 1.20rem);
-  --font-size-5: clamp(1.31rem, calc(1.24rem + 0.37vw), 1.50rem);
-  --font-size-6: clamp(1.58rem, calc(1.46rem + 0.59vw), 1.88rem);
-  --font-size-7: clamp(1.89rem, calc(1.71rem + 0.89vw), 2.34rem);
-  --font-size-8: clamp(2.27rem, calc(2.01rem + 1.29vw), 2.93rem);
-  --font-size-9: clamp(2.72rem, calc(2.36rem + 1.83vw), 3.66rem);
-  --font-size-10: clamp(3.27rem, calc(2.75rem + 2.56vw), 4.58rem);
+  --font-size-1: clamp(0.6944rem, 0.684rem + 0.0465vw, 0.72rem);
+  --font-size-2: clamp(0.8333rem, 0.8061rem + 0.1212vw, 0.9rem);
+  --font-size-3: clamp(1rem, 0.9489rem + 0.2273vw, 1.125rem);
+  --font-size-4: clamp(1.2rem, 1.1156rem + 0.375vw, 1.4063rem);
+  --font-size-5: clamp(1.44rem, 1.31rem + 0.5778vw, 1.7578rem);
+  --font-size-6: clamp(1.728rem, 1.536rem + 0.8532vw, 2.1973rem);
+  --font-size-7: clamp(2.0736rem, 1.7983rem + 1.2236vw, 2.7466rem);
+  --font-size-8: clamp(2.4883rem, 2.1018rem + 1.718vw, 3.4332rem);
+  --font-size-9: clamp(2.986rem, 2.4519rem + 2.3737vw, 4.2915rem);
+  --font-size-10: clamp(3.5832rem, 2.8545rem + 3.2386vw, 5.3644rem);
 
   --space-3xs: clamp(0.31rem, calc(0.31rem + 0.00vw), 0.31rem);
   --space-2xs: clamp(0.56rem, calc(0.54rem + 0.11vw), 0.63rem);
@@ -303,6 +303,9 @@
 span, p, h1, h2, h3, h4, h5, h6 {
   color: var(--cl-grey-10);
 }
+svg {
+  color: var(--cl-pri-8);
+}
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
@@ -314,6 +317,43 @@ span, p, h1, h2, h3, h4, h5, h6 {
   body {
     background-color: var(--background);
   }
+}
+
+[data-b-fsize="small"] {
+  --font-size-1: clamp(0.6076rem, 0.5944rem + 0.0588vw, 0.64rem);
+  --font-size-2: clamp(0.7292rem, 0.7002rem + 0.1288vw, 0.8rem);
+  --font-size-3: clamp(0.875rem, 0.8239rem + 0.2273vw, 1rem);
+  --font-size-4: clamp(1.05rem, 0.9682rem + 0.3636vw, 1.25rem);
+  --font-size-5: clamp(1.26rem, 1.1363rem + 0.55vw, 1.5625rem);
+  --font-size-6: clamp(1.512rem, 1.3315rem + 0.802vw, 1.9531rem);
+  --font-size-7: clamp(1.8144rem, 1.5579rem + 1.14vw, 2.4414rem);
+  --font-size-8: clamp(2.1773rem, 1.8195rem + 1.59vw, 3.0518rem);
+  --font-size-9: clamp(2.6127rem, 2.121rem + 2.1854vw, 3.8147rem);
+  --font-size-10: clamp(3.1353rem, 2.4672rem + 2.9693vw, 4.7684rem);
+}
+[data-b-fsize="default"] {
+  --font-size-1: clamp(0.6944rem, 0.684rem + 0.0465vw, 0.72rem);
+  --font-size-2: clamp(0.8333rem, 0.8061rem + 0.1212vw, 0.9rem);
+  --font-size-3: clamp(1rem, 0.9489rem + 0.2273vw, 1.125rem);
+  --font-size-4: clamp(1.2rem, 1.1156rem + 0.375vw, 1.4063rem);
+  --font-size-5: clamp(1.44rem, 1.31rem + 0.5778vw, 1.7578rem);
+  --font-size-6: clamp(1.728rem, 1.536rem + 0.8532vw, 2.1973rem);
+  --font-size-7: clamp(2.0736rem, 1.7983rem + 1.2236vw, 2.7466rem);
+  --font-size-8: clamp(2.4883rem, 2.1018rem + 1.718vw, 3.4332rem);
+  --font-size-9: clamp(2.986rem, 2.4519rem + 2.3737vw, 4.2915rem);
+  --font-size-10: clamp(3.5832rem, 2.8545rem + 3.2386vw, 5.3644rem);
+}
+[data-b-fsize="big"] {
+  --font-size-1: clamp(1.04rem, 1.0423rem + -0.003vw, 1.0417rem);
+  --font-size-2: clamp(1.25rem, 1.2295rem + 0.0909vw, 1.3rem);
+  --font-size-3: clamp(1.5rem, 1.4489rem + 0.2273vw, 1.625rem);
+  --font-size-4: clamp(1.8rem, 1.7054rem + 0.4205vw, 2.0313rem);
+  --font-size-5: clamp(2.16rem, 2.0049rem + 0.6892vw, 2.5391rem);
+  --font-size-6: clamp(2.592rem, 2.354rem + 1.0579vw, 3.1738rem);
+  --font-size-7: clamp(3.1104rem, 2.7599rem + 1.558vw, 3.9673rem);
+  --font-size-8: clamp(3.7325rem, 3.2307rem + 2.2302vw, 4.9591rem);
+  --font-size-9: clamp(4.479rem, 3.7754rem + 3.1271vw, 6.1989rem);
+  --font-size-10: clamp(5.3748rem, 4.4037rem + 4.3161vw, 7.7486rem);
 }
 
 /* ######################################## TEXT STYLING ######################################## */

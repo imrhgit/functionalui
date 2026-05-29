@@ -1,5 +1,5 @@
 import { AnimatedProps } from "@react-spring/web";
-import type { HTMLAttributes, ReactNode, Ref, RefObject } from "react";
+import type { HTMLAttributes, ReactNode, Ref } from "react";
 import {
   ButtonStyleProps,
   HeaderProps,
@@ -109,7 +109,7 @@ export {
   GridRowGaps,
   JustifySelfs,
 } from "./layout/generics";
-export { Sizings } from "./sizings/generics";
+export { Sizings, FontBaseSizes } from "./sizings/generics";
 export {
   BORDER_STYLE_VALUES,
   BORDER_WIDTH_VALUES,
@@ -143,13 +143,13 @@ export interface DivProps
   extends AnimatedProps<HTMLAttributes<HTMLDivElement>>,
     StyleProps {
   children?: ReactNode;
-  ref?: RefObject<HTMLDivElement | null>;
+  ref?: Ref<HTMLDivElement | null>;
 }
 export interface LayoutDivProps
   extends AnimatedProps<HTMLAttributes<HTMLDivElement>>,
     LayoutProps {
   children?: ReactNode;
-  ref?: RefObject<HTMLDivElement | null>;
+  ref?: Ref<HTMLDivElement | null>;
 }
 
 export interface ButtonProps
@@ -157,7 +157,7 @@ export interface ButtonProps
     StyleProps,
     ButtonStyleProps {
   children?: ReactNode;
-  ref?: RefObject<HTMLButtonElement | null>;
+  ref?: Ref<HTMLButtonElement | null>;
 }
 
 interface TextInputProp {
@@ -204,14 +204,14 @@ export interface LiProps
   extends AnimatedProps<HTMLAttributes<HTMLLIElement>>,
     StyleProps {
   children?: ReactNode;
-  ref?: RefObject<HTMLLIElement | null>;
+  ref?: Ref<HTMLLIElement | null>;
 }
 
 export interface UlProps
   extends AnimatedProps<HTMLAttributes<HTMLUListElement>>,
     StyleProps {
   children?: ReactNode;
-  ref?: RefObject<HTMLUListElement | null>;
+  ref?: Ref<HTMLUListElement | null>;
 }
 
 export interface HeadElementProps
@@ -219,21 +219,21 @@ export interface HeadElementProps
     TextStyleProps,
     HeaderProps {
   children?: ReactNode;
-  ref?: RefObject<HTMLHeadingElement | null>;
+  ref?: Ref<HTMLHeadingElement | null>;
 }
 
 export interface ParagraphProps
   extends AnimatedProps<HTMLAttributes<HTMLParagraphElement>>,
     TextStyleProps {
   children?: ReactNode;
-  ref?: RefObject<HTMLParagraphElement | null>;
+  ref?: Ref<HTMLParagraphElement | null>;
 }
 
 export interface SpanProps
   extends AnimatedProps<HTMLAttributes<HTMLSpanElement>>,
     TextStyleProps {
   children?: ReactNode;
-  ref?: RefObject<HTMLSpanElement | null>;
+  ref?: Ref<HTMLSpanElement | null>;
 }
 
 export {
@@ -313,3 +313,5 @@ export {
 export { Icons } from "./icons/icons";
 
 export type { InsetGroupOption } from "./ui/insetGroup/types";
+
+export { FUIAttributeSelectors } from "./attributes/types";

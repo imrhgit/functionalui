@@ -15,3 +15,9 @@ export enum Sizings {
   Size14 = 84,
   Size15 = 92,
 }
+
+export enum FontBaseSizes {
+  Small = "small",
+  Default = "default",
+  Big = "big",
+}

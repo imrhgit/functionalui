@@ -1,18 +1,15 @@
 import { animated, AnimatedProps } from "@react-spring/web";
 import {
-  BASE_FONT_SIZE,
   CURSOR_CLASSES,
   FONT_FAMILY_CLASSES,
   FONT_SIZE_CLASSES,
   FONT_STYLE_CLASSES,
   FONT_WEIGHT_CLASSES,
-  FontSizes,
   TEXT_ALIGN_CLASSES,
 } from "functionalui/types";
 import { createElement, JSX, Ref } from "react";
 import { FONT_COLOR_CLASSES } from "../../../types/colors/classes";
 import { TextStyleProps } from "../../../types/components.types";
-import returnSizeStr from "../utils/returnSizeStr";
 
 type AllowedTags = "span" | "p";
 type PropsOf<T extends AllowedTags> = AnimatedProps<JSX.IntrinsicElements[T]>;
@@ -33,10 +30,7 @@ type CompProps<
     className?: any;
   };
 
-export function createTextElement<T extends AllowedTags>(
-  tag?: T,
-  baseFontSize?: FontSizes
-) {
+export function createTextElement<T extends AllowedTags>(tag?: T) {
   function Component(props: CompProps<T>, ref?: Ref<any>) {
     const {
       paletteColor,
@@ -56,17 +50,7 @@ export function createTextElement<T extends AllowedTags>(
       collectedClasses.push(FONT_COLOR_CLASSES[paletteColor]);
     }
     if (fontSize) {
-      if (baseFontSize && baseFontSize !== BASE_FONT_SIZE) {
-        collectedClasses.push(
-          FONT_SIZE_CLASSES[
-            returnSizeStr(fontSize, baseFontSize - BASE_FONT_SIZE)
-          ]
-        );
-      } else collectedClasses.push(FONT_SIZE_CLASSES[fontSize]);
-    } else {
-      collectedClasses.push(
-        FONT_SIZE_CLASSES[baseFontSize || fontSize || FontSizes.Size2]
-      );
+      collectedClasses.push(FONT_SIZE_CLASSES[fontSize]);
     }
     if (fontFamily) {
       collectedClasses.push(FONT_FAMILY_CLASSES[fontFamily]);

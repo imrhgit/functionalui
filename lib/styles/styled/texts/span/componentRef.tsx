@@ -1,6 +1,5 @@
 "use client";
 
-import { useUiContext } from "functionalui";
 import { SpanProps } from "functionalui/types";
 import { createTextElement } from "../utils/createTextElement";
 
@@ -8,8 +7,7 @@ import { createTextElement } from "../utils/createTextElement";
  * @deprecated will be removed on future version ^0.2.x
  */
 function Text_SpanRef({ children, ...props }: SpanProps) {
-  const { baseFontSize } = useUiContext();
-  const TextComponent = createTextElement<"span">("span", baseFontSize);
+  const TextComponent = createTextElement<"span">("span");
   return <TextComponent {...props}>{children}</TextComponent>;
 }
 

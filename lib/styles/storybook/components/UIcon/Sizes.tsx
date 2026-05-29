@@ -133,7 +133,11 @@ export default function Sizes() {
         borderColor={ColorPalettes.Red5}
         style={{ width: "fit-content" }}
       >
-        <UIcon name={Icons.Send} size={Sizings.Size14} />
+        <UIcon
+          name={Icons.Send}
+          size={Sizings.Size14}
+          colorDark={ColorPalettes.Red4}
+        />
       </Container>
 
       <Container
@@ -142,7 +146,11 @@ export default function Sizes() {
         borderColor={ColorPalettes.Red5}
         style={{ width: "fit-content" }}
       >
-        <UIcon name={Icons.Send} size={Sizings.Size15} />
+        <UIcon
+          name={Icons.Send}
+          size={Sizings.Size15}
+          colorDark={ColorPalettes.Blue3}
+        />
       </Container>
     </>
   );

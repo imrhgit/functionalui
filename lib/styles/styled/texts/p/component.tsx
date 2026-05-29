@@ -1,12 +1,10 @@
 "use client";
 
-import { useUiContext } from "functionalui";
 import { ParagraphProps } from "functionalui/types";
 import { createTextElement } from "../utils/createTextElement";
 
 const Text_P = ({ children, ...props }: ParagraphProps) => {
-  const { baseFontSize } = useUiContext();
-  const TextComponent = createTextElement<"p">("p", baseFontSize);
+  const TextComponent = createTextElement<"p">("p");
   return <TextComponent {...props}>{children}</TextComponent>;
 };
 

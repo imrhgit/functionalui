@@ -3,12 +3,20 @@ import { SVGProps } from "react";
 
 interface Props extends SVGProps<SVGSVGElement> {
   size: Sizings;
+  className?: string;
 }
-export default function Spinner({ size = Sizings.Size3, ...rest }: Props) {
+export default function Spinner({
+  size = Sizings.Size3,
+  className,
+  ...rest
+}: Props) {
   return (
-    <div className="icon-container" style={{ width: `${size + 4}px`, height: `${size + 4}px`, }}>
+    <div
+      className="icon-container"
+      style={{ width: `${size + 4}px`, height: `${size + 4}px` }}
+    >
       <svg
-        className="text-zinc-300"
+        className={`${className || ""} text-zinc-300`.trim()}
         viewBox="0 0 2400 2400"
         width={size}
         height={size}
