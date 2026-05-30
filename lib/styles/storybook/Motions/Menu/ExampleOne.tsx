@@ -1,8 +1,8 @@
-import { Container, ContainerRef } from "functionalui/container";
-import { F__Li } from "functionalui/styled/li";
-import { Layout } from "functionalui/layout";
-import { Text_Span } from "functionalui/texts/span";
+import { Container } from "functionalui/container";
 import { UIcon } from "functionalui/icons";
+import { Layout } from "functionalui/layout";
+import { F__Li } from "functionalui/styled/li";
+import { Text_Span } from "functionalui/texts/span";
 import {
 	BorderStyles,
 	BorderWidths,
@@ -13,10 +13,10 @@ import {
 	Spacings,
 } from "functionalui/types";
 import { useState } from "react";
+import useClickOutsideDOM from "../../../../hooks/useClickOutsideDOM";
 import DropdownSC from "./dev/DropdownSC";
 import DropdownSC2 from "./dev/DropdownSC2";
 import DropdownSC3 from "./dev/DropdownSC3";
-import useClickOutsideDOM from "../../../../hooks/useClickOutsideDOM";
 
 const ExampleOne = () => {
 	return (
@@ -106,7 +106,7 @@ const Three = () => {
 		setOpen(false);
 	});
 	return (
-		<ContainerRef
+		<Container
 			ref={ref}
 			style={{ position: "relative", width: "max-content" }}
 		>
@@ -163,6 +163,6 @@ const Three = () => {
 					</Layout>
 				</Container>
 			</DropdownSC3>
-		</ContainerRef>
+		</Container>
 	);
 };

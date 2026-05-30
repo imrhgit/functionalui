@@ -1,6 +1,6 @@
 import { useSpring } from "@react-spring/web";
 import { createUseGesture, dragAction, pinchAction } from "@use-gesture/react";
-import { ContainerRef } from "functionalui/container";
+import { Container } from "functionalui/container";
 import { Layout } from "functionalui/layout";
 import {
   Displays,
@@ -124,13 +124,13 @@ const Zzz: FC<P> = ({ children }) => {
       flexAlignItem={FlexAlignItems.Center}
       style={{ height: "100%" }}
     >
-      <ContainerRef
+      <Container
         ref={ref}
         className={cstyles.ZAnimated}
         style={{ ...style, backgroundColor: "transparent" }}
       >
         {children}
-      </ContainerRef>
+      </Container>
     </Layout>
   );
 };

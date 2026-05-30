@@ -1,4 +1,6 @@
-import { LayoutRef } from "functionalui/layout";
+"use client";
+
+import { Layout } from "functionalui/layout";
 import {
   ColorSets,
   Displays,
@@ -57,7 +59,7 @@ function reducer(state: ReducerStates, action: any): ReducerStates {
             if (action.value === i) {
               return { ...item, selected: true };
             } else return { ...item, selected: false };
-          }
+          },
         ),
         openDropdown: false,
         selectState: SelectStates.Selected,
@@ -182,7 +184,7 @@ const SelectSpring: FC<P> = ({
 
   return (
     // <div ref={nodeDOM}>
-    <LayoutRef
+    <Layout
       ref={nodeDOM}
       display={Displays.Flex}
       flexDirection={FlexDirections.Column}
@@ -219,7 +221,7 @@ const SelectSpring: FC<P> = ({
         headerHeight={headerBounds.height}
         w={headerBounds.width}
       />
-    </LayoutRef>
+    </Layout>
     // </div>
   );
 };

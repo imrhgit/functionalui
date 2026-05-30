@@ -1,7 +1,7 @@
 import { useSpring } from "@react-spring/web";
-import { Container, ContainerRef } from "functionalui/container";
-import { LabelText } from "functionalui/label-text";
+import { Container } from "functionalui/container";
 import { UIcon } from "functionalui/icons";
+import { LabelText } from "functionalui/label-text";
 import {
   TOGGLE_SIZE,
   TOGGLE_STATE_ICON,
@@ -77,7 +77,7 @@ const ToggleSwitch = ({
         />
       </Container>
       <Container style={{ position: "relative", ...circleAnimation }}>
-        <ContainerRef
+        <Container
           className={cstyles.toggleThumb}
           ref={ref}
           style={{
@@ -104,7 +104,7 @@ const ToggleSwitch = ({
               height={TOGGLE_SIZE[size].icon?.h}
             />
           )}
-        </ContainerRef>
+        </Container>
       </Container>
     </Container>
   );

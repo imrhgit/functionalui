@@ -1,7 +1,6 @@
 "use client";
 
-import { FC } from "react";
-import { Container, ContainerRef } from "functionalui/container";
+import { Container } from "functionalui/container";
 import { Text_Span } from "functionalui/texts/span";
 import {
   ColorSets,
@@ -11,14 +10,15 @@ import {
   SelectStates,
   Spacings,
 } from "functionalui/types";
+import { FC } from "react";
 import useMeasure from "react-use-measure";
-import DropdownAnimation from "./DropdownAnimation";
-import DropdownLi from "./DropdownLi";
-import useTopOrBottom from "./useTopOrBottom";
 import {
   DropdownPositions,
   SELECT_STATES,
 } from "../../../../styles/types/ui/selectSpring/types";
+import DropdownAnimation from "./DropdownAnimation";
+import DropdownLi from "./DropdownLi";
+import useTopOrBottom from "./useTopOrBottom";
 
 interface P {
   isSelectOpen: boolean;
@@ -48,7 +48,7 @@ const SelectDropdown: FC<P> = ({
   const position = useTopOrBottom(bounds);
   const translateY = position > 0 ? headerHeight - 1 : -bounds.height;
   return (
-    <ContainerRef
+    <Container
       ref={ref}
       borderRadius={SELECT_STATES[selectState].dropdown.borderRadius}
       borderBottomLeftRadius={Radiuses.Size0}
@@ -93,7 +93,7 @@ const SelectDropdown: FC<P> = ({
         ))}
         {/* <DivInView setClose={closeSelect} /> */}
       </DropdownAnimation>
-    </ContainerRef>
+    </Container>
   );
 };
 

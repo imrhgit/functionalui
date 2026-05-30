@@ -1,5 +1,5 @@
 import { useSpring } from "@react-spring/web";
-import { Container, ContainerRef } from "functionalui/container";
+import { Container } from "functionalui/container";
 import { Text_P } from "functionalui/texts/p";
 import useMeasure from "react-use-measure";
 
@@ -25,14 +25,14 @@ const LabelText = ({
   });
 
   return (
-    <ContainerRef
+    <Container
       ref={ref}
       style={offsetX !== 0 ? fadeAnimationOffsetX : fadeanimation}
     >
       <Container>
         <Text_P>{labelName}</Text_P>
       </Container>
-    </ContainerRef>
+    </Container>
   );
 };
 

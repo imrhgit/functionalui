@@ -1,7 +1,7 @@
 import { useSpring } from "@react-spring/web";
-import { Container, ContainerRef } from "functionalui/container";
-import { F__Button } from "functionalui/styled/button";
+import { Container } from "functionalui/container";
 import { Layout } from "functionalui/layout";
+import { F__Button } from "functionalui/styled/button";
 import { Text_Span } from "functionalui/texts/span";
 import {
   BoxShadows,
@@ -93,7 +93,7 @@ const Button: FC<ButtonProps> = ({
     typeof BUTTON_STATE[buttonState]?.animation === "undefined";
 
   return (
-    <ContainerRef
+    <Container
       style={{ width: "max-content" }}
       ref={containerRef}
       onMouseEnter={() => {
@@ -236,7 +236,7 @@ const Button: FC<ButtonProps> = ({
         </F__Button>
         {/*</Container>*/}
       </Container>
-    </ContainerRef>
+    </Container>
   );
 };
 

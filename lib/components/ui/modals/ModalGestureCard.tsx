@@ -1,6 +1,6 @@
 import { useSpring } from "@react-spring/web";
 import { useDrag } from "@use-gesture/react";
-import { ContainerRef } from "functionalui/container";
+import { Container } from "functionalui/container";
 import { ModalStyles } from "functionalui/types";
 import { FC, ReactNode } from "react";
 import useClickOutsideDOM from "../../../hooks/useClickOutsideDOM";
@@ -37,7 +37,7 @@ const ModalGesturedCard: FC<P> = ({ closeModal, modalStyles, children }) => {
     { axis: "y", filterTaps: true, pointer: { touch: true } },
   );
   return (
-    <ContainerRef
+    <Container
       className={
         modalStyles === ModalStyles.Nocard
           ? `${cstyles.modalCardCopyOriAnimated} ${cstyles["no-card"]}`
@@ -48,7 +48,7 @@ const ModalGesturedCard: FC<P> = ({ closeModal, modalStyles, children }) => {
       ref={nodeDOM}
     >
       {children}
-    </ContainerRef>
+    </Container>
   );
 };
 

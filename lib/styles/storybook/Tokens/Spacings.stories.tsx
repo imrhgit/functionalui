@@ -1,5 +1,5 @@
 import type { Meta } from "@storybook/react-vite";
-import { Container, ContainerRef } from "functionalui/container";
+import { Container } from "functionalui/container";
 import { Layout } from "functionalui/layout";
 import { Text_Span } from "functionalui/texts/span";
 import {
@@ -101,7 +101,7 @@ const Bar = ({ value, name }: any) => {
 					</Text_Span>
 				</Layout>
 				{/*bar */}
-				<ContainerRef
+				<Container
 					ref={ref}
 					bgColor={ColorPalettes.Primary2}
 					style={{ maxWidth: SPACING_VALUES[value], height: 45, flex: 1 }}
