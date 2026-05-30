@@ -1,5 +1,5 @@
 import { Meta } from "@storybook/react-vite";
-import { Modal as COMPONENT } from "functionalui";
+import { Modal as COMPONENT } from "functionalui/modal";
 import Component from "./component.tsx";
 
 const meta: Meta<typeof COMPONENT> = {

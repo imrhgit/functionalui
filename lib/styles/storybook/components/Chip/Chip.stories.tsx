@@ -1,5 +1,5 @@
 import { Meta } from "@storybook/react-vite";
-import { Chip as COMPONENT } from "functionalui";
+import { Chip as COMPONENT } from "functionalui/chip";
 import { ChipSizes, ChipStyles } from "../../../types/ui/chip/types";
 
 const meta: Meta<typeof COMPONENT> = {

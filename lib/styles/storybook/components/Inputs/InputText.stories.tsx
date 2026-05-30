@@ -1,5 +1,6 @@
 import { Meta } from "@storybook/react-vite";
-import { InputText as COMPONENT, Text_Header } from "functionalui";
+import { InputText as COMPONENT } from "functionalui/input-text";
+import { Text_Header } from "functionalui/texts/header";
 import { InputTextSizes } from "functionalui/types";
 import { ChangeEvent, useState } from "react";
 

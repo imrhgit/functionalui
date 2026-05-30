@@ -1,4 +1,4 @@
-import { Tabs } from "functionalui";
+import { Tabs } from "functionalui/tabs";
 import { TabMenu } from "functionalui/types";
 
 const tabMenus: TabMenu[] = [

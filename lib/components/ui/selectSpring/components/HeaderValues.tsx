@@ -1,4 +1,4 @@
-import { Text_Span } from "functionalui";
+import { Text_Span } from "functionalui/texts/span";
 import { SelectOption } from "functionalui/types";
 import { FC } from "react";
 import {

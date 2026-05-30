@@ -1,5 +1,7 @@
 import { useTransition } from "@react-spring/web";
-import { Container, Text_Span, UIcon } from "functionalui";
+import { Container } from "functionalui/container";
+import { Text_Span } from "functionalui/texts/span";
+import { UIcon } from "functionalui/icons";
 import { ColorPalettes, Sizings, Spacings } from "functionalui/types";
 import { useEffect, useState } from "react";
 import {

@@ -1,6 +1,8 @@
 import { Meta } from "@storybook/react-vite";
-import { UIcon } from "functionalui";
-import { Container, Layout, Text_Span } from "functionalui";
+import { UIcon } from "functionalui/icons";
+import { Container } from "functionalui/container";
+import { Layout } from "functionalui/layout";
+import { Text_Span } from "functionalui/texts/span";
 import {
 	Sizings as STORY_ITEM,
 	BorderStyles,

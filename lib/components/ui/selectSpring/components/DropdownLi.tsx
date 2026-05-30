@@ -1,5 +1,5 @@
 import { useSpring } from "@react-spring/web";
-import { F__Li } from "functionalui";
+import { F__Li } from "functionalui/styled/li";
 import {
   COLOR_VALUES,
   ColorPalettes,

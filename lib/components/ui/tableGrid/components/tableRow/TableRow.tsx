@@ -1,4 +1,4 @@
-import { Layout } from "functionalui";
+import { Layout } from "functionalui/layout";
 import { Displays, TableRowElement } from "functionalui/types";
 import { useState } from "react";
 import TableRowAnimation from "./TableRowAnimation";

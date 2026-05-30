@@ -1,4 +1,5 @@
-import { TableGrid, Text_Span } from "functionalui";
+import { TableGrid } from "functionalui/table-grid";
+import { Text_Span } from "functionalui/texts/span";
 import {
 	AlignSelfs,
 	JustifySelfs,

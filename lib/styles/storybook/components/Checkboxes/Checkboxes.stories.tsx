@@ -1,5 +1,5 @@
 import { Meta } from "@storybook/react-vite";
-import { Checkboxes as COMPONENT } from "functionalui";
+import { Checkboxes as COMPONENT } from "functionalui/checkboxes";
 import { CheckboxOption } from "../../../../components/ui/checkboxes/Checkboxes";
 import { useState } from "react";
 import { CheckboxColors } from "functionalui/types";

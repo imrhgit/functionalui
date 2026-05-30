@@ -1,4 +1,4 @@
-import { SelectSpring } from "functionalui";
+import { SelectSpring } from "functionalui/select-spring";
 import { SelectOption } from "functionalui/types";
 
 const options: SelectOption[] = [

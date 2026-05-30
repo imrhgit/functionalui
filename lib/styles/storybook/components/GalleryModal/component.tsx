@@ -1,4 +1,5 @@
-import { Button, GalleryModal } from "functionalui";
+import { Button } from "functionalui/button";
+import { GalleryModal } from "functionalui/gallery-modal";
 import { ButtonSizes } from "functionalui/types";
 import { useState } from "react";
 

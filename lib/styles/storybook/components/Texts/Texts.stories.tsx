@@ -1,12 +1,10 @@
 import { Meta } from "@storybook/react";
-import {
-  Container,
-  Layout,
-  Text_H1,
-  Text_Header,
-  Text_P,
-  Text_Span,
-} from "functionalui";
+import { Container } from "functionalui/container";
+import { Layout } from "functionalui/layout";
+import { Text_H1 } from "functionalui/texts/h1";
+import { Text_Header } from "functionalui/texts/header";
+import { Text_P } from "functionalui/texts/p";
+import { Text_Span } from "functionalui/texts/span";
 import { ColorPalettes, FontSizes, FontWeights, Spacings } from "functionalui/types";
 
 const meta: Meta = {

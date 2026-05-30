@@ -1,11 +1,9 @@
 import { Meta } from "@storybook/react-vite";
-import {
-  Button,
-  TextArea as COMPONENT,
-  Container,
-  Layout,
-  Text_Header,
-} from "functionalui";
+import { Button } from "functionalui/button";
+import { TextArea as COMPONENT } from "functionalui/text-area";
+import { Container } from "functionalui/container";
+import { Layout } from "functionalui/layout";
+import { Text_Header } from "functionalui/texts/header";
 import {
   ButtonIconPositions,
   ButtonSizes,

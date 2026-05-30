@@ -1,6 +1,7 @@
 "use client";
 
-import { Container, F__TextInput } from "functionalui";
+import { Container } from "functionalui/container";
+import { F__TextInput } from "functionalui/styled/inputs/text";
 import {
   BoxSizings,
   ColorPalettes,

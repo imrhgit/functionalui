@@ -1,4 +1,5 @@
-import { Container, UIcon } from "functionalui";
+import { Container } from "functionalui/container";
+import { UIcon } from "functionalui/icons";
 import {
   BorderStyles,
   BorderWidths,

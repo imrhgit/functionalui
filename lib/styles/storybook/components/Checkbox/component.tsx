@@ -1,4 +1,4 @@
-import { Checkbox } from "functionalui";
+import { Checkbox } from "functionalui/checkbox";
 import { CheckboxColors } from "functionalui/types";
 
 const Component = () => {

@@ -1,11 +1,8 @@
 import { useSpring } from "@react-spring/web";
-import {
-  Container,
-  ContainerRef,
-  F__Button,
-  Layout,
-  Text_Span,
-} from "functionalui";
+import { Container, ContainerRef } from "functionalui/container";
+import { F__Button } from "functionalui/styled/button";
+import { Layout } from "functionalui/layout";
+import { Text_Span } from "functionalui/texts/span";
 import {
   BoxShadows,
   ColorPalettes,

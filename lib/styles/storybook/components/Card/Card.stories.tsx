@@ -1,5 +1,5 @@
 import { Meta } from "@storybook/react-vite";
-import { Container as COMPONENT } from "functionalui";
+import { Container as COMPONENT } from "functionalui/container";
 import { ColorPalettes, Radiuses } from "functionalui/types";
 
 const meta: Meta<typeof COMPONENT> = {

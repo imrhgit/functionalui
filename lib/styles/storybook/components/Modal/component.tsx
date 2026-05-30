@@ -1,4 +1,6 @@
-import { Button, Modal, Text_Header } from "functionalui";
+import { Button } from "functionalui/button";
+import { Modal } from "functionalui/modal";
+import { Text_Header } from "functionalui/texts/header";
 import { ModalStyles } from "functionalui/types";
 import { useState } from "react";
 

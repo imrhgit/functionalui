@@ -1,5 +1,7 @@
 import Color from "color";
-import { Container, Layout, Text_Span } from "functionalui";
+import { Container } from "functionalui/container";
+import { Layout } from "functionalui/layout";
+import { Text_Span } from "functionalui/texts/span";
 import { COLOR_VALUES, ColorPalettes } from "functionalui/types";
 import { FC } from "react";
 import { TAG_SIZE, TagColorSizes } from "../../../styles/types/ui/tag/types";

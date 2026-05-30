@@ -1,4 +1,5 @@
-import { Container, Layout } from "functionalui";
+import { Container } from "functionalui/container";
+import { Layout } from "functionalui/layout";
 import { Displays, FlexDirections } from "functionalui/types";
 import { FC } from "react";
 import { HexColorPicker } from "react-colorful";

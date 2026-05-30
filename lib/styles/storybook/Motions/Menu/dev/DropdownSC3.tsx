@@ -1,5 +1,5 @@
 import { useTransition } from "@react-spring/web";
-import { Container } from "functionalui";
+import { Container } from "functionalui/container";
 import { BoxShadows, Radiuses } from "functionalui/types";
 import { FC, ReactNode } from "react";
 interface P {

@@ -1,11 +1,8 @@
-import {
-	Container,
-	ContainerRef,
-	F__Li,
-	Layout,
-	Text_Span,
-	UIcon,
-} from "functionalui";
+import { Container, ContainerRef } from "functionalui/container";
+import { F__Li } from "functionalui/styled/li";
+import { Layout } from "functionalui/layout";
+import { Text_Span } from "functionalui/texts/span";
+import { UIcon } from "functionalui/icons";
 import {
 	BorderStyles,
 	BorderWidths,

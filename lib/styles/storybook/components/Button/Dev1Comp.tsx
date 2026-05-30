@@ -1,4 +1,4 @@
-// import { Button } from "functionalui";
+// import { Button } from "functionalui/button";
 import {
 	ColorPalettes,
 	FontSizes,

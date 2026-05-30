@@ -1,6 +1,7 @@
 "use client";
 
-import { Container, F__TextArea } from "functionalui";
+import { Container } from "functionalui/container";
+import { F__TextArea } from "functionalui/styled/inputs/text-area";
 import {
   BoxSizings,
   ColorPalettes,

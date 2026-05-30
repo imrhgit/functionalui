@@ -4,7 +4,8 @@ import {
   AvatarSizes,
 } from "../../../../styles/types/ui/avatar/types";
 import DivContainer from "../../../../styles/styled/container/component";
-import { Container, Text_Span } from "functionalui";
+import { Container } from "functionalui/container";
+import { Text_Span } from "functionalui/texts/span";
 import { BoxShadows, ColorPalettes, Radiuses, Spacings } from "functionalui/types";
 
 interface P {

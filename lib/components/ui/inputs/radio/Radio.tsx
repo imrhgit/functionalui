@@ -1,7 +1,8 @@
 "use client";
 
 import { config, useSpring, useTransition } from "@react-spring/web";
-import { Container, Layout } from "functionalui";
+import { Container } from "functionalui/container";
+import { Layout } from "functionalui/layout";
 import {
   COLOR_VALUES,
   ColorPalettes,

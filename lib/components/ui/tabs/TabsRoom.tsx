@@ -1,5 +1,5 @@
 import { useSpring } from "@react-spring/web";
-import { Container } from "functionalui";
+import { Container } from "functionalui/container";
 import {
 	BoxShadows,
 	BoxSizings,

@@ -1,6 +1,7 @@
 import { useSpring } from "@react-spring/web";
 import { createUseGesture, dragAction, pinchAction } from "@use-gesture/react";
-import { ContainerRef, Layout } from "functionalui";
+import { ContainerRef } from "functionalui/container";
+import { Layout } from "functionalui/layout";
 import {
   Displays,
   FlexAlignItems,

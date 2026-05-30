@@ -1,5 +1,6 @@
 import { animated, useSprings } from "@react-spring/web";
-import { Avatar, Layout } from "functionalui";
+import { Avatar } from "functionalui/avatar";
+import { Layout } from "functionalui/layout";
 import { AvatarSizes, ColorPalettes, Displays } from "functionalui/types";
 import { FC } from "react";
 import { FUI__Avatar } from "../../../styles/types/ui/avatar/types";

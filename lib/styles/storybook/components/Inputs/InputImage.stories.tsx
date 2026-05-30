@@ -1,5 +1,5 @@
 import { Meta } from "@storybook/react-vite";
-import { InputImage as COMPONENT } from "functionalui";
+import { InputImage as COMPONENT } from "functionalui/input-image";
 
 const meta: Meta<typeof COMPONENT> = {
 	title: "Components/Inputs/Image",

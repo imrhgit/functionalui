@@ -1,4 +1,4 @@
-import { UIcon } from "functionalui";
+import { UIcon } from "functionalui/icons";
 import { ColorPalettes, Icons, Sizings } from "functionalui/types";
 
 export default function IconAction() {

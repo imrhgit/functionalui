@@ -1,6 +1,6 @@
 import { useSpring } from "@react-spring/web";
 import { useDrag } from "@use-gesture/react";
-import { ContainerRef } from "functionalui";
+import { ContainerRef } from "functionalui/container";
 import { ModalStyles } from "functionalui/types";
 import { FC, ReactNode } from "react";
 import useClickOutsideDOM from "../../../hooks/useClickOutsideDOM";

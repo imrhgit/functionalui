@@ -1,4 +1,4 @@
-import { TagColor } from "functionalui";
+import { TagColor } from "functionalui/tag-color";
 import { TagColorSizes } from "../../../styles/types/ui/tag/types";
 import { FC, useEffect, useState } from "react";
 import useDebounce from "../../../hooks/useDebounce";

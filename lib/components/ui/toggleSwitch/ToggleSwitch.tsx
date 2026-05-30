@@ -1,5 +1,7 @@
 import { useSpring } from "@react-spring/web";
-import { Container, ContainerRef, LabelText, UIcon } from "functionalui";
+import { Container, ContainerRef } from "functionalui/container";
+import { LabelText } from "functionalui/label-text";
+import { UIcon } from "functionalui/icons";
 import {
   TOGGLE_SIZE,
   TOGGLE_STATE_ICON,

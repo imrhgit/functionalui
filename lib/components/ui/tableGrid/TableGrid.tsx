@@ -1,7 +1,8 @@
 "use client";
 
 import { FC, ReactNode, useState } from "react";
-import { Container, Layout } from "functionalui";
+import { Container } from "functionalui/container";
+import { Layout } from "functionalui/layout";
 import {
   Displays,
   FlexJustifyContents,

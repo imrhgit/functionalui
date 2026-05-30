@@ -1,5 +1,7 @@
 import type { Meta } from "@storybook/react-vite";
-import { Container, ContainerRef, Layout, Text_Span } from "functionalui";
+import { Container, ContainerRef } from "functionalui/container";
+import { Layout } from "functionalui/layout";
+import { Text_Span } from "functionalui/texts/span";
 import {
 	BorderStyles,
 	BorderWidths,

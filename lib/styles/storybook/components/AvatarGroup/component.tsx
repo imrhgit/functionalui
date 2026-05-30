@@ -1,4 +1,4 @@
-import { AvatarGroup } from "functionalui";
+import { AvatarGroup } from "functionalui/avatar-group";
 import { AvatarSizes, FUI__Avatar } from "../../../types/ui/avatar/types";
 
 const Component = () => {

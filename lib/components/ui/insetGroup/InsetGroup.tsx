@@ -1,6 +1,6 @@
 "use client";
 
-import { Layout } from "functionalui";
+import { Layout } from "functionalui/layout";
 import {
   ColorSets,
   Displays,

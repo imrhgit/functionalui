@@ -1,4 +1,4 @@
-import { Checkboxes } from "functionalui";
+import { Checkboxes } from "functionalui/checkboxes";
 import { CheckboxColors } from "functionalui/types";
 import { CheckboxOption } from "../../../../components/ui/checkboxes/Checkboxes";
 import { useState } from "react";

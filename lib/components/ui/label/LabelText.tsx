@@ -1,5 +1,6 @@
 import { useSpring } from "@react-spring/web";
-import { Container, ContainerRef, Text_P } from "functionalui";
+import { Container, ContainerRef } from "functionalui/container";
+import { Text_P } from "functionalui/texts/p";
 import useMeasure from "react-use-measure";
 
 const LabelText = ({

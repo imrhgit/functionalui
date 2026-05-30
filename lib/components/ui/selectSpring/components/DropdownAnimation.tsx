@@ -1,5 +1,5 @@
 import { config, useTransition } from "@react-spring/web";
-import { F__Ul } from "functionalui";
+import { F__Ul } from "functionalui/styled/ul";
 import {
   // DropdownHeightStyles,
   // DropdownPositions,

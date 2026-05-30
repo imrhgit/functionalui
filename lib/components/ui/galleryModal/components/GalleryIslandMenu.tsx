@@ -1,5 +1,8 @@
 import { useTransition } from "@react-spring/web";
-import { Button, Container, Layout, Text_Span } from "functionalui";
+import { Button } from "functionalui/button";
+import { Container } from "functionalui/container";
+import { Layout } from "functionalui/layout";
+import { Text_Span } from "functionalui/texts/span";
 import {
   Displays,
   FlexAlignItems,

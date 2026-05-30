@@ -1,4 +1,4 @@
-import { Container } from "functionalui";
+import { Container } from "functionalui/container";
 import { ReactNode } from "react";
 import useMeasure from "react-use-measure";
 

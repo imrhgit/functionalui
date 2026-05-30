@@ -1,4 +1,5 @@
-import { Container, Layout } from "functionalui";
+import { Container } from "functionalui/container";
+import { Layout } from "functionalui/layout";
 import { TableRowCellElement } from "functionalui/types";
 import { FC } from "react";
 

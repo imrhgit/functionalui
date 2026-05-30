@@ -1,9 +1,6 @@
-import {
-  Button,
-  NotificationSystem,
-  ProvideGlobalEventContext,
-  useGlobalEventContext,
-} from "functionalui";
+import { Button } from "functionalui/button";
+import { NotificationSystem } from "functionalui/notification-system";
+import { ProvideGlobalEventContext, useGlobalEventContext } from "functionalui/contexts/notifications";
 import { ToastTypes } from "functionalui/types";
 
 const Component = () => {

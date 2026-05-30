@@ -1,4 +1,4 @@
-import { InputImage } from "functionalui";
+import { InputImage } from "functionalui/input-image";
 
 const Image = () => {
 	const handleImageChange = (v: File | undefined) => {

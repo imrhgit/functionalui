@@ -1,5 +1,6 @@
 import { Meta } from "@storybook/react-vite";
-import { Admonition as COMPONENT, Container } from "functionalui";
+import { Admonition as COMPONENT } from "functionalui/admonition";
+import { Container } from "functionalui/container";
 import { AdmonitionLevels, AdmonitionSizes } from "functionalui/types";
 
 const meta: Meta<typeof COMPONENT> = {

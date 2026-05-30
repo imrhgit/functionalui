@@ -1,5 +1,6 @@
 import { Meta } from "@storybook/react-vite";
-import { Layout, Text_Span } from "functionalui";
+import { Layout } from "functionalui/layout";
+import { Text_Span } from "functionalui/texts/span";
 import { ColorPalettes, FontBaseSizes, FontSizes } from "functionalui/types";
 import useMeasure from "react-use-measure";
 

@@ -1,5 +1,5 @@
 import { Meta } from "@storybook/react-vite";
-import { SelectSpring as COMPONENT } from "functionalui";
+import { SelectSpring as COMPONENT } from "functionalui/select-spring";
 import Component from "./component.tsx";
 
 const meta: Meta<typeof COMPONENT> = {

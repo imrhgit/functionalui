@@ -1,6 +1,9 @@
 "use client";
 
-import { Container, Layout, Text_Span, UIcon } from "functionalui";
+import { Container } from "functionalui/container";
+import { Layout } from "functionalui/layout";
+import { Text_Span } from "functionalui/texts/span";
+import { UIcon } from "functionalui/icons";
 import { Displays, FlexAlignItems, Spacings } from "functionalui/types";
 import {
   ChangeEvent,

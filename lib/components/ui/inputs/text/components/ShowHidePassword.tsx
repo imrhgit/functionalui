@@ -1,4 +1,5 @@
-import { Container, UIcon } from "functionalui";
+import { Container } from "functionalui/container";
+import { UIcon } from "functionalui/icons";
 import { ColorPalettes, Cursors, Icons, Sizings } from "functionalui/types";
 import { FC } from "react";
 import cstyles from "../styles.module.css";

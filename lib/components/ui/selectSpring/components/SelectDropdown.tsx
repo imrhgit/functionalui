@@ -1,7 +1,8 @@
 "use client";
 
 import { FC } from "react";
-import { Container, ContainerRef, Text_Span } from "functionalui";
+import { Container, ContainerRef } from "functionalui/container";
+import { Text_Span } from "functionalui/texts/span";
 import {
   ColorSets,
   DropdownHeightStyles,

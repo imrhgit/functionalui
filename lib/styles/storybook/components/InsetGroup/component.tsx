@@ -1,4 +1,4 @@
-import { InsetGroup } from "functionalui";
+import { InsetGroup } from "functionalui/inset-group";
 import { InsetGroupOption } from "functionalui/types";
 import { useState } from "react";
 

@@ -1,6 +1,6 @@
 import { FC, ReactNode } from "react";
 import { useSpring } from "@react-spring/web";
-import { Container } from "functionalui";
+import { Container } from "functionalui/container";
 import { Spacings } from "functionalui/types";
 
 interface P {

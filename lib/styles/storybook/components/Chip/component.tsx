@@ -1,4 +1,4 @@
-import { Chip } from "functionalui";
+import { Chip } from "functionalui/chip";
 import { ChipSizes } from "../../../types/ui/chip/types";
 
 const Component = () => {

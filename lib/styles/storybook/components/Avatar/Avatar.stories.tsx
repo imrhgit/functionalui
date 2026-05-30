@@ -1,5 +1,5 @@
 import { Meta } from "@storybook/react-vite";
-import { Avatar as COMPONENT } from "functionalui";
+import { Avatar as COMPONENT } from "functionalui/avatar";
 
 const meta: Meta<typeof COMPONENT> = {
 	title: "Components/Avatar",

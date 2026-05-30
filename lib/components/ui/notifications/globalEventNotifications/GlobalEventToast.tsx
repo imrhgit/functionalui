@@ -1,14 +1,12 @@
 "use client";
 
 import { useTransition } from "@react-spring/web";
-import {
-  Container,
-  GlobalEventPortal,
-  Layout,
-  Text_P,
-  UIcon,
-  useGlobalEventContext,
-} from "functionalui";
+import { Container } from "functionalui/container";
+import { GlobalEventPortal } from "functionalui/global-event-portal";
+import { Layout } from "functionalui/layout";
+import { Text_P } from "functionalui/texts/p";
+import { UIcon } from "functionalui/icons";
+import { useGlobalEventContext } from "functionalui/contexts/notifications";
 import {
   BoxShadows,
   ColorPalettes,

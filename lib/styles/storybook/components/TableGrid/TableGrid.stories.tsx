@@ -1,5 +1,5 @@
 import { Meta } from "@storybook/react-vite";
-import { TableGrid as COMPONENT } from "functionalui";
+import { TableGrid as COMPONENT } from "functionalui/table-grid";
 import Component from "./component.tsx";
 
 const meta: Meta<typeof COMPONENT> = {

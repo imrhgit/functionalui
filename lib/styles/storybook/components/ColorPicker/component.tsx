@@ -1,4 +1,5 @@
-import { ColorPicker, Text_Span } from "functionalui";
+import { ColorPicker } from "functionalui/color-picker";
+import { Text_Span } from "functionalui/texts/span";
 
 const Component = () => {
 	return (

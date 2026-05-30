@@ -1,4 +1,5 @@
-import { Container, Text_Span } from "functionalui";
+import { Container } from "functionalui/container";
+import { Text_Span } from "functionalui/texts/span";
 import {
   ColorPalettes,
   ColorSets,

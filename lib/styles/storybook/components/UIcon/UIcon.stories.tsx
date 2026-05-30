@@ -1,5 +1,5 @@
 import { Meta } from "@storybook/react-vite";
-import { UIcon as COMPONENT } from "functionalui";
+import { UIcon as COMPONENT } from "functionalui/icons";
 
 const meta: Meta<typeof COMPONENT> = {
   title: "Components/UIcon",

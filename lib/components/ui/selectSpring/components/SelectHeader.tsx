@@ -11,7 +11,9 @@ import {
   SelectOption,
   Spacings,
 } from "functionalui/types";
-import { Container, Layout, UIcon } from "functionalui";
+import { Container } from "functionalui/container";
+import { Layout } from "functionalui/layout";
+import { UIcon } from "functionalui/icons";
 import {
   SELECT_STATES,
   SelectSizes,

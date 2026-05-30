@@ -11,7 +11,8 @@ import {
   FlexAlignItems,
   FlexJustifyContents,
 } from "functionalui/types";
-import { Layout, Container } from "functionalui";
+import { Layout } from "functionalui/layout";
+import { Container } from "functionalui/container";
 
 type Props = {
   isChecked: boolean;

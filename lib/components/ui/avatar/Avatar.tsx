@@ -1,5 +1,6 @@
 import { useSpring } from "@react-spring/web";
-import { Container, Layout } from "functionalui";
+import { Container } from "functionalui/container";
+import { Layout } from "functionalui/layout";
 import {
   BorderStyles,
   BorderWidths,

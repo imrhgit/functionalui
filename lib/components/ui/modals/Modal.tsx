@@ -1,4 +1,4 @@
-import { Layout } from "functionalui";
+import { Layout } from "functionalui/layout";
 import {
   ColorPalettes,
   Displays,

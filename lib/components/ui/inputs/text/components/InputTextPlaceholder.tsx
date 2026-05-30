@@ -1,5 +1,6 @@
 import { useSpring } from "@react-spring/web";
-import { Container, Text_Span } from "functionalui";
+import { Container } from "functionalui/container";
+import { Text_Span } from "functionalui/texts/span";
 import { FontSizes, FontWeights } from "functionalui/types";
 import { FC } from "react";
 import cstyles from "../styles.module.css";

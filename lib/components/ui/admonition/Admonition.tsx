@@ -1,4 +1,8 @@
-import { Container, Layout, Text_P, Text_Span, UIcon } from "functionalui";
+import { Container } from "functionalui/container";
+import { Layout } from "functionalui/layout";
+import { Text_P } from "functionalui/texts/p";
+import { Text_Span } from "functionalui/texts/span";
+import { UIcon } from "functionalui/icons";
 import {
   AdmonitionLevels,
   BorderWidths,

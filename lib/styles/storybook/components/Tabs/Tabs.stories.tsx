@@ -1,5 +1,5 @@
 import { Meta } from "@storybook/react-vite";
-import { Tabs as COMPONENT } from "functionalui";
+import { Tabs as COMPONENT } from "functionalui/tabs";
 import Component from "./component.tsx";
 
 const meta: Meta<typeof COMPONENT> = {

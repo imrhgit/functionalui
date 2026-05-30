@@ -1,4 +1,4 @@
-import { Admonition } from "functionalui";
+import { Admonition } from "functionalui/admonition";
 import { AdmonitionLevels } from "functionalui/types";
 
 const Sizes = () => {

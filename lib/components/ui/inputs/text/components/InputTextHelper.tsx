@@ -1,4 +1,6 @@
-import { Container, LabelText, UIcon } from "functionalui";
+import { Container } from "functionalui/container";
+import { LabelText } from "functionalui/label-text";
+import { UIcon } from "functionalui/icons";
 import { ColorPalettes, Sizings } from "functionalui/types";
 import { FC, useState } from "react";
 

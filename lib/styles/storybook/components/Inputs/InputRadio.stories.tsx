@@ -1,5 +1,6 @@
 import { Meta } from "@storybook/react-vite";
-import { Radio as COMPONENT, Text_Span } from "functionalui";
+import { Radio as COMPONENT } from "functionalui/radio";
+import { Text_Span } from "functionalui/texts/span";
 import { useState } from "react";
 
 const meta: Meta<typeof COMPONENT> = {

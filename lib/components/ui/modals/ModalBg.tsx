@@ -1,5 +1,5 @@
 import { useTransition } from "@react-spring/web";
-import { Container } from "functionalui";
+import { Container } from "functionalui/container";
 import {
   COLOR_RGBA_ALPHA,
   COLOR_VALUES,

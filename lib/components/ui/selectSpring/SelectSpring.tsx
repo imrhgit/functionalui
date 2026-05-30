@@ -1,4 +1,4 @@
-import { LayoutRef } from "functionalui";
+import { LayoutRef } from "functionalui/layout";
 import {
   ColorSets,
   Displays,
