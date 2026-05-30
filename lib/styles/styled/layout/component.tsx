@@ -1,5 +1,3 @@
-"use client";
-
 import { animated } from "@react-spring/web";
 import {
   ALIGN_SELF_CLASSES,

@@ -1,7 +1,6 @@
 import { Meta } from "@storybook/react";
 import { Container } from "functionalui/container";
 import { Layout } from "functionalui/layout";
-import { Text_H1 } from "functionalui/texts/h1";
 import { Text_Header } from "functionalui/texts/header";
 import { Text_P } from "functionalui/texts/p";
 import { Text_Span } from "functionalui/texts/span";
@@ -29,9 +28,6 @@ export const H1 = () => {
         <button onClick={() => switchTheme("dark")}>dark theme</button>
       </Layout>
       <Container marginTop={Spacings.Size5} marginBottom={Spacings.Size5}>
-        <Text_H1 header="h1" paletteColor={ColorPalettes.Primary5}>
-          H1 header
-        </Text_H1>
         <Text_Header header="h1" paletteColor={ColorPalettes.Secondary5}>
           H1 Text_Header
         </Text_Header>

@@ -211,36 +211,6 @@
       "import": "./dist/text-area/index.mjs",
       "require": "./dist/text-area/index.cjs"
     },
-    "./texts/h1": {
-      "types": "./dist/texts/h1/index.d.ts",
-      "import": "./dist/texts/h1/index.mjs",
-      "require": "./dist/texts/h1/index.cjs"
-    },
-    "./texts/h2": {
-      "types": "./dist/texts/h2/index.d.ts",
-      "import": "./dist/texts/h2/index.mjs",
-      "require": "./dist/texts/h2/index.cjs"
-    },
-    "./texts/h3": {
-      "types": "./dist/texts/h3/index.d.ts",
-      "import": "./dist/texts/h3/index.mjs",
-      "require": "./dist/texts/h3/index.cjs"
-    },
-    "./texts/h4": {
-      "types": "./dist/texts/h4/index.d.ts",
-      "import": "./dist/texts/h4/index.mjs",
-      "require": "./dist/texts/h4/index.cjs"
-    },
-    "./texts/h5": {
-      "types": "./dist/texts/h5/index.d.ts",
-      "import": "./dist/texts/h5/index.mjs",
-      "require": "./dist/texts/h5/index.cjs"
-    },
-    "./texts/h6": {
-      "types": "./dist/texts/h6/index.d.ts",
-      "import": "./dist/texts/h6/index.mjs",
-      "require": "./dist/texts/h6/index.cjs"
-    },
     "./texts/header": {
       "types": "./dist/texts/header/index.d.ts",
       "import": "./dist/texts/header/index.mjs",
@@ -261,72 +231,165 @@
       "import": "./dist/toggle-switch/index.mjs",
       "require": "./dist/toggle-switch/index.cjs"
     },
-    "./types": "./dist/types.js",
-    "./dist/functionalui.css": "./dist/functionalui.css"
+    "./css": {
+      "style": "./dist/css/index.css"
+    },
+    "./types": {
+      "types": "./dist/types.d.ts",
+      "import": "./dist/types.mjs",
+      "require": "./dist/types.cjs"
+    }
   },
   "typesVersions": {
     "*": {
       "types": [
         "./dist/types.d.ts"
       ],
-      "admonition": ["./dist/admonition/index.d.ts"],
-      "avatar": ["./dist/avatar/index.d.ts"],
-      "avatar-group": ["./dist/avatar-group/index.d.ts"],
-      "button": ["./dist/button/index.d.ts"],
-      "checkbox": ["./dist/checkbox/index.d.ts"],
-      "checkboxes": ["./dist/checkboxes/index.d.ts"],
-      "chip": ["./dist/chip/index.d.ts"],
-      "color-picker": ["./dist/color-picker/index.d.ts"],
-      "container": ["./dist/container/index.d.ts"],
-      "contexts/notifications": ["./dist/contexts/notifications/index.d.ts"],
-      "contexts/ui": ["./dist/contexts/ui/index.d.ts"],
-      "div-measure": ["./dist/div-measure/index.d.ts"],
-      "gallery-modal": ["./dist/gallery-modal/index.d.ts"],
-      "global-event-portal": ["./dist/global-event-portal/index.d.ts"],
-      "icons": ["./dist/icons/index.d.ts"],
-      "input-image": ["./dist/input-image/index.d.ts"],
-      "input-text": ["./dist/input-text/index.d.ts"],
-      "inset-group": ["./dist/inset-group/index.d.ts"],
-      "label-text": ["./dist/label-text/index.d.ts"],
-      "layout": ["./dist/layout/index.d.ts"],
-      "loading-spinner": ["./dist/loading-spinner/index.d.ts"],
-      "modal": ["./dist/modal/index.d.ts"],
-      "notification-system": ["./dist/notification-system/index.d.ts"],
-      "portals": ["./dist/portals/index.d.ts"],
-      "radio": ["./dist/radio/index.d.ts"],
-      "select-spring": ["./dist/select-spring/index.d.ts"],
-      "spring-enter": ["./dist/spring-enter/index.d.ts"],
-      "spring-enter-offset-by": ["./dist/spring-enter-offset-by/index.d.ts"],
-      "spring-menu-transition": ["./dist/spring-menu-transition/index.d.ts"],
-      "spring-open-close-height": ["./dist/spring-open-close-height/index.d.ts"],
-      "styled/button": ["./dist/styled/button/index.d.ts"],
-      "styled/inputs/text": ["./dist/styled/inputs/text/index.d.ts"],
-      "styled/inputs/text-area": ["./dist/styled/inputs/text-area/index.d.ts"],
-      "styled/li": ["./dist/styled/li/index.d.ts"],
-      "styled/ul": ["./dist/styled/ul/index.d.ts"],
-      "table-grid": ["./dist/table-grid/index.d.ts"],
-      "table-header": ["./dist/table-header/index.d.ts"],
-      "table-row": ["./dist/table-row/index.d.ts"],
-      "tabs": ["./dist/tabs/index.d.ts"],
-      "tag-color": ["./dist/tag-color/index.d.ts"],
-      "text-area": ["./dist/text-area/index.d.ts"],
-      "texts/h1": ["./dist/texts/h1/index.d.ts"],
-      "texts/h2": ["./dist/texts/h2/index.d.ts"],
-      "texts/h3": ["./dist/texts/h3/index.d.ts"],
-      "texts/h4": ["./dist/texts/h4/index.d.ts"],
-      "texts/h5": ["./dist/texts/h5/index.d.ts"],
-      "texts/h6": ["./dist/texts/h6/index.d.ts"],
-      "texts/header": ["./dist/texts/header/index.d.ts"],
-      "texts/p": ["./dist/texts/p/index.d.ts"],
-      "texts/span": ["./dist/texts/span/index.d.ts"],
-      "toggle-switch": ["./dist/toggle-switch/index.d.ts"]
+      "admonition": [
+        "./dist/admonition/index.d.ts"
+      ],
+      "avatar": [
+        "./dist/avatar/index.d.ts"
+      ],
+      "avatar-group": [
+        "./dist/avatar-group/index.d.ts"
+      ],
+      "button": [
+        "./dist/button/index.d.ts"
+      ],
+      "checkbox": [
+        "./dist/checkbox/index.d.ts"
+      ],
+      "checkboxes": [
+        "./dist/checkboxes/index.d.ts"
+      ],
+      "chip": [
+        "./dist/chip/index.d.ts"
+      ],
+      "color-picker": [
+        "./dist/color-picker/index.d.ts"
+      ],
+      "css": [
+        "./dist/css/index.d.ts"
+      ],
+      "container": [
+        "./dist/container/index.d.ts"
+      ],
+      "contexts/notifications": [
+        "./dist/contexts/notifications/index.d.ts"
+      ],
+      "contexts/ui": [
+        "./dist/contexts/ui/index.d.ts"
+      ],
+      "div-measure": [
+        "./dist/div-measure/index.d.ts"
+      ],
+      "gallery-modal": [
+        "./dist/gallery-modal/index.d.ts"
+      ],
+      "global-event-portal": [
+        "./dist/global-event-portal/index.d.ts"
+      ],
+      "icons": [
+        "./dist/icons/index.d.ts"
+      ],
+      "input-image": [
+        "./dist/input-image/index.d.ts"
+      ],
+      "input-text": [
+        "./dist/input-text/index.d.ts"
+      ],
+      "inset-group": [
+        "./dist/inset-group/index.d.ts"
+      ],
+      "label-text": [
+        "./dist/label-text/index.d.ts"
+      ],
+      "layout": [
+        "./dist/layout/index.d.ts"
+      ],
+      "loading-spinner": [
+        "./dist/loading-spinner/index.d.ts"
+      ],
+      "modal": [
+        "./dist/modal/index.d.ts"
+      ],
+      "notification-system": [
+        "./dist/notification-system/index.d.ts"
+      ],
+      "portals": [
+        "./dist/portals/index.d.ts"
+      ],
+      "radio": [
+        "./dist/radio/index.d.ts"
+      ],
+      "select-spring": [
+        "./dist/select-spring/index.d.ts"
+      ],
+      "spring-enter": [
+        "./dist/spring-enter/index.d.ts"
+      ],
+      "spring-enter-offset-by": [
+        "./dist/spring-enter-offset-by/index.d.ts"
+      ],
+      "spring-menu-transition": [
+        "./dist/spring-menu-transition/index.d.ts"
+      ],
+      "spring-open-close-height": [
+        "./dist/spring-open-close-height/index.d.ts"
+      ],
+      "styled/button": [
+        "./dist/styled/button/index.d.ts"
+      ],
+      "styled/inputs/text": [
+        "./dist/styled/inputs/text/index.d.ts"
+      ],
+      "styled/inputs/text-area": [
+        "./dist/styled/inputs/text-area/index.d.ts"
+      ],
+      "styled/li": [
+        "./dist/styled/li/index.d.ts"
+      ],
+      "styled/ul": [
+        "./dist/styled/ul/index.d.ts"
+      ],
+      "table-grid": [
+        "./dist/table-grid/index.d.ts"
+      ],
+      "table-header": [
+        "./dist/table-header/index.d.ts"
+      ],
+      "table-row": [
+        "./dist/table-row/index.d.ts"
+      ],
+      "tabs": [
+        "./dist/tabs/index.d.ts"
+      ],
+      "tag-color": [
+        "./dist/tag-color/index.d.ts"
+      ],
+      "text-area": [
+        "./dist/text-area/index.d.ts"
+      ],
+      "texts/header": [
+        "./dist/texts/header/index.d.ts"
+      ],
+      "texts/p": [
+        "./dist/texts/p/index.d.ts"
+      ],
+      "texts/span": [
+        "./dist/texts/span/index.d.ts"
+      ],
+      "toggle-switch": [
+        "./dist/toggle-switch/index.d.ts"
+      ]
     }
   },
   "sideEffects": false,
   "scripts": {
     "dev": "vite",
     "prebuild": "rm -rf dist",
-    "build": "tsc && vite build && node scripts/generate-subpath-exports.mjs",
+    "build": "tsc && vite build && node scripts/move-dts.mjs",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "prepublish": "npm run build",

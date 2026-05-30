@@ -1,5 +1,3 @@
-"use client";
-
 import { createHeadElement } from "../utils/createHeadElement";
 
 const Text_Header = createHeadElement();

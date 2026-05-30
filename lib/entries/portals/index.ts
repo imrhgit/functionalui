@@ -1,1 +1,1 @@
-export { default as FunctionalUiPortals } from "../../components/ui/portals/types";
+export { PORTAL as FunctionalUiPortals } from "../../components/ui/portals/types";

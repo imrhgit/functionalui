@@ -1,5 +1,3 @@
-"use client";
-
 import { SpanProps } from "functionalui/types";
 import { createTextElement } from "../utils/createTextElement";
 

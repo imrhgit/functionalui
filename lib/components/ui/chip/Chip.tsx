@@ -1,5 +1,3 @@
-"use client";
-
 import { Container } from "functionalui/container";
 import { Layout } from "functionalui/layout";
 import { Text_Span } from "functionalui/texts/span";

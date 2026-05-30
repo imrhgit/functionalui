@@ -1,5 +1,3 @@
-"use client";
-
 import { animated } from "@react-spring/web";
 import {
   BORDER_BOTTOM_LEFT_RADIUS_CLASSES,

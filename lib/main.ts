@@ -1,6 +1,3 @@
-import "./styles/css/default.css";
-import "./styles/css/styled.css";
-
 export { default as Container } from "./styles/styled/container/component";
 export { default as Layout } from "./styles/styled/layout/component";
 export { default as F__Button } from "./styles/styled/button/component";

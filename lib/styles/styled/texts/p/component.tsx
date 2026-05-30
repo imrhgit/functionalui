@@ -1,5 +1,3 @@
-"use client";
-
 import { ParagraphProps } from "functionalui/types";
 import { createTextElement } from "../utils/createTextElement";
 
