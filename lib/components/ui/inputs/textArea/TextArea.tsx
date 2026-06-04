@@ -6,9 +6,14 @@ import {
   BoxSizings,
   ColorPalettes,
   ColorSets,
+  Cursors,
   ElementResizes,
+  FontFamilies,
+  FontSizes,
+  FontStyles,
+  FontWeights,
   OutlineStyles,
-  TextAreaProps,
+  TextAligns,
 } from "functionalui/types";
 import {
   ChangeEvent,
@@ -55,6 +60,20 @@ interface P extends HTMLAttributes<HTMLTextAreaElement> {
   labelTextColor?: boolean | ColorPalettes;
   noLabel?: boolean;
   ref?: Ref<HTMLTextAreaElement> | undefined;
+  // props passed through to F__TextArea
+  type?: string;
+  disabled?: boolean;
+  min?: number;
+  step?: number;
+  resize?: ElementResizes;
+  textOutlineStyle?: OutlineStyles;
+  paletteColor?: ColorPalettes;
+  fontSize?: FontSizes;
+  fontFamily?: FontFamilies;
+  fontWeight?: FontWeights;
+  fontStyle?: FontStyles;
+  textAlign?: TextAligns;
+  cursor?: Cursors;
 }
 
 const TextArea = ({
@@ -84,7 +103,7 @@ const TextArea = ({
   noLabel,
   ref,
   ...props
-}: P & TextAreaProps) => {
+}: P) => {
   const innerRef = useRef<HTMLTextAreaElement>(null);
   const combinedRef = useCombinedRef(innerRef, ref);
 

@@ -33,10 +33,9 @@ import {
   POSITION_RIGHT_CLASSES,
   POSITION_TOP_CLASSES,
 } from "functionalui/types";
-import { FC } from "react";
 import { CURSOR_CLASSES } from "../../types/classes";
 
-const F__Button: FC<ButtonProps> = ({
+const F__Button = ({
   margin,
   marginTop,
   marginBottom,
@@ -77,7 +76,7 @@ const F__Button: FC<ButtonProps> = ({
   className,
   ref,
   ...props
-}) => {
+}: ButtonProps) => {
   const classes: any = {};
   if (margin) {
     classes[MARGIN_CLASSES[margin]] = true;

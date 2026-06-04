@@ -7,227 +7,227 @@
   ],
   "exports": {
     "./admonition": {
-      "types": "./dist/admonition/index.d.ts",
+      "types": "./dist/lib/entries/admonition/index.d.ts",
       "import": "./dist/admonition/index.mjs",
       "require": "./dist/admonition/index.cjs"
     },
     "./avatar": {
-      "types": "./dist/avatar/index.d.ts",
+      "types": "./dist/lib/entries/avatar/index.d.ts",
       "import": "./dist/avatar/index.mjs",
       "require": "./dist/avatar/index.cjs"
     },
     "./avatar-group": {
-      "types": "./dist/avatar-group/index.d.ts",
+      "types": "./dist/lib/entries/avatar-group/index.d.ts",
       "import": "./dist/avatar-group/index.mjs",
       "require": "./dist/avatar-group/index.cjs"
     },
     "./button": {
-      "types": "./dist/button/index.d.ts",
+      "types": "./dist/lib/entries/button/index.d.ts",
       "import": "./dist/button/index.mjs",
       "require": "./dist/button/index.cjs"
     },
     "./checkbox": {
-      "types": "./dist/checkbox/index.d.ts",
+      "types": "./dist/lib/entries/checkbox/index.d.ts",
       "import": "./dist/checkbox/index.mjs",
       "require": "./dist/checkbox/index.cjs"
     },
     "./checkboxes": {
-      "types": "./dist/checkboxes/index.d.ts",
+      "types": "./dist/lib/entries/checkboxes/index.d.ts",
       "import": "./dist/checkboxes/index.mjs",
       "require": "./dist/checkboxes/index.cjs"
     },
     "./chip": {
-      "types": "./dist/chip/index.d.ts",
+      "types": "./dist/lib/entries/chip/index.d.ts",
       "import": "./dist/chip/index.mjs",
       "require": "./dist/chip/index.cjs"
     },
     "./color-picker": {
-      "types": "./dist/color-picker/index.d.ts",
+      "types": "./dist/lib/entries/color-picker/index.d.ts",
       "import": "./dist/color-picker/index.mjs",
       "require": "./dist/color-picker/index.cjs"
     },
     "./container": {
-      "types": "./dist/container/index.d.ts",
+      "types": "./dist/lib/entries/container/index.d.ts",
       "import": "./dist/container/index.mjs",
       "require": "./dist/container/index.cjs"
     },
     "./contexts/notifications": {
-      "types": "./dist/contexts/notifications/index.d.ts",
+      "types": "./dist/lib/entries/contexts/notifications/index.d.ts",
       "import": "./dist/contexts/notifications/index.mjs",
       "require": "./dist/contexts/notifications/index.cjs"
     },
     "./contexts/ui": {
-      "types": "./dist/contexts/ui/index.d.ts",
+      "types": "./dist/lib/entries/contexts/ui/index.d.ts",
       "import": "./dist/contexts/ui/index.mjs",
       "require": "./dist/contexts/ui/index.cjs"
     },
     "./div-measure": {
-      "types": "./dist/div-measure/index.d.ts",
+      "types": "./dist/lib/entries/div-measure/index.d.ts",
       "import": "./dist/div-measure/index.mjs",
       "require": "./dist/div-measure/index.cjs"
     },
     "./gallery-modal": {
-      "types": "./dist/gallery-modal/index.d.ts",
+      "types": "./dist/lib/entries/gallery-modal/index.d.ts",
       "import": "./dist/gallery-modal/index.mjs",
       "require": "./dist/gallery-modal/index.cjs"
     },
     "./global-event-portal": {
-      "types": "./dist/global-event-portal/index.d.ts",
+      "types": "./dist/lib/entries/global-event-portal/index.d.ts",
       "import": "./dist/global-event-portal/index.mjs",
       "require": "./dist/global-event-portal/index.cjs"
     },
     "./icons": {
-      "types": "./dist/icons/index.d.ts",
+      "types": "./dist/lib/entries/icons/index.d.ts",
       "import": "./dist/icons/index.mjs",
       "require": "./dist/icons/index.cjs"
     },
     "./input-image": {
-      "types": "./dist/input-image/index.d.ts",
+      "types": "./dist/lib/entries/input-image/index.d.ts",
       "import": "./dist/input-image/index.mjs",
       "require": "./dist/input-image/index.cjs"
     },
     "./input-text": {
-      "types": "./dist/input-text/index.d.ts",
+      "types": "./dist/lib/entries/input-text/index.d.ts",
       "import": "./dist/input-text/index.mjs",
       "require": "./dist/input-text/index.cjs"
     },
     "./inset-group": {
-      "types": "./dist/inset-group/index.d.ts",
+      "types": "./dist/lib/entries/inset-group/index.d.ts",
       "import": "./dist/inset-group/index.mjs",
       "require": "./dist/inset-group/index.cjs"
     },
     "./label-text": {
-      "types": "./dist/label-text/index.d.ts",
+      "types": "./dist/lib/entries/label-text/index.d.ts",
       "import": "./dist/label-text/index.mjs",
       "require": "./dist/label-text/index.cjs"
     },
     "./layout": {
-      "types": "./dist/layout/index.d.ts",
+      "types": "./dist/lib/entries/layout/index.d.ts",
       "import": "./dist/layout/index.mjs",
       "require": "./dist/layout/index.cjs"
     },
     "./loading-spinner": {
-      "types": "./dist/loading-spinner/index.d.ts",
+      "types": "./dist/lib/entries/loading-spinner/index.d.ts",
       "import": "./dist/loading-spinner/index.mjs",
       "require": "./dist/loading-spinner/index.cjs"
     },
     "./modal": {
-      "types": "./dist/modal/index.d.ts",
+      "types": "./dist/lib/entries/modal/index.d.ts",
       "import": "./dist/modal/index.mjs",
       "require": "./dist/modal/index.cjs"
     },
     "./notification-system": {
-      "types": "./dist/notification-system/index.d.ts",
+      "types": "./dist/lib/entries/notification-system/index.d.ts",
       "import": "./dist/notification-system/index.mjs",
       "require": "./dist/notification-system/index.cjs"
     },
     "./portals": {
-      "types": "./dist/portals/index.d.ts",
+      "types": "./dist/lib/entries/portals/index.d.ts",
       "import": "./dist/portals/index.mjs",
       "require": "./dist/portals/index.cjs"
     },
     "./radio": {
-      "types": "./dist/radio/index.d.ts",
+      "types": "./dist/lib/entries/radio/index.d.ts",
       "import": "./dist/radio/index.mjs",
       "require": "./dist/radio/index.cjs"
     },
     "./select-spring": {
-      "types": "./dist/select-spring/index.d.ts",
+      "types": "./dist/lib/entries/select-spring/index.d.ts",
       "import": "./dist/select-spring/index.mjs",
       "require": "./dist/select-spring/index.cjs"
     },
     "./spring-enter": {
-      "types": "./dist/spring-enter/index.d.ts",
+      "types": "./dist/lib/entries/spring-enter/index.d.ts",
       "import": "./dist/spring-enter/index.mjs",
       "require": "./dist/spring-enter/index.cjs"
     },
     "./spring-enter-offset-by": {
-      "types": "./dist/spring-enter-offset-by/index.d.ts",
+      "types": "./dist/lib/entries/spring-enter-offset-by/index.d.ts",
       "import": "./dist/spring-enter-offset-by/index.mjs",
       "require": "./dist/spring-enter-offset-by/index.cjs"
     },
     "./spring-menu-transition": {
-      "types": "./dist/spring-menu-transition/index.d.ts",
+      "types": "./dist/lib/entries/spring-menu-transition/index.d.ts",
       "import": "./dist/spring-menu-transition/index.mjs",
       "require": "./dist/spring-menu-transition/index.cjs"
     },
     "./spring-open-close-height": {
-      "types": "./dist/spring-open-close-height/index.d.ts",
+      "types": "./dist/lib/entries/spring-open-close-height/index.d.ts",
       "import": "./dist/spring-open-close-height/index.mjs",
       "require": "./dist/spring-open-close-height/index.cjs"
     },
     "./styled/button": {
-      "types": "./dist/styled/button/index.d.ts",
+      "types": "./dist/lib/entries/styled/button/index.d.ts",
       "import": "./dist/styled/button/index.mjs",
       "require": "./dist/styled/button/index.cjs"
     },
     "./styled/inputs/text": {
-      "types": "./dist/styled/inputs/text/index.d.ts",
+      "types": "./dist/lib/entries/styled/inputs/text/index.d.ts",
       "import": "./dist/styled/inputs/text/index.mjs",
       "require": "./dist/styled/inputs/text/index.cjs"
     },
     "./styled/inputs/text-area": {
-      "types": "./dist/styled/inputs/text-area/index.d.ts",
+      "types": "./dist/lib/entries/styled/inputs/text-area/index.d.ts",
       "import": "./dist/styled/inputs/text-area/index.mjs",
       "require": "./dist/styled/inputs/text-area/index.cjs"
     },
     "./styled/li": {
-      "types": "./dist/styled/li/index.d.ts",
+      "types": "./dist/lib/entries/styled/li/index.d.ts",
       "import": "./dist/styled/li/index.mjs",
       "require": "./dist/styled/li/index.cjs"
     },
     "./styled/ul": {
-      "types": "./dist/styled/ul/index.d.ts",
+      "types": "./dist/lib/entries/styled/ul/index.d.ts",
       "import": "./dist/styled/ul/index.mjs",
       "require": "./dist/styled/ul/index.cjs"
     },
     "./table-grid": {
-      "types": "./dist/table-grid/index.d.ts",
+      "types": "./dist/lib/entries/table-grid/index.d.ts",
       "import": "./dist/table-grid/index.mjs",
       "require": "./dist/table-grid/index.cjs"
     },
     "./table-header": {
-      "types": "./dist/table-header/index.d.ts",
+      "types": "./dist/lib/entries/table-header/index.d.ts",
       "import": "./dist/table-header/index.mjs",
       "require": "./dist/table-header/index.cjs"
     },
     "./table-row": {
-      "types": "./dist/table-row/index.d.ts",
+      "types": "./dist/lib/entries/table-row/index.d.ts",
       "import": "./dist/table-row/index.mjs",
       "require": "./dist/table-row/index.cjs"
     },
     "./tabs": {
-      "types": "./dist/tabs/index.d.ts",
+      "types": "./dist/lib/entries/tabs/index.d.ts",
       "import": "./dist/tabs/index.mjs",
       "require": "./dist/tabs/index.cjs"
     },
     "./tag-color": {
-      "types": "./dist/tag-color/index.d.ts",
+      "types": "./dist/lib/entries/tag-color/index.d.ts",
       "import": "./dist/tag-color/index.mjs",
       "require": "./dist/tag-color/index.cjs"
     },
     "./text-area": {
-      "types": "./dist/text-area/index.d.ts",
+      "types": "./dist/lib/entries/text-area/index.d.ts",
       "import": "./dist/text-area/index.mjs",
       "require": "./dist/text-area/index.cjs"
     },
     "./texts/header": {
-      "types": "./dist/texts/header/index.d.ts",
+      "types": "./dist/lib/entries/texts/header/index.d.ts",
       "import": "./dist/texts/header/index.mjs",
       "require": "./dist/texts/header/index.cjs"
     },
     "./texts/p": {
-      "types": "./dist/texts/p/index.d.ts",
+      "types": "./dist/lib/entries/texts/p/index.d.ts",
       "import": "./dist/texts/p/index.mjs",
       "require": "./dist/texts/p/index.cjs"
     },
     "./texts/span": {
-      "types": "./dist/texts/span/index.d.ts",
+      "types": "./dist/lib/entries/texts/span/index.d.ts",
       "import": "./dist/texts/span/index.mjs",
       "require": "./dist/texts/span/index.cjs"
     },
     "./toggle-switch": {
-      "types": "./dist/toggle-switch/index.d.ts",
+      "types": "./dist/lib/entries/toggle-switch/index.d.ts",
       "import": "./dist/toggle-switch/index.mjs",
       "require": "./dist/toggle-switch/index.cjs"
     },
@@ -235,7 +235,7 @@
       "style": "./dist/css/index.css"
     },
     "./types": {
-      "types": "./dist/types.d.ts",
+      "types": "./dist/lib/styles/types/types.d.ts",
       "import": "./dist/types.mjs",
       "require": "./dist/types.cjs"
     }
@@ -243,145 +243,145 @@
   "typesVersions": {
     "*": {
       "types": [
-        "./dist/types.d.ts"
+        "./dist/lib/styles/types/types.d.ts"
       ],
       "admonition": [
-        "./dist/admonition/index.d.ts"
+        "./dist/lib/entries/admonition/index.d.ts"
       ],
       "avatar": [
-        "./dist/avatar/index.d.ts"
+        "./dist/lib/entries/avatar/index.d.ts"
       ],
       "avatar-group": [
-        "./dist/avatar-group/index.d.ts"
+        "./dist/lib/entries/avatar-group/index.d.ts"
       ],
       "button": [
-        "./dist/button/index.d.ts"
+        "./dist/lib/entries/button/index.d.ts"
       ],
       "checkbox": [
-        "./dist/checkbox/index.d.ts"
+        "./dist/lib/entries/checkbox/index.d.ts"
       ],
       "checkboxes": [
-        "./dist/checkboxes/index.d.ts"
+        "./dist/lib/entries/checkboxes/index.d.ts"
       ],
       "chip": [
-        "./dist/chip/index.d.ts"
+        "./dist/lib/entries/chip/index.d.ts"
       ],
       "color-picker": [
-        "./dist/color-picker/index.d.ts"
+        "./dist/lib/entries/color-picker/index.d.ts"
       ],
       "css": [
-        "./dist/css/index.d.ts"
+        "./dist/lib/css.d.ts"
       ],
       "container": [
-        "./dist/container/index.d.ts"
+        "./dist/lib/entries/container/index.d.ts"
       ],
       "contexts/notifications": [
-        "./dist/contexts/notifications/index.d.ts"
+        "./dist/lib/entries/contexts/notifications/index.d.ts"
       ],
       "contexts/ui": [
-        "./dist/contexts/ui/index.d.ts"
+        "./dist/lib/entries/contexts/ui/index.d.ts"
       ],
       "div-measure": [
-        "./dist/div-measure/index.d.ts"
+        "./dist/lib/entries/div-measure/index.d.ts"
       ],
       "gallery-modal": [
-        "./dist/gallery-modal/index.d.ts"
+        "./dist/lib/entries/gallery-modal/index.d.ts"
       ],
       "global-event-portal": [
-        "./dist/global-event-portal/index.d.ts"
+        "./dist/lib/entries/global-event-portal/index.d.ts"
       ],
       "icons": [
-        "./dist/icons/index.d.ts"
+        "./dist/lib/entries/icons/index.d.ts"
       ],
       "input-image": [
-        "./dist/input-image/index.d.ts"
+        "./dist/lib/entries/input-image/index.d.ts"
       ],
       "input-text": [
-        "./dist/input-text/index.d.ts"
+        "./dist/lib/entries/input-text/index.d.ts"
       ],
       "inset-group": [
-        "./dist/inset-group/index.d.ts"
+        "./dist/lib/entries/inset-group/index.d.ts"
       ],
       "label-text": [
-        "./dist/label-text/index.d.ts"
+        "./dist/lib/entries/label-text/index.d.ts"
       ],
       "layout": [
-        "./dist/layout/index.d.ts"
+        "./dist/lib/entries/layout/index.d.ts"
       ],
       "loading-spinner": [
-        "./dist/loading-spinner/index.d.ts"
+        "./dist/lib/entries/loading-spinner/index.d.ts"
       ],
       "modal": [
-        "./dist/modal/index.d.ts"
+        "./dist/lib/entries/modal/index.d.ts"
       ],
       "notification-system": [
-        "./dist/notification-system/index.d.ts"
+        "./dist/lib/entries/notification-system/index.d.ts"
       ],
       "portals": [
-        "./dist/portals/index.d.ts"
+        "./dist/lib/entries/portals/index.d.ts"
       ],
       "radio": [
-        "./dist/radio/index.d.ts"
+        "./dist/lib/entries/radio/index.d.ts"
       ],
       "select-spring": [
-        "./dist/select-spring/index.d.ts"
+        "./dist/lib/entries/select-spring/index.d.ts"
       ],
       "spring-enter": [
-        "./dist/spring-enter/index.d.ts"
+        "./dist/lib/entries/spring-enter/index.d.ts"
       ],
       "spring-enter-offset-by": [
-        "./dist/spring-enter-offset-by/index.d.ts"
+        "./dist/lib/entries/spring-enter-offset-by/index.d.ts"
       ],
       "spring-menu-transition": [
-        "./dist/spring-menu-transition/index.d.ts"
+        "./dist/lib/entries/spring-menu-transition/index.d.ts"
       ],
       "spring-open-close-height": [
-        "./dist/spring-open-close-height/index.d.ts"
+        "./dist/lib/entries/spring-open-close-height/index.d.ts"
       ],
       "styled/button": [
-        "./dist/styled/button/index.d.ts"
+        "./dist/lib/entries/styled/button/index.d.ts"
       ],
       "styled/inputs/text": [
-        "./dist/styled/inputs/text/index.d.ts"
+        "./dist/lib/entries/styled/inputs/text/index.d.ts"
       ],
       "styled/inputs/text-area": [
-        "./dist/styled/inputs/text-area/index.d.ts"
+        "./dist/lib/entries/styled/inputs/text-area/index.d.ts"
       ],
       "styled/li": [
-        "./dist/styled/li/index.d.ts"
+        "./dist/lib/entries/styled/li/index.d.ts"
       ],
       "styled/ul": [
-        "./dist/styled/ul/index.d.ts"
+        "./dist/lib/entries/styled/ul/index.d.ts"
       ],
       "table-grid": [
-        "./dist/table-grid/index.d.ts"
+        "./dist/lib/entries/table-grid/index.d.ts"
       ],
       "table-header": [
-        "./dist/table-header/index.d.ts"
+        "./dist/lib/entries/table-header/index.d.ts"
       ],
       "table-row": [
-        "./dist/table-row/index.d.ts"
+        "./dist/lib/entries/table-row/index.d.ts"
       ],
       "tabs": [
-        "./dist/tabs/index.d.ts"
+        "./dist/lib/entries/tabs/index.d.ts"
       ],
       "tag-color": [
-        "./dist/tag-color/index.d.ts"
+        "./dist/lib/entries/tag-color/index.d.ts"
       ],
       "text-area": [
-        "./dist/text-area/index.d.ts"
+        "./dist/lib/entries/text-area/index.d.ts"
       ],
       "texts/header": [
-        "./dist/texts/header/index.d.ts"
+        "./dist/lib/entries/texts/header/index.d.ts"
       ],
       "texts/p": [
-        "./dist/texts/p/index.d.ts"
+        "./dist/lib/entries/texts/p/index.d.ts"
       ],
       "texts/span": [
-        "./dist/texts/span/index.d.ts"
+        "./dist/lib/entries/texts/span/index.d.ts"
       ],
       "toggle-switch": [
-        "./dist/toggle-switch/index.d.ts"
+        "./dist/lib/entries/toggle-switch/index.d.ts"
       ]
     }
   },
@@ -429,7 +429,7 @@
     "typescript": "~5.6.2",
     "typescript-eslint": "^8.18.2",
     "vite": "^6.0.5",
-    "vite-plugin-dts": "^4.4.0",
+    "vite-plugin-dts": "^5.0.2",
     "vite-tsconfig-paths": "^5.1.4"
   },
   "eslintConfig": {

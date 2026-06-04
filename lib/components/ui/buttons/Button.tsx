@@ -11,7 +11,7 @@ import {
   FlexJustifyContents,
   FontWeights,
 } from "functionalui/types";
-import { FC, useState } from "react";
+import { useState } from "react";
 import useMeasure from "react-use-measure";
 import {
   BUTTON_COLORS,
@@ -28,7 +28,7 @@ import {
 import LabelText from "../label/LabelText";
 import ButtonIcon from "./components/ButtonIcon";
 
-type ButtonProps = {
+type P = {
   name: string;
   buttonSize?: ButtonSizes;
   buttonColor?: ButtonColors;
@@ -52,7 +52,7 @@ type ButtonProps = {
   clickAction?: (v: any) => void;
 };
 
-const Button: FC<ButtonProps> = ({
+const Button = ({
   name,
   buttonSize = ButtonSizes.Medium,
   buttonColor = ButtonColors.Primary5,
@@ -70,7 +70,7 @@ const Button: FC<ButtonProps> = ({
   // parentHover,
   // hoverColor,
   clickAction = () => {},
-}) => {
+}: P) => {
   var disabled = buttonState === ButtonStates.Disabled;
   const [onHover, setOnHover] = useState(hover);
   // measure half of the button width
