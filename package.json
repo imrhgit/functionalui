@@ -1,11 +1,19 @@
 {
   "name": "@functionalui/functionalui",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "type": "module",
   "files": [
     "dist"
   ],
+  "main": "./dist/main.cjs",
+  "module": "./dist/main.mjs",
+  "types": "./dist/lib/main.d.ts",
   "exports": {
+    ".": {
+      "types": "./dist/lib/main.d.ts",
+      "import": "./dist/main.mjs",
+      "require": "./dist/main.cjs"
+    },
     "./admonition": {
       "types": "./dist/lib/entries/admonition/index.d.ts",
       "import": "./dist/admonition/index.mjs",

@@ -17,6 +17,7 @@ export default defineConfig({
 		lib: {
 			cssFileName: "css/index",
 			entry: {
+				main: resolve(__dirname, "lib/main.ts"),
 				types: resolve(__dirname, "lib/styles/types/types.ts"),
 				css: resolve(__dirname, "lib/css.ts"),
 				container: resolve(__dirname, "lib/entries/container/index.ts"),
@@ -73,6 +74,7 @@ export default defineConfig({
 					format: "es",
 					entryFileNames(info) {
 						if (info.name === "types") return "types.mjs";
+						if (info.name === "main") return "main.mjs";
 						return "[name]/index.mjs";
 					},
 				},
@@ -80,6 +82,7 @@ export default defineConfig({
 					format: "cjs",
 					entryFileNames(info) {
 						if (info.name === "types") return "types.cjs";
+						if (info.name === "main") return "main.cjs";
 						return "[name]/index.cjs";
 					},
 				},
