@@ -17,12 +17,15 @@ jobs:
       id-token: write
     steps:
       - uses: actions/checkout@v6
-      # Setup .npmrc file to publish to npm
       - uses: actions/setup-node@v4
         with:
-          node-version: "24"
+          node-version: 24
           registry-url: "https://registry.npmjs.org"
-      - run: npm run build
-      - run: npm publish --provenance --access public
+      - name: Install dependencies
+        run: npm install
+      - name: Build
+        run: npm run build
+      - name: Publish
+        run: npm publish --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
