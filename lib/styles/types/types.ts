@@ -8,8 +8,7 @@ import {
   TextStyleProps,
 } from "./components.types";
 import { ElementResizes, OutlineStyles } from "./generics";
-import { ToastTypes } from "./types";
-import { TextAreaStyles } from "./types";
+import { TextAreaStyles, ToastTypes } from "./types";
 
 export {
   BORDER_BOTTOM_LEFT_RADIUS_CLASSES,
@@ -25,6 +24,7 @@ export {
   BORDER_WIDTH_CLASSES,
   BOX_SHADOW_CLASSES,
   BOX_SIZING_CLASSES,
+  CURSOR_CLASSES,
   ELEMENT_RESIZE_CLASSES,
   FONT_FAMILY_CLASSES,
   FONT_SIZE_CLASSES,
@@ -46,7 +46,6 @@ export {
   POSITION_RIGHT_CLASSES,
   POSITION_TOP_CLASSES,
   TEXT_ALIGN_CLASSES,
-  CURSOR_CLASSES,
 } from "./classes";
 export {
   BACKGROUND_COLOR_CLASSES,
@@ -56,9 +55,9 @@ export {
 } from "./colors/classes";
 export { ColorPalettes, ColorSets } from "./colors/generics";
 export {
+  COLOR_RGBA_ALPHA,
   COLOR_VALUES,
   ColorRanges,
-  COLOR_RGBA_ALPHA,
   ColorRGBAAlphas,
 } from "./colors/values";
 export {
@@ -66,18 +65,18 @@ export {
   BorderWidths,
   BoxShadows,
   BoxSizings,
+  Cursors,
   ElementResizes,
   FontFamilies,
   FontSizes,
   FontStyles,
   FontWeights,
   MediaSizes,
+  OutlineStyles,
   Positions,
   Radiuses,
   Spacings,
   TextAligns,
-  OutlineStyles,
-  Cursors,
 } from "./generics";
 export {
   ALIGN_SELF_CLASSES,
@@ -109,7 +108,7 @@ export {
   GridRowGaps,
   JustifySelfs,
 } from "./layout/generics";
-export { Sizings, FontBaseSizes } from "./sizings/generics";
+export { FontBaseSizes, Sizings } from "./sizings/generics";
 export {
   BORDER_STYLE_VALUES,
   BORDER_WIDTH_VALUES,
@@ -133,27 +132,29 @@ export {
 
 export type GlobalEventContextType = {
   globalEventRef: any | null;
-  handleGlobalEventRef: (props: string, type: ToastTypes) => void;
-  // handleGlobaEventRef: ((props: string, type: ToastTypes) => void) | undefined;
+  handleGlobalEventRef: (
+    props: string,
+    type: ToastTypes,
+    customActions?: ReactNode,
+  ) => void;
   catchUserAxiosNextApiError: any | undefined;
   catchUserAxiosFetcherError: any | undefined;
 };
 
 export interface DivProps
-  extends AnimatedProps<HTMLAttributes<HTMLDivElement>>,
-    StyleProps {
+  extends AnimatedProps<HTMLAttributes<HTMLDivElement>>, StyleProps {
   children?: ReactNode;
   ref?: Ref<HTMLDivElement | null>;
 }
 export interface LayoutDivProps
-  extends AnimatedProps<HTMLAttributes<HTMLDivElement>>,
-    LayoutProps {
+  extends AnimatedProps<HTMLAttributes<HTMLDivElement>>, LayoutProps {
   children?: ReactNode;
   ref?: Ref<HTMLDivElement | null>;
 }
 
 export interface ButtonProps
-  extends AnimatedProps<HTMLAttributes<HTMLButtonElement>>,
+  extends
+    AnimatedProps<HTMLAttributes<HTMLButtonElement>>,
     StyleProps,
     ButtonStyleProps {
   children?: ReactNode;
@@ -171,7 +172,8 @@ interface TextInputProp {
   step?: number | undefined;
 }
 export interface TextInputProps
-  extends AnimatedProps<HTMLAttributes<HTMLInputElement>>,
+  extends
+    AnimatedProps<HTMLAttributes<HTMLInputElement>>,
     TextStyleProps,
     TextInputProp {
   children?: ReactNode;
@@ -193,7 +195,8 @@ interface TextAreaProp {
   textAreaStyle?: TextAreaStyles;
 }
 export interface TextAreaProps
-  extends AnimatedProps<HTMLAttributes<HTMLTextAreaElement>>,
+  extends
+    AnimatedProps<HTMLAttributes<HTMLTextAreaElement>>,
     TextStyleProps,
     TextAreaProp {
   children?: ReactNode;
@@ -201,21 +204,20 @@ export interface TextAreaProps
 }
 
 export interface LiProps
-  extends AnimatedProps<HTMLAttributes<HTMLLIElement>>,
-    StyleProps {
+  extends AnimatedProps<HTMLAttributes<HTMLLIElement>>, StyleProps {
   children?: ReactNode;
   ref?: Ref<HTMLLIElement | null>;
 }
 
 export interface UlProps
-  extends AnimatedProps<HTMLAttributes<HTMLUListElement>>,
-    StyleProps {
+  extends AnimatedProps<HTMLAttributes<HTMLUListElement>>, StyleProps {
   children?: ReactNode;
   ref?: Ref<HTMLUListElement | null>;
 }
 
 export interface HeadElementProps
-  extends AnimatedProps<HTMLAttributes<HTMLHeadElement>>,
+  extends
+    AnimatedProps<HTMLAttributes<HTMLHeadElement>>,
     TextStyleProps,
     HeaderProps {
   children?: ReactNode;
@@ -223,26 +225,24 @@ export interface HeadElementProps
 }
 
 export interface ParagraphProps
-  extends AnimatedProps<HTMLAttributes<HTMLParagraphElement>>,
-    TextStyleProps {
+  extends AnimatedProps<HTMLAttributes<HTMLParagraphElement>>, TextStyleProps {
   children?: ReactNode;
   ref?: Ref<HTMLParagraphElement | null>;
 }
 
 export interface SpanProps
-  extends AnimatedProps<HTMLAttributes<HTMLSpanElement>>,
-    TextStyleProps {
+  extends AnimatedProps<HTMLAttributes<HTMLSpanElement>>, TextStyleProps {
   children?: ReactNode;
   ref?: Ref<HTMLSpanElement | null>;
 }
 
 export {
+  ADMONITION_SIZE,
   AdmonitionColors,
   AdmonitionIcons,
   AdmonitionLevels,
-  AdmonitionTitles,
   AdmonitionSizes,
-  ADMONITION_SIZE,
+  AdmonitionTitles,
 } from "./ui/admonition/types";
 export { AVATAR_SIZE, AvatarSizes } from "./ui/avatar/types";
 export {
@@ -255,8 +255,8 @@ export {
   ButtonSizes,
   ButtonStateIcon,
   ButtonStates,
-  ButtonTypes,
   ButtonStyles,
+  ButtonTypes,
 } from "./ui/button/types";
 export {
   CHECKBOX_COLORS,
@@ -265,18 +265,15 @@ export {
   CheckboxSizes,
 } from "./ui/checkbox/types";
 
-export { TAG_SIZE, TagColorSizes } from "./ui/tag/types";
-export { ModalStyles } from "./ui/modal/types";
-export { Portals } from "./ui/portal/types";
 export {
   INPUT_TEXT_COLOR,
   INPUT_TEXT_SIZE,
-  InputTextSizes,
   INPUT_TEXT_STYLE,
-  InputTextStyles,
-  InputTextModes,
-  InputTextTypes,
   InputTextLabelStyles,
+  InputTextModes,
+  InputTextSizes,
+  InputTextStyles,
+  InputTextTypes,
 } from "./ui/inputs/text/types";
 export {
   TEXT_AREA_COLOR,
@@ -286,15 +283,17 @@ export {
   TextAreaSizes,
   TextAreaStyles,
 } from "./ui/inputs/textarea/types";
+export { ModalStyles } from "./ui/modal/types";
+export { Portals } from "./ui/portal/types";
 export {
-  type SelectOption,
-  SELECT_STATES,
-  SelectStates,
   DropdownHeightStyles,
   DropdownPositions,
   SELECT_SIZES,
+  SELECT_STATES,
   SelectedValuesStyles,
   SelectSizes,
+  SelectStates,
+  type SelectOption,
 } from "./ui/selectSpring/types";
 export type {
   CellStyles,
@@ -303,6 +302,7 @@ export type {
   TableRowElement,
 } from "./ui/tablegrid/types";
 export { type TabMenu } from "./ui/tabs/types";
+export { TAG_SIZE, TagColorSizes } from "./ui/tag/types";
 export {
   TOGGLE_SIZE,
   TOGGLE_STATE_ICON,
