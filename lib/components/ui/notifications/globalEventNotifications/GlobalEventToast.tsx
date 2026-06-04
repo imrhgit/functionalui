@@ -2,11 +2,11 @@
 
 import { useTransition } from "@react-spring/web";
 import { Container } from "functionalui/container";
+import { useGlobalEventContext } from "functionalui/contexts/notifications";
 import { GlobalEventPortal } from "functionalui/global-event-portal";
+import { UIcon } from "functionalui/icons";
 import { Layout } from "functionalui/layout";
 import { Text_P } from "functionalui/texts/p";
-import { UIcon } from "functionalui/icons";
-import { useGlobalEventContext } from "functionalui/contexts/notifications";
 import {
   BoxShadows,
   ColorPalettes,
@@ -19,7 +19,7 @@ import {
   Spacings,
   ToastNotification,
 } from "functionalui/types";
-import { useEffect, useMemo, useState } from "react";
+import { ReactNode, useEffect, useMemo, useState } from "react";
 import cstyles from "./styles.module.css";
 
 const GlobalEventToast = () => {
@@ -51,7 +51,12 @@ function MessageHub({
   const refMap = useMemo(() => new WeakMap(), []);
   const cancelMap = useMemo(() => new WeakMap(), []);
   const [items, setItems] = useState<
-    { key: number; msg: string; type: ToastNotification }[]
+    Array<{
+      key: number;
+      msg: string;
+      type: ToastNotification;
+      customAction?: ReactNode;
+    }>
   >([]);
 
   //animation definition
@@ -68,29 +73,31 @@ function MessageHub({
       await next({ life: "0%" });
     },
     leave: [{ opacity: 0, y: 50 }, { height: 0 }],
-    // onRest: (result: any, ctrl: any, item: any) => {
     onRest: (_result: any, _ctrl: any, item: any) => {
       setItems((state: any) =>
         state.filter((i: any) => {
           return i.key !== item.key;
-        })
+        }),
       );
     },
-    // config: (item, index, phase) => key => phase === 'enter' && key === 'life' ? { duration: toastTypes[item.type].isTimeout ? timeout : 1000 * 60 * 60 * 24 } : config,
     config: (item, _index, phase) => (key) =>
       phase === "enter" && key === "life"
         ? { duration: item.type.isTimeout ? timeout : 1000 * 60 * 60 * 24 }
-        : // ? { duration: item?.isTimeout ? timeout : 1000 * 60 * 60 * 24 }
-          config,
+        : config,
   });
 
   useEffect(() => {
-    children((msg: string, type: ToastNotification) => {
-      setItems((prev: any[]) => [...prev, { key: id++, msg, type }]);
-    });
+    children(
+      (msg: string, type: ToastNotification, customAction?: ReactNode) => {
+        setItems((prev: any[]) => [
+          ...prev,
+          { key: id++, msg, type, customAction: customAction },
+        ]);
+      },
+    );
   }, [children]);
+
   return (
-    // <Container>
     <Layout
       display={Displays.Flex}
       flexDirection={FlexDirections.Column}
@@ -106,12 +113,13 @@ function MessageHub({
           msg={item.msg}
           life={life}
           item={item}
+          customAction={item.customAction}
         />
       ))}
     </Layout>
-    // </Container>
   );
 }
+
 type ItemProps = {
   style: any;
   refMap: any;
@@ -120,6 +128,7 @@ type ItemProps = {
   msg: any;
   life: any;
   item: any;
+  customAction?: ReactNode;
 };
 const MessageItem = ({
   style,
@@ -129,6 +138,7 @@ const MessageItem = ({
   msg,
   life,
   item,
+  customAction,
 }: ItemProps) => {
   const [isCanceled, setIsCanceled] = useState(false);
   return (
@@ -136,7 +146,6 @@ const MessageItem = ({
       style={style}
       className={isCanceled ? `${cstyles.message} disabled` : cstyles.message}
     >
-      {/* <Content ref={(ref) => ref && refMap.set(item, ref)}> */}
       <div ref={(ref) => ref && refMap.set(item, ref)}>
         <Container
           bgColor={ColorPalettes.Secondary2}
@@ -144,8 +153,6 @@ const MessageItem = ({
           padding={Spacings.Size3}
           boxShadow={BoxShadows.Size5}
           style={{ borderBottom: "none" }}
-
-          // ref={(ref) => ref && refMap.set(item, ref)}
         >
           <Layout
             display={Displays.Flex}
@@ -161,11 +168,17 @@ const MessageItem = ({
                 withMargin={false}
               />
             </Container>
-            {/* <p>{msg ? msg : toastTypes[type].default}</p> */}
             <Text_P fontSize={FontSizes.Size4}>
               {msg ? msg : type.default}
             </Text_P>
             <Container marginLeft={Spacings.Auto} paddingLeft={Spacings.Size3}>
+              {/* custom action */}
+              {customAction && (
+                <Container marginRight={Spacings.Size3}>
+                  {customAction}
+                </Container>
+              )}
+              {/* close action */}
               <UIcon
                 name="x-circle"
                 size={Sizings.Size4}
@@ -188,7 +201,6 @@ const MessageItem = ({
           </Layout>
         </Container>
       </div>
-      {/* </Content> */}
     </Container>
   );
 };

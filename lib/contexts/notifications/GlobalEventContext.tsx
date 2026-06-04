@@ -1,7 +1,13 @@
 "use client";
 
 import { GlobalEventContextType } from "functionalui/types";
-import React, { createContext, useCallback, useContext, useRef } from "react";
+import React, {
+  createContext,
+  ReactNode,
+  useCallback,
+  useContext,
+  useRef,
+} from "react";
 import { TOAST_TYPE, ToastTypes } from "../../styles/types/notification/types";
 
 const GlobalEventContext = createContext<GlobalEventContextType>({
@@ -31,10 +37,10 @@ export const useGlobalEventContext = () => {
 function useSetGlobalEvent() {
   const globalEventRef = useRef<any>(null);
   const handleGlobalEventRef = useCallback(
-    (props: string, type: ToastTypes) => {
-      globalEventRef.current?.(props, TOAST_TYPE[type]);
+    (props: string, type: ToastTypes, customActions?: ReactNode) => {
+      globalEventRef.current?.(props, TOAST_TYPE[type], customActions);
     },
-    []
+    [],
   );
 
   const catchUserAxiosNextApiError = useCallback((error: any) => {
