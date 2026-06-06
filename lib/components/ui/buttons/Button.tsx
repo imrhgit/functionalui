@@ -44,6 +44,7 @@ type P = {
   buttonType?: ButtonTypes;
   buttonShadow?: BoxShadows;
   buttonStyle?: ButtonStyles;
+  buttonLabel?: string | undefined;
 
   iconColor?: ColorPalettes;
   iconPosition?: ButtonIconPositions;
@@ -56,9 +57,7 @@ type P = {
 
   clickAction?: (v: any) => void;
 
-  ariaLabel?: string;
   pressed?: boolean;
-  ariaDisabled?: boolean;
 } & NamedButton;
 
 const Button = ({
@@ -75,18 +74,17 @@ const Button = ({
   animate = true,
   hover,
   clickAction = () => {},
-  ariaLabel,
   pressed,
-  ariaDisabled,
+  disabled: diss,
+  buttonLabel,
   ...rest
 }: ButtonProps & P) => {
   const uid = useId();
   const tooltipId = `btn-label-${uid}`;
 
-  var disabled = buttonState === ButtonStates.Disabled;
-  const isDisabled = disabled && !ariaDisabled;
-  const isAriaDisabled = disabled && ariaDisabled;
-  const isLoading = buttonState === ButtonStates.Loading;
+  const disabled = buttonState === ButtonStates.Disabled;
+  const isDisabled = disabled && !diss;
+  const isAriaDisabled = disabled && diss;
   const isIconOnly = !name && !!icon;
 
   const [onHover, setOnHover] = useState(hover);
@@ -100,25 +98,18 @@ const Button = ({
     transform: "scale(1.0)",
   }));
 
-  const handleClick = (v: any) => {
-    if (isAriaDisabled) return;
-    clickAction(v);
-  };
-
   const isAnimated =
     animate &&
     !disabled &&
     typeof BUTTON_STATE[buttonState]?.animation === "undefined";
 
   const a11yProps: Record<string, any> = {};
-  if (isIconOnly && ariaLabel) {
-    a11yProps["aria-label"] = ariaLabel;
+  if (isIconOnly && buttonLabel) {
+    a11yProps["aria-label"] = buttonLabel;
   } else if (isIconOnly) {
     a11yProps["aria-label"] = icon;
-  } else if (ariaLabel) {
-    a11yProps["aria-label"] = ariaLabel;
   }
-  if (isLoading) {
+  if (buttonState === ButtonStates.Loading) {
     a11yProps["aria-busy"] = true;
   }
   if (pressed !== undefined) {
@@ -158,7 +149,7 @@ const Button = ({
       {hover && (
         <LabelText
           id={tooltipId}
-          labelName={name}
+          labelName={buttonLabel || name}
           hover={onHover || onFocus}
           offsetX={containerBounds.width / 2}
           y={containerBounds.height}
@@ -167,7 +158,7 @@ const Button = ({
       <Container style={isAnimated ? styles : undefined}>
         <F__Button
           type={buttonType}
-          onClick={handleClick}
+          onClick={isAriaDisabled ? undefined : clickAction}
           disabled={isDisabled}
           tabIndex={isAriaDisabled ? 0 : undefined}
           paddingTop={BUTTON_SIZE[buttonSize].paddingTop}
