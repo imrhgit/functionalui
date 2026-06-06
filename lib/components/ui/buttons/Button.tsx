@@ -15,8 +15,7 @@ import {
   FontWeights,
   Icons,
 } from "functionalui/types";
-import { useId, useState } from "react";
-import useMeasure from "react-use-measure";
+import { useId } from "react";
 import {
   BUTTON_COLORS,
   BUTTON_SIZE,
@@ -32,6 +31,7 @@ import {
 import LabelText from "../label/LabelText";
 import ButtonIcon from "./components/ButtonIcon";
 import LiveRegion from "./components/LiveRegion";
+import cstyles from "./styles.module.css";
 
 type NamedButton =
   | { name: string; icon?: Icons }
@@ -87,12 +87,6 @@ const Button = ({
   const isAriaDisabled = disabled && diss;
   const isIconOnly = !name && !!icon;
 
-  const [onHover, setOnHover] = useState(hover);
-  const [onFocus, setOnFocus] = useState(false);
-  const isTooltipVisible = hover && (onHover || onFocus);
-
-  // measure half of the button width
-  const [containerRef, containerBounds] = useMeasure({ debounce: 500 });
   const [styles, api] = useSpring(() => ({
     y: 0,
     transform: "scale(1.0)",
@@ -118,27 +112,15 @@ const Button = ({
   if (isAriaDisabled) {
     a11yProps["aria-disabled"] = true;
   }
-  if (isTooltipVisible) {
-    a11yProps["aria-describedby"] = tooltipId;
-  }
+  a11yProps["aria-describedby"] = tooltipId;
 
   return (
     <Container
-      style={{ width: "max-content" }}
-      ref={containerRef}
-      onMouseEnter={() => {
-        // !disabled && api({ y: -3 });
-        setOnHover(true);
-      }}
-      onMouseLeave={() => {
-        // !disabled && api({ y: 0 });
-        setOnHover(false);
-      }}
-      onFocus={() => {
-        setOnFocus(true);
-      }}
-      onBlur={() => {
-        setOnFocus(false);
+      className={cstyles["bt-container"]}
+      style={{
+        width: "max-content",
+        height: "fit-content",
+        maxHeight: "max-content",
       }}
       onMouseDown={() => isAnimated && api.start({ transform: "scale(0.9)" })}
       onMouseUp={() => isAnimated && api.start({ transform: "scale(1.0)" })}
@@ -146,15 +128,15 @@ const Button = ({
       onTouchCancel={() => isAnimated && api.start({ transform: "scale(1.0)" })}
       onTouchEnd={() => isAnimated && api.start({ transform: "scale(1.0)" })}
     >
-      {hover && (
+      {buttonLabel && (
         <LabelText
           id={tooltipId}
-          labelName={buttonLabel || name}
-          hover={onHover || onFocus}
-          offsetX={containerBounds.width / 2}
-          y={containerBounds.height}
+          labelName={buttonLabel}
+          className={cstyles["label-container"]}
+          animated={false}
         />
       )}
+
       <Container style={isAnimated ? styles : undefined}>
         <F__Button
           type={buttonType}
@@ -221,7 +203,9 @@ const Button = ({
                 {name !== "" && !hover && (
                   <Text_Span
                     fontSize={BUTTON_SIZE[buttonSize].text}
-                    fontWeight={FontWeights.Size3}
+                    fontWeight={
+                      BUTTON_STYLE[buttonStyle].fontWeight || FontWeights.Size3
+                    }
                     paletteColor={
                       BUTTON_STATE[buttonState]?.text?.color
                         ? BUTTON_STATE[buttonState]?.text?.color
@@ -240,7 +224,9 @@ const Button = ({
                 {name !== "" && !hover && (
                   <Text_Span
                     fontSize={BUTTON_SIZE[buttonSize].text}
-                    fontWeight={FontWeights.Size3}
+                    fontWeight={
+                      BUTTON_STYLE[buttonStyle].fontWeight || FontWeights.Size3
+                    }
                     paletteColor={
                       BUTTON_STATE[buttonState]?.text?.color
                         ? BUTTON_STATE[buttonState]?.text?.color

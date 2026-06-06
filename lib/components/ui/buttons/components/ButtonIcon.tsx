@@ -68,8 +68,8 @@ const ButtonIcon = ({
           ? iconPosition === ButtonIconPositions.Left
             ? "marginRight"
             : iconPosition === ButtonIconPositions.Right
-            ? "marginLeft"
-            : ""
+              ? "marginLeft"
+              : ""
           : ""]: 2,
         // marginRight:
         //   iconPosition === ButtonIconPositions.Left && !iconMargin ? 3 : "auto",
@@ -88,6 +88,7 @@ const ButtonIcon = ({
           style={{ ...styles, position: "absolute", top: "0", left: "0" }}
         >
           <UIcon
+            tabIndex={-1}
             name={
               iconState !== ButtonStates.Icon
                 ? ButtonStateIcon[iconState]

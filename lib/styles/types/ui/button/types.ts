@@ -9,7 +9,7 @@ import {
   Sizings,
   Spacings,
 } from "functionalui/types";
-import { Cursors } from "../../generics";
+import { Cursors, FontWeights } from "../../generics";
 
 export enum ButtonIconPositions {
   Left = 1,
@@ -306,6 +306,7 @@ type ButtonStyleType = {
   // withborder
   bgColor?: ColorPalettes; // overwrite color preset
   fontColor?: ColorPalettes; // this should be on color | overwrites
+  fontWeight?: FontWeights;
   // iconColor: ColorPalettes; // this should be on color
   border: {
     borderWidth: BorderWidths;
@@ -319,6 +320,7 @@ export const BUTTON_STYLE: { [key: number]: ButtonStyleType } = {
   [ButtonStyles.Plain]: {
     bgColor: ColorPalettes.Transparent,
     fontColor: ColorPalettes.Primary5,
+    fontWeight: FontWeights.Size4,
     border: {
       borderWidth: BorderWidths.Size0,
       borderStyle: BorderStyles.None,

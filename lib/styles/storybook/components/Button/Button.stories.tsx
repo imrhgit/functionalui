@@ -107,6 +107,7 @@ export const States = () => {
               buttonState={item.value}
               name="Button"
               buttonSize={ButtonSizes.Small}
+              buttonLabel="labelll"
             />
             {/* Gray */}
             <Button
@@ -156,7 +157,7 @@ const ShowcaseContainer = ({ children }: any) => {
         borderWidth={BorderWidths.Size1}
         borderColor={ColorPalettes.Grey9}
         padding={Spacings.Size5}
-        style={{ backgroundColor: "#ffffff" }}
+        /* style={{ backgroundColor: "#ffffff" }} */
       >
         {/* showcase */}
         <Layout display={Displays.Flex}>
@@ -194,7 +195,7 @@ export function Sizes() {
             display={Displays.Grid}
             gridAlignContent={GridAlignContents.Center}
             gridJustifyContent={GridJustifyContents.Center}
-            style={{ gridTemplateColumns: "100px 150px 150px 150px" }}
+            style={{ gridTemplateColumns: "100px 1fr 1fr 1fr" }}
           >
             <Text_Span paletteColor={ColorPalettes.Grey1}>
               {item.name}
@@ -210,6 +211,7 @@ export function Sizes() {
                 name="Button"
                 icon={Icons.Box}
                 buttonSize={item.value}
+              buttonLabel="labelll"
               />
             </Layout>
             <Layout>
@@ -223,6 +225,7 @@ export function Sizes() {
                 name="Button"
                 icon={Icons.Box}
                 buttonSize={item.value}
+              buttonLabel="labelll"
               />
             </Layout>
             <Layout>
@@ -236,6 +239,7 @@ export function Sizes() {
                 name="Button"
                 icon={Icons.Box}
                 buttonSize={item.value}
+              buttonLabel="labelll"
               />
             </Layout>
           </Layout>
