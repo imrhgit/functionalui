@@ -1,3 +1,5 @@
+"use client";
+
 import { useSpring } from "@react-spring/web";
 import { Container } from "functionalui/container";
 import { Layout } from "functionalui/layout";
@@ -11,7 +13,7 @@ import {
   FlexJustifyContents,
   FontWeights,
 } from "functionalui/types";
-import { useState } from "react";
+import { useId, useState } from "react";
 import useMeasure from "react-use-measure";
 import {
   BUTTON_COLORS,
@@ -27,6 +29,7 @@ import {
 } from "../../../styles/types/ui/button/types";
 import LabelText from "../label/LabelText";
 import ButtonIcon from "./components/ButtonIcon";
+import LiveRegion from "./components/LiveRegion";
 
 type P = {
   name: string;
@@ -38,10 +41,8 @@ type P = {
   buttonStyle?: ButtonStyles;
 
   icon?: string;
-  // iconSize?: IconSizings;
   iconColor?: ColorPalettes;
   iconPosition?: ButtonIconPositions;
-  // iconState?: ButtonIconStates;
 
   animate?: boolean;
   hover?: boolean;
@@ -50,6 +51,10 @@ type P = {
   type?: "submit" | "reset" | "button";
 
   clickAction?: (v: any) => void;
+
+  ariaLabel?: string;
+  pressed?: boolean;
+  ariaDisabled?: boolean;
 };
 
 const Button = ({
@@ -61,18 +66,28 @@ const Button = ({
   buttonStyle = ButtonStyles.Filled,
   buttonShadow = BoxShadows.Size2,
   icon,
-  // iconSize,
   iconColor = ColorPalettes.Primary8,
   iconPosition = ButtonIconPositions.Left,
-  // iconState,
   animate = true,
   hover,
-  // parentHover,
-  // hoverColor,
   clickAction = () => {},
+  ariaLabel,
+  pressed,
+  ariaDisabled,
 }: P) => {
+  const uid = useId();
+  const tooltipId = `btn-label-${uid}`;
+
   var disabled = buttonState === ButtonStates.Disabled;
+  const isDisabled = disabled && !ariaDisabled;
+  const isAriaDisabled = disabled && ariaDisabled;
+  const isLoading = buttonState === ButtonStates.Loading;
+  const isIconOnly = !name && !!icon;
+
   const [onHover, setOnHover] = useState(hover);
+  const [onFocus, setOnFocus] = useState(false);
+  const isTooltipVisible = hover && (onHover || onFocus);
+
   // measure half of the button width
   const [containerRef, containerBounds] = useMeasure({ debounce: 500 });
   const [styles, api] = useSpring(() => ({
@@ -80,17 +95,36 @@ const Button = ({
     transform: "scale(1.0)",
   }));
 
-  // const animateButton1: boolean =
-  //   (!disabled && animate) ||
-  //   (typeof BUTTON_STATE[buttonState]?.animation === "undefined" &&
-  //     !BUTTON_STATE[buttonState].animation);
-  // const typeofUndefined =
-  //   typeof BUTTON_STATE[buttonState]?.animation === "undefined";
-  // const setstyle = BUTTON_STATE[buttonState].animation;
+  const handleClick = (v: any) => {
+    if (isAriaDisabled) return;
+    clickAction(v);
+  };
+
   const isAnimated =
     animate &&
     !disabled &&
     typeof BUTTON_STATE[buttonState]?.animation === "undefined";
+
+  const a11yProps: Record<string, any> = {};
+  if (isIconOnly && ariaLabel) {
+    a11yProps["aria-label"] = ariaLabel;
+  } else if (isIconOnly) {
+    a11yProps["aria-label"] = icon;
+  } else if (ariaLabel) {
+    a11yProps["aria-label"] = ariaLabel;
+  }
+  if (isLoading) {
+    a11yProps["aria-busy"] = true;
+  }
+  if (pressed !== undefined) {
+    a11yProps["aria-pressed"] = pressed;
+  }
+  if (isAriaDisabled) {
+    a11yProps["aria-disabled"] = true;
+  }
+  if (isTooltipVisible) {
+    a11yProps["aria-describedby"] = tooltipId;
+  }
 
   return (
     <Container
@@ -104,6 +138,12 @@ const Button = ({
         // !disabled && api({ y: 0 });
         setOnHover(false);
       }}
+      onFocus={() => {
+        setOnFocus(true);
+      }}
+      onBlur={() => {
+        setOnFocus(false);
+      }}
       onMouseDown={() => isAnimated && api.start({ transform: "scale(0.9)" })}
       onMouseUp={() => isAnimated && api.start({ transform: "scale(1.0)" })}
       onTouchStart={() => isAnimated && api.start({ transform: "scale(0.9)" })}
@@ -112,24 +152,19 @@ const Button = ({
     >
       {hover && (
         <LabelText
+          id={tooltipId}
           labelName={name}
-          hover={onHover}
+          hover={onHover || onFocus}
           offsetX={containerBounds.width / 2}
           y={containerBounds.height}
         />
       )}
-      <Container
-        // style={animate && !disabled ? buttonClickAnimation : undefined}
-        // style={animate ? styles : undefined}
-        style={isAnimated ? styles : undefined}
-      >
-        {/*<Container
-          style={animate && !disabled ? buttonHoverAnimation : undefined}
-        >*/}
+      <Container style={isAnimated ? styles : undefined}>
         <F__Button
           type={buttonType}
-          onClick={clickAction}
-          disabled={disabled}
+          onClick={handleClick}
+          disabled={isDisabled}
+          tabIndex={isAriaDisabled ? 0 : undefined}
           paddingTop={BUTTON_SIZE[buttonSize].paddingTop}
           paddingBottom={BUTTON_SIZE[buttonSize].paddingBottom}
           paddingLeft={BUTTON_SIZE[buttonSize].paddingLeft}
@@ -167,6 +202,7 @@ const Button = ({
               ? BUTTON_STATE[buttonState].cursor
               : BUTTON_STYLE[buttonStyle].cursor
           }
+          {...a11yProps}
         >
           <Layout
             display={Displays.Flex}
@@ -234,8 +270,8 @@ const Button = ({
             )}
           </Layout>
         </F__Button>
-        {/*</Container>*/}
       </Container>
+      <LiveRegion buttonState={buttonState} />
     </Container>
   );
 };

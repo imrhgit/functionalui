@@ -9,6 +9,14 @@ const LabelText = ({
   y = 50,
   x = 0,
   hover = false,
+  id,
+}: {
+  labelName?: string;
+  offsetX?: number;
+  y?: number;
+  x?: number;
+  hover?: boolean;
+  id?: string;
 }) => {
   const [ref, bounds] = useMeasure();
   //animation
@@ -26,8 +34,10 @@ const LabelText = ({
 
   return (
     <Container
+      id={id}
       ref={ref}
       style={offsetX !== 0 ? fadeAnimationOffsetX : fadeanimation}
+      role="tooltip"
     >
       <Container>
         <Text_P>{labelName}</Text_P>

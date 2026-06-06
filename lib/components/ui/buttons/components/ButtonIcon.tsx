@@ -54,6 +54,7 @@ const ButtonIcon = ({
   });
   return (
     <Container
+      aria-hidden={true}
       marginRight={
         iconPosition === ButtonIconPositions.Left ? iconMargin : undefined
       }
