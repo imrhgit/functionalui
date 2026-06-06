@@ -7,11 +7,13 @@ import { F__Button } from "functionalui/styled/button";
 import { Text_Span } from "functionalui/texts/span";
 import {
   BoxShadows,
+  ButtonProps,
   ColorPalettes,
   Displays,
   FlexAlignItems,
   FlexJustifyContents,
   FontWeights,
+  Icons,
 } from "functionalui/types";
 import { useId, useState } from "react";
 import useMeasure from "react-use-measure";
@@ -31,8 +33,11 @@ import LabelText from "../label/LabelText";
 import ButtonIcon from "./components/ButtonIcon";
 import LiveRegion from "./components/LiveRegion";
 
+type NamedButton =
+  | { name: string; icon?: Icons }
+  | { name?: string; icon: Icons };
+
 type P = {
-  name: string;
   buttonSize?: ButtonSizes;
   buttonColor?: ButtonColors;
   buttonState?: ButtonStates;
@@ -40,7 +45,6 @@ type P = {
   buttonShadow?: BoxShadows;
   buttonStyle?: ButtonStyles;
 
-  icon?: string;
   iconColor?: ColorPalettes;
   iconPosition?: ButtonIconPositions;
 
@@ -55,7 +59,7 @@ type P = {
   ariaLabel?: string;
   pressed?: boolean;
   ariaDisabled?: boolean;
-};
+} & NamedButton;
 
 const Button = ({
   name,
@@ -74,7 +78,8 @@ const Button = ({
   ariaLabel,
   pressed,
   ariaDisabled,
-}: P) => {
+  ...rest
+}: ButtonProps & P) => {
   const uid = useId();
   const tooltipId = `btn-label-${uid}`;
 
@@ -203,6 +208,7 @@ const Button = ({
               : BUTTON_STYLE[buttonStyle].cursor
           }
           {...a11yProps}
+          {...rest}
         >
           <Layout
             display={Displays.Flex}
