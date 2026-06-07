@@ -8,11 +8,12 @@ import {
   FlexAlignItems,
   FlexJustifyContents,
   FontSizes,
+  Icons,
   Spacings,
 } from "functionalui/types";
 import { FC } from "react";
-import { useGalleryContext } from "../contexts/GalleryContext";
 import { ButtonSizes } from "../../../../styles/types/ui/button/types";
+import { useGalleryContext } from "../contexts/GalleryContext";
 
 interface P {
   openMenu: boolean;
@@ -49,7 +50,7 @@ const GalleryIslandMenu: FC<P> = ({ openMenu = true }) => {
             >
               {/* next */}
               <MenuIcon
-                icon="chevron-left"
+                icon={Icons.ChevronLeft}
                 marginLeft={Spacings.Size4}
                 marginRight={Spacings.Size1}
                 clickAction={() => handleDecrease()}
@@ -64,7 +65,7 @@ const GalleryIslandMenu: FC<P> = ({ openMenu = true }) => {
                 </Container>
               </Layout>
               <MenuIcon
-                icon="chevron-right"
+                icon={Icons.ChevronRight}
                 marginLeft={Spacings.Size1}
                 clickAction={() => handleIncrease()}
                 disabled={imgIndex >= galleryImages.length - 1 && true}
@@ -75,7 +76,7 @@ const GalleryIslandMenu: FC<P> = ({ openMenu = true }) => {
 
               {/* zoom in, out, reset */}
               <MenuIcon
-                icon="zoom-in"
+                icon={Icons.ZoomIn}
                 marginLeft={Spacings.Auto}
                 marginRight={Spacings.Size1}
                 clickAction={() => {
@@ -83,7 +84,7 @@ const GalleryIslandMenu: FC<P> = ({ openMenu = true }) => {
                 }}
               />
               <MenuIcon
-                icon="zoom-out"
+                icon={Icons.ZoomOut}
                 marginLeft={Spacings.Size1}
                 marginRight={Spacings.Size4}
                 clickAction={() => {
@@ -100,7 +101,7 @@ const GalleryIslandMenu: FC<P> = ({ openMenu = true }) => {
 export default GalleryIslandMenu;
 
 interface MenuIcon_p {
-  icon: string;
+  icon: Icons;
   clickAction: (v?: any) => void;
   marginLeft?: Spacings;
   marginRight?: Spacings;

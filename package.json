@@ -240,6 +240,7 @@
       "require": "./dist/toggle-switch/index.cjs"
     },
     "./css": {
+      "types": "./dist/lib/css.d.ts",
       "style": "./dist/css/index.css"
     },
     "./types": {
