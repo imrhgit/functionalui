@@ -241,7 +241,9 @@
     },
     "./css": {
       "types": "./dist/lib/css.d.ts",
-      "style": "./dist/css/index.css"
+      "style": "./dist/css/index.css",
+      "import": "./dist/css/index.mjs",
+      "require": "./dist/css/index.cjs"
     },
     "./types": {
       "types": "./dist/lib/styles/types/types.d.ts",
@@ -394,10 +396,10 @@
       ]
     }
   },
-  "sideEffects": false,
+    "sideEffects": ["./dist/css/index.mjs", "./dist/css/index.cjs"],
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build && node scripts/move-dts.mjs",
+    "build": "tsc && vite build && node scripts/move-dts.mjs && node scripts/fix-css-stubs.mjs",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
